@@ -23,8 +23,8 @@ body {
     width: fit-content;
 }
 
-.shop-now-button {
-    background: black;
+.browse-tools-button {
+    background: #2a9d8f;
     color: white;
     min-width: 260px;
 }
@@ -34,13 +34,13 @@ body {
     color: white;
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
+.browse-tools-button:hover,
+.browse-tools-button:active,
+.browse-tools-button:focus,
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #222;
+    background: #5ca199;
     color: white;
 }
 
@@ -60,13 +60,15 @@ body {
     background-color: #e76f51;
 }
 
+
+
 .overlay {
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
     position: fixed;
-    background: white;
+    background: rgb(236, 232, 232);
     z-index: -1;
 }
 
@@ -91,5 +93,17 @@ body {
 
     .header-container {
         padding-top: 164px;
+    }
+
+}
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
     }
 }
