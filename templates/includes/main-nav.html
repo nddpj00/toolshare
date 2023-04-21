@@ -18,11 +18,14 @@
                 Hand Tools
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="hand-tools-link">
-                <a href="" class="dropdown-item">Plumbing Tools</a>
-                <a href="" class="dropdown-item">Carpentry Tools</a>
-                <a href="" class="dropdown-item">Electrician Tools</a>
-                <a href="" class="dropdown-item">Mechanic Tools</a>
-                <a href="" class="dropdown-item">All Hand Tools</a>
+                <a href="{% url 'items' %}?category=plumbing_tools" class="dropdown-item">Plumbing Tools</a>
+                <a href="{% url 'items' %}?category=carpentry_tools" class="dropdown-item">Carpentry Tools</a>
+                <a href="{% url 'items' %}?category=electrician_tools" class="dropdown-item">Electrician Tools</a>
+                <a href="{% url 'items' %}?category=spanners_handtools" class="dropdown-item">Spanners & Wrenches
+                    Tools</a>
+                <a href="{% url 'items' %}?category=building_handtools" class="dropdown-item">Building Tools</a>
+                <a href="{% url 'items' %}?category=plumbing_tools,carpentry_tools,electrician_tools,spanners_handtools,building_handtools"
+                    class="dropdown-item">All Hand Tools</a>
             </div>
         </li>
 
@@ -31,12 +34,13 @@
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Power Tools
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
-                <a href="" class="dropdown-item">Saws</a>
-                <a href="" class="dropdown-item">Drills</a>
-                <a href="" class="dropdown-item">Sanders</a>
-                <a href="" class="dropdown-item">Other</a>
-                <a href="" class="dropdown-item">All Power Tools</a>
+            <div class="dropdown-menu border-0" aria-labelledby="power-tools-link">
+                <a href="{% url 'items' %}?category=saws_ptools" class="dropdown-item">Saws</a>
+                <a href="{% url 'items' %}?category=drills_ptools" class="dropdown-item">Drills</a>
+                <a href="{% url 'items' %}?category=sanders_ptools" class="dropdown-item">Sanders</a>
+                <a href="{% url 'items' %}?category=other_ptools" class="dropdown-item">Other</a>
+                <a href="{% url 'items' %}?category=saws_ptools,drills_ptools,sanders_ptools,other_ptools"
+                    class="dropdown-item">All Power Tools</a>
             </div>
         </li>
 
@@ -46,9 +50,10 @@
                 Garden
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="garden-link">
-                <a href="" class="dropdown-item">Electrial</a>
-                <a href="" class="dropdown-item">Hand Tools</a>
-                <a href="" class="dropdown-item">All Garden Tools</a>
+                <a href="{% url 'items' %}?category=garden_electrial" class="dropdown-item">Electrial</a>
+                <a href="{% url 'items' %}?category=handtools_garden" class="dropdown-item">Hand Tools</a>
+                <a href="{% url 'items' %}?category=handtools_garden,garden_electrial" class="dropdown-item">All Garden
+                    Tools</a>
             </div>
         </li>
 
@@ -58,10 +63,12 @@
                 Other
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="other-link">
-                <a href="" class="dropdown-item">Ladders</a>
-                <a href="" class="dropdown-item">Accessories</a>
-                <a href="" class="dropdown-item">Safety Workwear</a>
-                <a href="" class="dropdown-item">All</a>
+                <a href="{% url 'items' %}?category=ladders_other" class="dropdown-item">Ladders</a>
+                <a href="{% url 'items' %}?category=accessories_other" class="dropdown-item">Accessories</a>
+                <a href="{% url 'items' %}?category=workwear-other" class="dropdown-item">Safety Workwear</a>
+                <a href="{% url 'items' %}?category=miscellaneous_other" class="dropdown-item">Miscellaneous</a>
+                <a href="{% url 'items' %}?category=ladders_other,miscellaneous_other,workwear-other,accessories_other"
+                    class="dropdown-item">All</a>
             </div>
         </li>
     </ul>
