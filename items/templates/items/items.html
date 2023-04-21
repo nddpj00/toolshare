@@ -42,6 +42,11 @@
                             <div class="row">
                                 <div class="col">
                                     <p class="lead mb-0 text-left font-weight-bold">£{{ item.price }}</p>
+                                    {% if item.available %}
+                                    <p class="lead mb-0 text-left text-success font-weight-bold">Available</p>
+                                    {% else %}
+                                    <p class="lead mb-0 text-left text-danger font-weight-bold">Not Available</p>
+                                    {% endif %}
 
                                 </div>
                             </div>
