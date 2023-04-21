@@ -61,7 +61,6 @@ body {
 }
 
 
-
 .overlay {
     height: 100%;
     width: 100%;
@@ -70,6 +69,11 @@ body {
     position: fixed;
     background: rgb(236, 232, 232);
     z-index: -1;
+}
+
+a.category-badge>span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
 }
 
 /* --------------------------------- Media queries */
