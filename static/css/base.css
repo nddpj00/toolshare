@@ -36,6 +36,14 @@ body {
     color: white;
 }
 
+.btn-outline-black {
+    background: white;
+    color: black !important;
+    /* use important to overide link colors for <a> elements */
+    border: 1px solid black;
+}
+
+
 .browse-tools-button:hover,
 .browse-tools-button:active,
 .browse-tools-button:focus,
