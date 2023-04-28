@@ -62,7 +62,7 @@ def all_items(request):
 
 
 def item_detail(request, item_id):
-    """ A view to show all item"""
+    """ A view to show item details"""
 
     item = get_object_or_404(Item, pk=item_id)
 
