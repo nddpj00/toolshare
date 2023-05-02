@@ -100,6 +100,21 @@ a.category-badge>span.badge:hover {
     cursor: pointer;
 }
 
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 12px;
+    z-index: 999999999999;
+}
+
+.customer-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 /* --------------------------------- Media queries */
 
 /* Slightly larger container on xl screens */
