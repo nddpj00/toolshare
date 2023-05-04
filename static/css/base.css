@@ -115,6 +115,19 @@ a.category-badge>span.badge:hover {
     height: 2px;
 }
 
+/* --------------------------------- home page */
+
+.shop-background {
+    background-image: url(/media/sharebear-openshop.jpg);
+    background-size: cover;
+    background-position: center center;
+    height: 500px;
+    opacity: 0.7;
+
+}
+
+
+
 /* --------------------------------- Media queries */
 
 /* Slightly larger container on xl screens */
