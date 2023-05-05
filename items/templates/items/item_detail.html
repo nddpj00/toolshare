@@ -83,7 +83,12 @@
                                 </span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
+                            {% if item.available %}
                             <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
+                            {% else %}
+                            <input type="text" class="btn btn-black rounded-0 text-uppercase mt-5 readonly  "
+                                value="Unavailable" aria-disabled="true">
+                            {% endif %}
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
