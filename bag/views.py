@@ -57,7 +57,7 @@ def remove_from_bag(request, item_id):
         messages.success(request, f'Removed {item.name} from your bag')
 
         request.session['bag'] = bag
-        return redirect(reverse('view_bag'))
+        return HttpResponse(status=200)
     
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
