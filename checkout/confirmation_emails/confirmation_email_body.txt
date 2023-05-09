@@ -1,0 +1,14 @@
+Hello {{ order.full_name}}!
+
+Thank you for being one helluva Sharing Bear.  
+
+We're getting for order ready for you right now.  Here's the confirmation of what you'd like - 
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Total: ${{ order.order_total }}
+
+See you soon,
+
+Share Bear
