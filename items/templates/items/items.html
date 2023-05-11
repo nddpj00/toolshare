@@ -97,6 +97,12 @@
                                     {% else %}
                                     <p class="lead mb-0 text-left text-danger font-weight-bold">Unavailable</p>
                                     {% endif %}
+                                    {% if request.user.is_superuser %}
+                                    <small>
+                                        <a href="{% url 'edit_item' item.id %}">Edit</a> |
+                                        <a class="text-danger" href="{% url 'delete_item' item.id %}">Delete</a>
+                                    </small>
+                                    {% endif %}
 
                                 </div>
                             </div>
