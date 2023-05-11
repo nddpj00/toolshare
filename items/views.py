@@ -62,7 +62,7 @@ def all_items(request):
 
 
 def item_detail(request, item_id):
-    """ A view to show individual product details """
+    """ A view to show individual item details """
 
     item = get_object_or_404(Item, pk=item_id)
 
@@ -75,7 +75,7 @@ def item_detail(request, item_id):
 
 
 def add_item(request):
-    """ Add a product to the store """
+    """ Add a item to the store """
     if request.method == 'POST':
         form = ItemForm(request.POST, request.FILES)
         if form.is_valid():
@@ -90,6 +90,29 @@ def add_item(request):
     template = 'items/add_item.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+def edit_item(request, item_id):
+    """ Edit an item  """
+    item = get_object_or_404(Item, pk=item_id)
+    if request.method == 'POST':
+        form = ItemForm(request.POST, request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated item!')
+            return redirect(reverse('item_detail', args=[item.id]))
+        else:
+            messages.error(request, 'Failed to update item. Please ensure the form is valid.')
+    else:
+        form = ItemForm(instance=item)
+        messages.info(request, f'You are editing {item.name}')
+
+    template = 'items/edit_item.html'
+    context = {
+        'form': form,
+        'item': item,
     }
 
     return render(request, template, context)
