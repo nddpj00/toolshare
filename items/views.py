@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from . models import Item, Category
@@ -73,9 +74,13 @@ def item_detail(request, item_id):
     return render(request, 'items/item_detail.html', context)
 
 
-
+@login_required()
 def add_item(request):
-    """ Add a item to the store """
+    """ Add a item """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site owners can do that.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = ItemForm(request.POST, request.FILES)
         if form.is_valid():
@@ -94,8 +99,13 @@ def add_item(request):
 
     return render(request, template, context)
 
+@login_required()
 def edit_item(request, item_id):
     """ Edit an item  """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site owners can do that.')
+        return redirect(reverse('home'))
+
     item = get_object_or_404(Item, pk=item_id)
     if request.method == 'POST':
         form = ItemForm(request.POST, request.FILES, instance=item)
@@ -118,9 +128,13 @@ def edit_item(request, item_id):
     return render(request, template, context)
 
 
-
+@login_required()
 def delete_item(request, item_id):
     """ Delete an item  """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site owners can do that.')
+        return redirect(reverse('home'))
+
     item = get_object_or_404(Item, pk=item_id)
     item.delete()
     messages.success(request, 'Item deleted!')
