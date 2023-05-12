@@ -10,3 +10,16 @@ def article_list(request):
     }
 
     return render(request, template, context)
+
+
+
+def article_detail(request, slug):
+    article = Article.objects.get(slug = slug)
+
+    template = 'blog/article_detail.html'
+
+    context = {
+        'article' : article
+    }
+
+    return render(request, template, context )

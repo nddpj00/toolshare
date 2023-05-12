@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container main-home-content">
+    <div class="row d-flex justify-content-center mt-5">
+        <div class="col-sm-4">
+            <h1>{{ article.title}}</h1>
+            <p>{{ article.body }}
+            </p>
+            <p>{{ article.date }}</p>
+        </div>
+        <div class="col-sm-6">
+            <a href="">
+                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.name }}">
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
