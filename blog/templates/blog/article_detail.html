@@ -11,9 +11,17 @@
             <p>{{ article.date }}</p>
         </div>
         <div class="col-sm-6">
-            <a href="">
-                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.name }}">
-            </a>
+            <div class="image-container my-5">
+                {% if article.thumb %}
+                <a href="{{ article.thumb.url }}">
+                    <img class="card-img-top img-fluid" src="{{ article.thumb.url }}" alt="{{ article.title }}">
+                </a>
+                {% else %}
+                <a href="">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ article.title }}">
+                </a>
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>

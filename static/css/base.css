@@ -187,6 +187,14 @@ input[name='q']::placeholder {
     /* text-info */
 }
 
+/* --------------------------------- blog page */
+.blog-header a {
+    text-transform: uppercase;
+    color: #2a9d8f;
+
+}
+
+
 /* Item Form */
 
 .btn-file {
@@ -235,7 +243,7 @@ input[name='q']::placeholder {
     }
 
     .header-container {
-        padding-top: 164px;
+        padding-top: 60px;
     }
 
 }
@@ -243,7 +251,7 @@ input[name='q']::placeholder {
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 116px;
+        padding-top: 60px;
     }
 
     body {
