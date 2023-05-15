@@ -20,6 +20,12 @@
                 <a class="browse-tools-button btn bg-primary-subtle text-primary-emphasis mt-3 p-3"
                     href="{% url 'detail' slug=article.slug %}">Read More</a>
             </div>
+            {% if request.user.is_superuser %}
+            <small>
+                <a href="#">Edit</a> |
+                <a class="text-danger" href="">Delete</a>
+            </small>
+            {% endif %}
             <div class="border-0 text-left">
                 {{ article.date}}
             </div>

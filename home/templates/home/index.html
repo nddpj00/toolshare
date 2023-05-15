@@ -64,19 +64,26 @@
     </div>
     <hr class="my-5" />
 
-    <div class="row d-flex justify-content-center mt-5">
-
-
-        <div class="col-md-6 ">
-
-            <div class='shop-background bg-image'>
-            </div>
+    <div class="row d-flex justify-content-left ">
+        <div class="col-sm-6 offset-1">
+            <h1>Our Shop</h1>
         </div>
+    </div>
+    <div class="row d-flex justify-content-center ">
 
-        <div class="col-md-2">
 
-            <h1>Opening hours</h1>
+        <div class="col-sm-3">
 
+            <p>Deal High Street
+                <br>
+                Deal
+                <br>
+                Kent
+                <br>
+                CT14 AAA
+            </p>
+        </div>
+        <div class="col-sm-3">
             <p><strong>Mon :</strong>
                 <span class="text-right">08.30-17.00</span>
                 <br>
@@ -98,44 +105,35 @@
                 <strong>Sun :</strong>
                 CLOSED
                 <br>
-
-                <iframe class="mt-5"
-                    src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1249.3710373004144!2d1.4046099!3d51.2238269!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2suk!4v1683206745570!5m2!1sen!2suk"
-                    width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                    style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </p>
-
-
         </div>
 
-        <div class="col-sm-2">
-
-            <h1>Our Shop Address</h1>
-
-            <p>Deal High Street
-                <br>
-                Deal
-                <br>
-                Kent
-                <br>
-                CT14 AAA
-
-            </p>
-
-
-            <div>
-
-            </div>
+        <div class="col-sm-4">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1249.3710373004144!2d1.4046099!3d51.2238269!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2suk!4v1683206745570!5m2!1sen!2suk"
+                width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
     </div>
 
+
+
+
     <hr class="my-5" />
 
-    <div class="row d-flex justify-content-center ">
+    <div class="row d-flex justify-content-left mt-5">
+        <div class="col-sm-6 offset-1">
+            <h2>Latest blogs from us...</h2>
+        </div>
+    </div>
+
+    <div class=" row d-flex justify-content-center">
+
         {% for article in articles %}
-        <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3">
-            <div class="card h-100 border-0">
+        <div class=" col-sm-12 col-md-6 col-lg-3 col-xl-3">
+
+            <div class="card h-100">
                 {% if article.thumb %}
                 <a href="{% url 'detail' slug=article.slug %}">
                     <img class="card-img-top img-fluid" src="{{ article.thumb.url }}" alt="{{ article.title }}">
@@ -145,37 +143,14 @@
                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ article.title }}">
                 </a>
                 {% endif %}
-                <div class="card-body pb-0">
-                    <p class="mb-0">{{ article.title }}</p>
-                    <p class="mb-0">{{ article.body|truncatechars:30 }}</p>
+                <div class="card-title">{{ article.title.capitalize }}
                 </div>
-                <div class="card-footer bg-white pt-0 border-0 text-left">
-                    <div class="row">
+                <div class="card-body">{{ article.body|truncatechars:30 }}
+                </div>
 
-                    </div>
-                </div>
             </div>
         </div>
-        {% if forloop.counter|divisibleby:1 %}
-        <div class="col-12 d-sm-none mb-5">
-            <hr>
-        </div>
-        {% endif %}
-        {% if forloop.counter|divisibleby:2 %}
-        <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-            <hr>
-        </div>
-        {% endif %}
-        {% if forloop.counter|divisibleby:3 %}
-        <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-            <hr>
-        </div>
-        {% endif %}
-        {% if forloop.counter|divisibleby:4 %}
-        <div class="col-12 d-none d-xl-block mb-5">
-            <hr>
-        </div>
-        {% endif %}
+
         {% endfor %}
     </div>
 
