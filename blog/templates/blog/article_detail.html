@@ -9,6 +9,12 @@
             <p>{{ article.body }}
             </p>
             <p>{{ article.date }}</p>
+            {% if request.user.is_superuser %}
+            <small>
+                <a href="{% url 'edit_article' article.id %}">Edit</a> |
+                <a class="text-danger" href="">Delete</a>
+            </small>
+            {% endif %}
         </div>
         <div class="col-sm-6">
             <div class="image-container my-5">

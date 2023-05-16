@@ -22,7 +22,7 @@
             </div>
             {% if request.user.is_superuser %}
             <small>
-                <a href="#">Edit</a> |
+                <a href="{% url 'edit_article' article.id %}">Edit</a> |
                 <a class="text-danger" href="">Delete</a>
             </small>
             {% endif %}
