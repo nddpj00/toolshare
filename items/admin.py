@@ -7,7 +7,8 @@ class ItemAdmin(admin.ModelAdmin):
         'category',
         'price',
         'image',
-        'available',
+        'availableDate',
+        'stock',
     )
 
     ordering = ('name',)

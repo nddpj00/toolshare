@@ -40,12 +40,6 @@
                                 Category (A-Z)</option>
                             <option value="category_desc"
                                 {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
-                            <option value="available_desc"
-                                {% if current_sorting == 'available_desc' %}selected{% endif %}>Available (Top)
-                            </option>
-                            <option value="available_asc"
-                                {% if current_sorting == 'available_asc' %}selected{% endif %}>Unavailable (Top)
-                            </option>
                         </select>
                     </div>
                 </div>
@@ -92,15 +86,19 @@
                                     </p>
                                     {% endif %}
 
-                                    {% if item.available %}
+                                    {% if item.stock > 0 %}
                                     <p class="lead mb-0 text-left text-success font-weight-bold">Available</p>
                                     {% else %}
                                     <p class="lead mb-0 text-left text-danger font-weight-bold">Unavailable</p>
+                                    <p class="lead mb-0 text-left text-danger font-weight-bold">Item is due
+                                        back: {{ item.availableDate|date:"d-M-y"}}</p>
                                     {% endif %}
                                     {% if request.user.is_superuser %}
                                     <small>
                                         <a href="{% url 'edit_item' item.id %}">Edit</a> |
-                                        <a class="text-danger" href="{% url 'delete_item' item.id %}">Delete</a>
+                                        <a data-target="#myModalitem" data-toggle="modal" class="text-danger"
+                                            href="#myModalitem">Delete</a>
+                                        <p class="text-info">Stock {{ item.stock }}</p>
                                     </small>
                                     {% endif %}
 
@@ -129,6 +127,29 @@
                     <hr>
                 </div>
                 {% endif %}
+                <!-- modal triggering delete confirmation -->
+                <div class="modal" id="myModalitem" tabindex="-1" role="dialog" aria-labelledby="deleteItemModal"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Item deletion....</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Just checking, are you sure?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <a type="button" class="btn btn-danger"
+                                    href="{% url 'delete_item' item.id %}">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 {% endfor %}
             </div>
         </div>
@@ -140,6 +161,8 @@
         <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
     </a>
 </div>
+
+
 {% endblock %}
 
 {% block postloadjs %}

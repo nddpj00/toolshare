@@ -42,16 +42,21 @@
 
                 <p class="mt-3">{{ item.description }}</p>
 
-                {% if item.available %}
+                {% if item.stock > 0 %}
                 <p class="lead mb-0 text-left text-success font-weight-bold">Available</p>
                 {% else %}
-                <p class="lead mb-0 text-left text-danger font-weight-bold">Not Available</p>
+                <p class="lead mb-0 text-left text-danger font-weight-bold">Unavailable</p>
+                <p class="lead mb-0 text-left text-danger font-weight-bold">Item is due
+                    back: {{ item.availableDate|date:"d-M-y"}}</p>
+                </p>
                 {% endif %}
 
                 {% if request.user.is_superuser %}
                 <small>
                     <a href="{% url 'edit_item' item.id %}">Edit</a> |
-                    <a class="text-danger" href="{% url 'delete_item' item.id %}">Delete</a>
+                    <a data-target="#myModalitem1" data-toggle="modal" class="text-danger"
+                        href="#myModalitem1">Delete</a>
+                    <p class="text-info">Stock {{ item.stock }}</p>
                 </small>
                 {% endif %}
                 <form class="form" action="{% url 'add_to_bag' item.id %}" method="POST">
@@ -60,6 +65,7 @@
                         <div class="col-12">
                             <p class="mt-3"><strong>Quantity:</strong></p>
                             <div class="form-group w-50">
+                                {% if item.stock > 0 %}
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <button class="decrement-qty btn btn-black rounded-0"
@@ -80,6 +86,11 @@
                                         </button>
                                     </div>
                                 </div>
+                                {% else %}
+                                <div class="input-group">
+                                    <input class="form-control qty_input" value="" disabled>
+                                </div>
+                                {% endif %}
                             </div>
                         </div>
 
@@ -90,7 +101,7 @@
                                 </span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
-                            {% if item.available %}
+                            {% if item.stock > 0 %}
                             <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
                             {% else %}
                             <input type="text" class="btn btn-black rounded-0 text-uppercase mt-5 readonly  "
@@ -104,6 +115,27 @@
         </div>
     </div>
 
+    <!-- modal triggering delete confirmation -->
+    <div class="modal" id="myModalitem1" tabindex="-1" role="dialog" aria-labelledby="deleteArticleModal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Item deletion....</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Just checking, are you sure?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a type="button" class="btn btn-danger" href="{% url 'delete_item' item.id %}">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 

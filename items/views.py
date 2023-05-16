@@ -16,7 +16,7 @@ def all_items(request):
     categories = None
     sort = None
     direction = None
-
+    
     
     if request.GET:
 
@@ -53,7 +53,7 @@ def all_items(request):
     current_sorting = f'{sort}_{direction}'
 
     context = {
-        'items' : items,
+        'items': items,
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,

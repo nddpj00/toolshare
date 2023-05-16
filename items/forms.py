@@ -8,6 +8,9 @@ class ItemForm(forms.ModelForm):
     class Meta:
         model = Item
         fields = '__all__'
+        widgets = {
+            'date': forms.DateInput(attrs={'type': 'date'}),
+        }
 
     image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
