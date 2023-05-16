@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
     # Other
     'crispy_forms',
+    'bootstrap_datepicker_plus',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +66,15 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'deal_toolshare.urls'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+BOOTSTRAP_DATEPICKER_PLUS = {
+    # Options for all input widgets
+    # More options: https://getdatepicker.com/4/Options/
+    "options": {
+        "showClose": True,
+        "allowInputToggle": True,
+    },
+}
 
 TEMPLATES = [
     {

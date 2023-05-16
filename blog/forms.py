@@ -1,5 +1,5 @@
 from django import forms
-# from .widgets import CustomClearableFileInput
+from .widgets import CustomClearableFileInput
 from .models import Article
 
 
@@ -9,7 +9,7 @@ class ArticleForm(forms.ModelForm):
         model = Article
         fields = ["title", "body", "thumb"]
 
-    # image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    thumb = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

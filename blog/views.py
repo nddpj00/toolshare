@@ -18,7 +18,8 @@ def article_list(request):
 
 
 def article_detail(request, slug):
-    article = Article.objects.get(slug = slug)
+
+    article = get_object_or_404(Article, slug = slug)
 
     template = 'blog/article_detail.html'
 

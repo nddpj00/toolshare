@@ -6,15 +6,22 @@
     <div class="row d-flex justify-content-center mt-5">
         <div class="col-sm-4">
             <h1>{{ article.title}}</h1>
-            <p>{{ article.body }}
-            </p>
-            <p>{{ article.date }}</p>
+            <div>
+                <p>{{ article.body }}</p>
+            </div>
+            <div>
+                <p>{{ article.date }}</p>
+            </div>
             {% if request.user.is_superuser %}
             <small>
                 <a href="{% url 'edit_article' article.id %}">Edit</a> |
                 <a data-target="#myModal" data-toggle="modal" class="text-danger" href="#myModal">Delete</a>
             </small>
+            <div>
+                <p>Blog written by : {{ article.author }}</p>
+            </div>
             {% endif %}
+            <a href="{% url 'blog' %}" class="btn btn-blog " role="button" aria-pressed="true">Back</a>
         </div>
 
         <!-- modal triggering delete confirmation -->

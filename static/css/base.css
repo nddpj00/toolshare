@@ -45,6 +45,10 @@ body {
     border: 1px solid black;
 }
 
+.btn-blog {
+    background-color: #2a9d8f !important;
+    color: white;
+}
 
 .browse-tools-button:hover,
 .browse-tools-button:active,
@@ -52,7 +56,8 @@ body {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #5ca199;
+    background: #2a9d8f;
+    ;
     color: white;
 }
 
@@ -84,7 +89,7 @@ body {
 }
 
 a.category-badge>span.badge:hover {
-    background: #212529 !important;
+    background: #2a9d8f !important;
     color: #fff !important;
 }
 

@@ -28,15 +28,15 @@
                 {% csrf_token %}
 
                 {% for field in form %}
-                {% if field.name != 'image' %}
+                {% if field.name != 'thumb' %}
                 {{ field | as_crispy_field }}
                 {% else %}
                 {{ field }}
                 {% endif %}
                 {% endfor %}
                 <div class="text-right">
-                    <a class="btn btn-outline-black rounded-0" href="{% url 'blog' %}">Cancel</a>
-                    <button class="btn btn-black rounded-0" type="submit">Update the article</button>
+                    <a class="btn btn-outline-black rounded" href="{% url 'blog' %}">Cancel</a>
+                    <button class="btn btn-black rounded" type="submit">Update the article</button>
                 </div>
             </form>
         </div>

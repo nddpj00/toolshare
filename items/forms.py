@@ -1,3 +1,4 @@
+from bootstrap_datepicker_plus.widgets import DatePickerInput
 from django import forms
 from .widgets import CustomClearableFileInput
 from .models import Item, Category
@@ -9,9 +10,9 @@ class ItemForm(forms.ModelForm):
         model = Item
         fields = '__all__'
         widgets = {
-            'date': forms.DateInput(attrs={'type': 'date'}),
+            "availableDate": DatePickerInput(options={"format": "DD/MM/YYYY"}),
         }
-
+    
     image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
