@@ -83,3 +83,18 @@ def edit_article(request, article_id):
     }
 
     return render(request, template, context)
+
+
+
+@login_required()
+def delete_article(request, article_id):
+    """ Delete a blog article  """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site owners can do that.')
+        return redirect(reverse('home'))
+
+    article = get_object_or_404(Article, pk=article_id)
+    article.delete()
+    messages.success(request, 'Item deleted!')
+
+    return redirect(reverse('blog'))
