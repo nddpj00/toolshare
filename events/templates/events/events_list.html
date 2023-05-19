@@ -13,10 +13,11 @@
             <div class="card">
                 <div class="card-body">
                     <h2 class="card-title "><a class="blog-event-title"
-                            href="{% url 'detail' slug=event.slug %}">{{ event.title|truncatechars:50 }}</a></h2>
-                    <p class="card-text mb-0">{{ event.body|truncatechars:100 }}</p>
+                            href="{% url 'detail' slug=event.slug %}">{{ event.title.capitalize |truncatechars:50 }}</a>
+                    </h2>
+                    <p class="card-text mb-0">{{ event.body.capitalize |truncatechars:100 }}</p>
                     <a class="browse-tools-button btn bg-primary-subtle text-primary-emphasis mt-3 p-3"
-                        href="{% url 'detail' slug=event.slug %}">Read More
+                        href="{% url 'event_detail' slug=event.slug %}">Read More
                     </a>
                     {% if request.user.is_superuser %}
                     <small>

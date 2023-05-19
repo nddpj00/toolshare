@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container main-home-content">
+    <div class="row d-flex justify-content-center mt-5">
+        <div class="col-sm-4">
+            <h1>{{ event.title.capitalize }}</h1>
+            <div>
+                <p>{{ event.body.capitalize }}</p>
+            </div>
+            <div>
+                <p>{{ event.date }}</p>
+            </div>
+            {% if request.user.is_superuser %}
+            <small>
+                <a href="#">Edit</a> |
+                <a data-target="#myeventModal" data-toggle="modal" class="text-danger" href="#myeventModal">Delete</a>
+            </small>
+            <div>
+                <p>For for information, contact {{ organiser }} here <a href="mailto:{{  email }}">{{ email }}</a>.</p>
+            </div>
+            {% endif %}
+            <a href="{% url 'events' %}" class="btn btn-blog-events  " role="button" aria-pressed="true">Back</a>
+        </div>
+
+        <!-- modal triggering delete confirmation -->
+
+        <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="deleteEventModal"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Event deletion....</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Just checking, are you sure?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <a type="button" class="btn btn-danger" href="#">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6">
+            <div class="image-container my-5">
+                {% if event.thumb %}
+                <a href="{{ event.thumb.url }}">
+                    <img class="card-img-top img-fluid" src="{{ event.thumb.url }}" alt="{{ event.title }}">
+                </a>
+                {% else %}
+                <a href="">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ event.title }}">
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
