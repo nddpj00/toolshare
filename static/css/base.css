@@ -45,7 +45,7 @@ body {
     border: 1px solid black;
 }
 
-.btn-blog {
+.btn-blog-events {
     background-color: #2a9d8f !important;
     color: white;
 }
@@ -194,10 +194,10 @@ input[name='q']::placeholder {
     /* text-info */
 }
 
-/* --------------------------------- blog page */
-.blog-header a {
-    text-transform: uppercase;
-    color: #2a9d8f;
+/* --------------------------------- blog and events page */
+.blog-event-title {
+    text-transform: capitalize !important;
+    color: #2a9d8f !important;
 
 }
 

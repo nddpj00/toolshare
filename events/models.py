@@ -8,8 +8,8 @@ class Event(models.Model):
     slug = models.SlugField(max_length=50)
     body = models.TextField()
     date = models.DateTimeField()
-    attendees = models.ManyToManyField(User, related_name='events_attending')
-    interested = models.ManyToManyField(User, related_name='events_interested')
+    attendees = models.ManyToManyField(User, related_name='events_attending', blank=True)
+    interested = models.ManyToManyField(User, related_name='events_interested', blank=True)
     location = models.CharField(max_length=254, null=True, blank=True)
     thumb = models.ImageField(null=True, blank=True)
 

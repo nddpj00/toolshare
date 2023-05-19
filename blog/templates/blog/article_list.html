@@ -10,8 +10,9 @@
     <div class="row justify-content-center ">
 
         <div class="col-sm-6 mt-5 mb-5">
-            <div class=" blog-header">
-                <h2><a href="{% url 'detail' slug=article.slug %}">{{ article.title|truncatechars:20 }}</a></h2>
+            <div>
+                <h2><a class='blog-event-title'
+                        href="{% url 'detail' slug=article.slug %}">{{ article.title|truncatechars:50 }}</a></h2>
             </div>
             <div class=" pb-0">
                 <p class="mb-0">{{ article.body|truncatechars:100 }}</p>
