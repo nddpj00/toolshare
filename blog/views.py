@@ -96,6 +96,6 @@ def delete_article(request, article_id):
 
     article = get_object_or_404(Article, pk=article_id)
     article.delete()
-    messages.success(request, 'Item deleted!')
+    messages.success(request, 'Blog deleted!')
 
     return redirect(reverse('blog'))

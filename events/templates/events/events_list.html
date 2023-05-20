@@ -13,7 +13,7 @@
             <div class="card">
                 <div class="card-body">
                     <h2 class="card-title "><a class="blog-event-title"
-                            href="{% url 'detail' slug=event.slug %}">{{ event.title.capitalize |truncatechars:50 }}</a>
+                            href="{% url 'event_detail' slug=event.slug %}">{{ event.title.capitalize |truncatechars:50 }}</a>
                     </h2>
                     <p class="card-text mb-0">{{ event.body.capitalize |truncatechars:100 }}</p>
                     <a class="browse-tools-button btn bg-primary-subtle text-primary-emphasis mt-3 p-3"
@@ -21,9 +21,9 @@
                     </a>
                     {% if request.user.is_superuser %}
                     <small>
-                        <a href="#">Edit</a> |
-                        <a data-target="#eventModal" data-toggle="modal" class="text-danger"
-                            href="#eventModal">Delete</a>
+                        <a href="{% url 'edit_event' event.id %}">Edit</a> |
+                        <a data-target="#cancelModal" data-toggle="modal" data-instance-id="{{ event.id }}"
+                            class="text-danger delete-link" href="#cancelModal">Delete</a>
                     </small>
                     {% endif %}
 
@@ -42,8 +42,9 @@
             </div>
         </div>
         <!-- modal triggering delete confirmation -->
-
-        <div class="modal" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModal" aria-hidden="true">
+        {% comment %}
+        <!-- <div class="modal" id="eventlistModal" tabindex="-1" role="dialog" aria-labelledby="eventlistModal"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -57,18 +58,37 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a type="button" class="btn btn-danger" href="#">Delete</a>
+                        <a type="button" class="btn btn-danger" href="{% url 'delete_event' event.id %}">Delete</a>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+        {% endcomment %}
     </div>
     <hr>
 
 </div>
-
+{% include 'cancel_modal.html' %}
 {% endfor %}
 
 
 
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.delete-link').click(function (e) {
+            e.preventDefault();
+
+            var instanceId = $(this).data('instance-id');
+            $('#instanceId').text(instanceId);
+            $('#confirmDeleteBtn').attr('href', './delete/' + instanceId + '/');
+        });
+    });
+</script>
 {% endblock %}

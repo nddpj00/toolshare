@@ -14,19 +14,22 @@
             </div>
             {% if request.user.is_superuser %}
             <small>
-                <a href="#">Edit</a> |
-                <a data-target="#myeventModal" data-toggle="modal" class="text-danger" href="#myeventModal">Delete</a>
+                <a href="{% url 'edit_event' event.id %}">Edit</a> |
+                <a data-target="#cancelModal" data-toggle="modal" class=" text-danger delete-link"
+                    href="#cancelModal">Delete</a>
             </small>
-            <div>
-                <p>For for information, contact {{ organiser }} here <a href="mailto:{{  email }}">{{ email }}</a>.</p>
-            </div>
             {% endif %}
+
+            <div>
+                <p>For for information, contact {{ fname }} here <a href="mailto:{{  email }}">{{ email }}</a>.</p>
+            </div>
             <a href="{% url 'events' %}" class="btn btn-blog-events  " role="button" aria-pressed="true">Back</a>
         </div>
 
+        {% comment %}
         <!-- modal triggering delete confirmation -->
 
-        <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="deleteEventModal"
+        <!-- <div class="modal" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="eventdetailModal"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -41,12 +44,12 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a type="button" class="btn btn-danger" href="#">Delete</a>
+                        <a type="button" class="btn btn-danger" href="{% url 'delete_event' event.id %}">Delete</a>
                     </div>
                 </div>
             </div>
-        </div>
-
+        </div> -->
+        {% endcomment %}
 
         <div class="col-sm-6">
             <div class="image-container my-5">
@@ -65,6 +68,6 @@
 </div>
 
 
-
+{% include 'cancel_modal.html' %}
 
 {% endblock %}

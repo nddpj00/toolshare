@@ -21,14 +21,14 @@ def events_list(request):
 def event_detail(request, slug):
 
     event = get_object_or_404(Event, slug = slug)
-    organiser = event.organiser.first_name
+    organiser_fname = event.organiser.first_name
     organiser_email = event.organiser.email
 
     template = 'events/event_detail.html'
 
     context = {
         'event' : event,
-        'organiser' : organiser,
+        'fname' : organiser_fname,
         'email' : organiser_email
     }
 
@@ -60,3 +60,60 @@ def add_event(request):
     }
 
     return render(request, template, context)
+
+
+@login_required()
+def edit_event(request, event_id):
+    """ Edit an event article  """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site owners can do that.')
+        return redirect(reverse('home'))
+
+    event = get_object_or_404(Event, id=event_id)
+
+    if request.method == 'POST':
+        form = EventForm(request.POST, request.FILES, instance=event)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated article!')
+            return redirect(reverse('event_detail', kwargs={'slug':event.slug}))
+        else:
+            messages.error(request, 'Failed to update item. Please ensure the form is valid.')
+    else:
+        form = EventForm(instance=event)
+        messages.info(request, f'You are editing {event.title}')
+
+    template = 'events/edit_event.html'
+    context = {
+        'form': form,
+        'event': event,
+    }
+
+    return render(request, template, context)
+
+
+
+# def delete_event(request, event_id):
+#     """ Delete an Event  """
+#     if not request.user.is_superuser:
+#         messages.error(request, 'Sorry, only site owners can do that.')
+#         return redirect(reverse('home'))
+
+#     event = get_object_or_404(Event, pk=event_id)
+#     event.delete()
+#     messages.success(request, 'Event deleted!')
+
+#     return redirect(reverse('events'))
+
+@login_required()
+def delete_instance(request, instance_id):
+    # Add your cancellation logic here
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only site owners can do that.')
+        return redirect(reverse('home'))
+
+    event = get_object_or_404(Event, id=instance_id)
+    event.delete()
+    messages.success(request, 'Event deleted!')
+
+    return redirect('events')
