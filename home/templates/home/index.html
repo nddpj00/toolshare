@@ -154,6 +154,42 @@
         {% endfor %}
     </div>
 
+    <hr class="my-5" />
+
+    <div class="row d-flex justify-content-left mt-5">
+        <div class="col-sm-6 offset-1">
+            <h2>Latest Events from us...</h2>
+        </div>
+    </div>
+
+    <div class=" row d-flex justify-content-center">
+
+        {% for event in events %}
+        <div class=" col-sm-12 col-md-6 col-lg-3 col-xl-3">
+
+            <div class="card h-100">
+                {% if event.thumb %}
+                <a href="{% url 'event_detail' slug=event.slug %}">
+                    <img class="card-img-top img-fluid" src="{{ event.thumb.url }}" alt="{{ event.title }}">
+                </a>
+                {% else %}
+                <a href="{% url 'event_detail' slug=event.slug %}">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ event.title }}">
+                </a>
+                {% endif %}
+                <div class="card-title">{{ event.title.capitalize }}
+                </div>
+                <div class="card-body">{{ event.body|truncatechars:30 }}
+                    {{ event.date }}
+                    {{ event.location }}
+                </div>
+
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+
 
 </div>
 {% endblock %}
