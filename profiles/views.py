@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import UserProfile
+from events.models import Event
 from .forms import UserProfileForm
 
 from checkout.models import Order
@@ -22,12 +23,15 @@ def profile(request):
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
+    events = Event.objects.filter(attendees=request.user)
+    
 
     template = 'profiles/profile.html'
     context = {
         'form': form,
         'orders': orders,
-        'on_profile_page': True
+        'on_profile_page': True,
+        'events': events,
     }
 
     return render(request, template, context)
@@ -48,3 +52,24 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
+
+
+@login_required()
+def cancel_attendance(request, event_id):
+
+    # Adds user to attendee list
+    if request.method == 'POST':
+
+        event = get_object_or_404(Event, pk=event_id)
+        user = request.user.id
+        event.attendees.remove(user)
+        event.save()
+        messages.success(request, "We've removed you to the event list")
+
+
+        return redirect(request.META.get('HTTP_REFERER'))
+
+
+    else:
+        messages.failure(request, "Oops something went wrong, sorry. Please get in touch")
+        return render(request, 'events')

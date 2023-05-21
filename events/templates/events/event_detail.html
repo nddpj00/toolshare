@@ -24,6 +24,12 @@
                 <p>For for information, contact {{ fname }} here <a href="mailto:{{  email }}">{{ email }}</a>.</p>
             </div>
             <a href="{% url 'events' %}" class="btn btn-blog-events  " role="button" aria-pressed="true">Back</a>
+
+            <form method="post" action="{% url 'add_attendee' event.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-blog-events">I'll be there!</button>
+                <button type="submit" class="btn btn-blog-events">I'm interested</button>
+            </form>
         </div>
 
         <div class="col-sm-6">

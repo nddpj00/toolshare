@@ -104,3 +104,26 @@ def delete_instance_event(request, instance_id):
     messages.success(request, 'Event deleted!')
 
     return redirect('events')
+
+
+@login_required()
+def add_attendee(request, event_id):
+
+    # Adds user to attendee list
+    if request.method == 'POST':
+
+        event = get_object_or_404(Event, pk=event_id)
+        user = request.user.id
+        event.attendees.add(user)
+        event.save()
+        messages.success(request, "We've added you to the event list")
+
+        events = Event.objects.filter(attendees=user)
+
+
+        return redirect(reverse('profile'))
+
+
+    else:
+        messages.failure(request, "Oops something went wrong, sorry. Please get in touch")
+        return render(request, 'events')

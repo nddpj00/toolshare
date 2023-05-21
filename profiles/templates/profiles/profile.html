@@ -32,7 +32,7 @@
                 <button class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
             </form>
         </div>
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-6 mb-5">
             <p class="text-muted">Order History</p>
             <div class="order-history table-responsive">
                 <table class="table table-sm table-borderless">
@@ -70,9 +70,50 @@
             </div>
         </div>
     </div>
-    {% endblock %}
+    <div class="row">
+        <div class="col-12 col-lg-8 mb-5">
+            <p class="text-muted">Your Events</p>
+            <div class="order-history table-responsive">
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Location</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for event in events %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'event_detail' event.slug %}" title="#">
+                                    {{ event.title.capitalize}}
+                                </a>
+                            </td>
+                            <td>{{ event.date|date:"d,F,Y" }}</td>
+                            <td>{{ event.date|time:"H:i" }}</td>
+                            <td>
+                                {{ event.location}}
+                            </td>
+                            <td>
+                                <form method="post" action="{% url 'cancel_attendance' event.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-blog-events">Cancel</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
-    {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
-    {% endblock %}
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
+{% endblock %}
