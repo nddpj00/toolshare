@@ -92,21 +92,8 @@ def edit_event(request, event_id):
     return render(request, template, context)
 
 
-
-# def delete_event(request, event_id):
-#     """ Delete an Event  """
-#     if not request.user.is_superuser:
-#         messages.error(request, 'Sorry, only site owners can do that.')
-#         return redirect(reverse('home'))
-
-#     event = get_object_or_404(Event, pk=event_id)
-#     event.delete()
-#     messages.success(request, 'Event deleted!')
-
-#     return redirect(reverse('events'))
-
 @login_required()
-def delete_instance(request, instance_id):
+def delete_instance_event(request, instance_id):
     # Add your cancellation logic here
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only site owners can do that.')

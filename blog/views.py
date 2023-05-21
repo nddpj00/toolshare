@@ -87,15 +87,28 @@ def edit_article(request, article_id):
 
 
 
+# @login_required()
+# def delete_article(request, article_id):
+#     """ Delete a blog article  """
+#     if not request.user.is_superuser:
+#         messages.error(request, 'Sorry, only site owners can do that.')
+#         return redirect(reverse('home'))
+
+#     article = get_object_or_404(Article, pk=article_id)
+#     article.delete()
+#     messages.success(request, 'Blog deleted!')
+
+#     return redirect(reverse('blog'))
+
 @login_required()
-def delete_article(request, article_id):
-    """ Delete a blog article  """
+def delete_instance_blog(request, instance_id):
+    # Add your cancellation logic here
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only site owners can do that.')
         return redirect(reverse('home'))
 
-    article = get_object_or_404(Article, pk=article_id)
+    article = get_object_or_404(Article, id=instance_id)
     article.delete()
-    messages.success(request, 'Blog deleted!')
+    messages.success(request, 'Article deleted!')
 
-    return redirect(reverse('blog'))
+    return redirect('blog')

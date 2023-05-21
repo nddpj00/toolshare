@@ -24,35 +24,15 @@
             {% if request.user.is_superuser %}
             <small>
                 <a href="{% url 'edit_article' article.id %}">Edit</a> |
-                <a data-target="#myModal" data-toggle="modal" class="text-danger" href="#myModal">Delete</a>
+                <a data-target="#deleteArticleModal" data-toggle="modal" data-instance-id="{{ article.id }}"
+                    class="text-danger delete-link" href="#deleteArticleModal">Delete</a>
             </small>
             {% endif %}
             <div class="border-0 text-left">
                 {{ article.date}}
             </div>
         </div>
-        <!-- modal triggering delete confirmation -->
 
-        <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="deleteArticleModal"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Article deletion....</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Just checking, are you sure?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a type="button" class="btn btn-danger" href="{% url 'delete_article' article.id %}">Delete</a>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="col-sm-4">
             <div class="image-container my-5">
@@ -72,9 +52,26 @@
     <hr>
 
 </div>
+<!-- Modal confirming deletion -->
+{% include 'delete_modal_blog.html' %}
 
 {% endfor %}
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
 
 
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.delete-link').click(function (e) {
+            e.preventDefault();
+
+            var instanceId = $(this).data('instance-id');
+            $('#instanceId').text(instanceId);
+            $('#confirmDeleteBtn').attr('href', './delete/' + instanceId + '/');
+        });
+    });
+</script>
 {% endblock %}

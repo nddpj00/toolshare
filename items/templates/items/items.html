@@ -95,8 +95,9 @@
                                     {% if request.user.is_superuser %}
                                     <small>
                                         <a href="{% url 'edit_item' item.id %}">Edit</a> |
-                                        <a data-target="#myModalitem" data-toggle="modal" class="text-danger"
-                                            href="#myModalitem">Delete</a>
+                                        <a data-target="#deleteModalItem" data-toggle="modal"
+                                            data-instance-id="{{ item.id }}" class="text-danger delete-link"
+                                            href="#deleteModalItem">Delete</a>
                                         <p class="text-info">Stock {{ item.stock }}</p>
                                     </small>
                                     {% endif %}
@@ -126,29 +127,8 @@
                     <hr>
                 </div>
                 {% endif %}
-                <!-- modal triggering delete confirmation -->
-                <div class="modal" id="myModalitem" tabindex="-1" role="dialog" aria-labelledby="deleteItemModal"
-                    aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Item deletion....</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>Just checking, are you sure?</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <a type="button" class="btn btn-danger"
-                                    href="{% url 'delete_item' item.id %}">Delete</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
+                {% include 'delete_modal_item.html' %}
                 {% endfor %}
             </div>
         </div>
@@ -194,5 +174,15 @@
             window.location.replace(currentUrl);
         }
     })
+
+    $(document).ready(function () {
+        $('.delete-link').click(function (e) {
+            e.preventDefault();
+
+            var instanceId = $(this).data('instance-id');
+            $('#instanceId').text(instanceId);
+            $('#confirmDeleteBtn').attr('href', './delete/' + instanceId + '/');
+        });
+    });
 </script>
 {% endblock %}

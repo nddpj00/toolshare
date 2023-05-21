@@ -41,34 +41,11 @@
                 {% endif %}
             </div>
         </div>
-        <!-- modal triggering delete confirmation -->
-        {% comment %}
-        <!-- <div class="modal" id="eventlistModal" tabindex="-1" role="dialog" aria-labelledby="eventlistModal"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Event deletion....</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Just checking, are you sure?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a type="button" class="btn btn-danger" href="{% url 'delete_event' event.id %}">Delete</a>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        {% endcomment %}
     </div>
     <hr>
 
 </div>
-{% include 'cancel_modal.html' %}
+{% include 'delete_modal_event.html' %}
 {% endfor %}
 
 

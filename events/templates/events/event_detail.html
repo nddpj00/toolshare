@@ -26,31 +26,6 @@
             <a href="{% url 'events' %}" class="btn btn-blog-events  " role="button" aria-pressed="true">Back</a>
         </div>
 
-        {% comment %}
-        <!-- modal triggering delete confirmation -->
-
-        <!-- <div class="modal" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="eventdetailModal"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Event deletion....</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Just checking, are you sure?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <a type="button" class="btn btn-danger" href="{% url 'delete_event' event.id %}">Delete</a>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        {% endcomment %}
-
         <div class="col-sm-6">
             <div class="image-container my-5">
                 {% if event.thumb %}
@@ -68,6 +43,6 @@
 </div>
 
 
-{% include 'cancel_modal.html' %}
+{% include 'delete_modal_event.html' %}
 
 {% endblock %}

@@ -129,13 +129,13 @@ def edit_item(request, item_id):
 
 
 @login_required()
-def delete_item(request, item_id):
+def delete_instance_item(request, instance_id):
     """ Delete an item  """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only site owners can do that.')
         return redirect(reverse('home'))
 
-    item = get_object_or_404(Item, pk=item_id)
+    item = get_object_or_404(Item, id=instance_id)
     item.delete()
     messages.success(request, 'Item deleted!')
 
