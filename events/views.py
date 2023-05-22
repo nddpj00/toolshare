@@ -2,9 +2,48 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from .models import Event
 from .models import User
 from .forms import EventForm
+
+# test emails
+def send_test_email_attendee(user_first_name, user_email, event_title, event_date, event_location, event_body):
+    subject = 'You have been invited to an event'
+    template_name = 'events/event_attendee_email.html'
+    context = {
+
+        'recipient_name': user_first_name,
+        'event_title': event_title,
+        'event_date': event_date,
+        'event_location': event_location,
+        'event_body': event_body,
+    }
+    message = render_to_string(template_name, context)
+    from_email = 'danieljones625@gmail.com'
+    recipient_list = [user_email]
+
+    send_mail(subject, message, from_email, recipient_list)
+
+
+def send_test_email_interested(user_first_name, user_email, event_title, event_date, event_location, event_body):
+    subject = 'Thank you for your interest'
+    template_name = 'events/event_interested_email.html'
+    context = {
+
+        'recipient_name': user_first_name,
+        'event_title': event_title,
+        'event_date': event_date,
+        'event_location': event_location,
+        'event_body': event_body,
+    }
+    message = render_to_string(template_name, context)
+    from_email = 'danieljones625@gmail.com'
+    recipient_list = [user_email]
+
+    send_mail(subject, message, from_email, recipient_list)
+
 
 # Create your views here.
 def events_list(request):
@@ -113,15 +152,39 @@ def add_attendee(request, event_id):
     if request.method == 'POST':
 
         event = get_object_or_404(Event, pk=event_id)
-        user = request.user.id
-        event.attendees.add(user)
+        user = request.user
+        user_email = request.user.email
+        event.attendees.add(user.id)
         event.save()
         messages.success(request, "We've added you to the event list")
+        send_test_email_attendee(user.first_name, user.email, event.title, event.date, event.location, event.body)
 
         events = Event.objects.filter(attendees=user)
 
 
         return redirect(reverse('profile'))
+
+
+    else:
+        messages.failure(request, "Oops something went wrong, sorry. Please get in touch")
+        return render(request, 'events')
+
+
+@login_required()
+def add_interested(request, event_id):
+
+    # Adds user to attendee list
+    if request.method == 'POST':
+
+        event = get_object_or_404(Event, pk=event_id)
+        user = request.user
+        user_email = request.user.email
+        event.interested.add(user.id)
+        event.save()
+        messages.success(request, "Thanks for your interest")
+        send_test_email_interested(user.first_name, user.email, event.title, event.date, event.location, event.body)
+
+        return redirect(reverse('events'))
 
 
     else:
