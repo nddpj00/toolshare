@@ -62,6 +62,107 @@
             </p>
         </div>
     </div>
+
+    <hr class="my-5" />
+
+    <div class="row d-flex justify-content-left mt-5 mb-2">
+        <div class="col-sm-6 offset-1">
+            <h2>Latest blogs from us...</h2>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+
+        {% for article in articles %}
+        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+
+            <div class="card h-100 ">
+                {% if article.thumb %}
+                <div class="card-img-container">
+                    <a href="{% url 'detail' slug=article.slug %}">
+                        <img class="card-img-top img-fluid" src="{{ article.thumb.url }}" alt="{{ article.title }}">
+                    </a>
+                </div>
+                {% else %}
+                <a href="{% url 'detail' slug=article.slug %}">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ article.title }}">
+                </a>
+                {% endif %}
+                <div class="lead font-weight-bold card-title pb-0">
+                    <p class="mb-0 text-center">{{ article.title.capitalize }}</p>
+                </div>
+                <div class="card-body bg-white pt-0 text-left">
+                    <div class="row">
+                        <div class="col">
+                            <p class='mb-0 text-left'>
+                                {{ article.body.capitalize|truncatechars:60 }}</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+
+    <hr class="my-5" />
+
+    <div class="row d-flex justify-content-left mt-5 mb-2">
+        <div class="col-sm-6 offset-1">
+            <h2>Some upcoming events from Share Bear.. </h2>
+        </div>
+    </div>
+
+    <div class=" row d-flex justify-content-center">
+
+        {% for event in events %}
+        <div class=" col-sm-12 col-md-6 col-lg-4 col-xl-4 mr-4 ml-4 mb-3">
+
+            <div class="card h-100">
+                {% if event.thumb %}
+                <div class="card-img-container">
+                    <a href="{% url 'event_detail' slug=event.slug %}">
+                        <img class="card-img-top img-fluid" src="{{ event.thumb.url }}" alt="{{ event.title }}">
+                    </a>
+                </div>
+                {% else %}
+                <a href="{% url 'event_detail' slug=event.slug %}">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ event.title }}">
+                </a>
+                {% endif %}
+                <div class="lead font-weight-bold card-title pb-0">
+                    <p class="mb-0 text-center">{{ event.title.capitalize }}</p>
+                </div>
+                <div class="card-body bg-white pt-0 text-left">
+                    <div class="row">
+                        <div class="col">
+                            <p class='mb-0 text-left'>
+                                {{ event.body.capitalize|truncatechars:80 }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-white pt-0 text-left">
+                    <div class="row">
+                        <div class="col">
+                            <p class='mb-0 text-left'>
+                                {{ event.date }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="mb-0 text-left">{{ event.location }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
     <hr class="my-5" />
 
     <div class="row d-flex justify-content-left ">
@@ -69,6 +170,7 @@
             <h1>Our Shop</h1>
         </div>
     </div>
+
     <div class="row d-flex justify-content-center ">
 
 
@@ -116,80 +218,5 @@
             </iframe>
         </div>
     </div>
-
-
-
-
-    <hr class="my-5" />
-
-    <div class="row d-flex justify-content-left mt-5">
-        <div class="col-sm-6 offset-1">
-            <h2>Latest blogs from us...</h2>
-        </div>
-    </div>
-
-    <div class=" row d-flex justify-content-center">
-
-        {% for article in articles %}
-        <div class=" col-sm-12 col-md-6 col-lg-3 col-xl-3">
-
-            <div class="card h-100">
-                {% if article.thumb %}
-                <a href="{% url 'detail' slug=article.slug %}">
-                    <img class="card-img-top img-fluid" src="{{ article.thumb.url }}" alt="{{ article.title }}">
-                </a>
-                {% else %}
-                <a href="{% url 'detail' slug=article.slug %}">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ article.title }}">
-                </a>
-                {% endif %}
-                <div class="card-title">{{ article.title.capitalize }}
-                </div>
-                <div class="card-body">{{ article.body|truncatechars:30 }}
-                </div>
-
-            </div>
-        </div>
-
-        {% endfor %}
-    </div>
-
-    <hr class="my-5" />
-
-    <div class="row d-flex justify-content-left mt-5">
-        <div class="col-sm-6 offset-1">
-            <h2>Latest Events from us...</h2>
-        </div>
-    </div>
-
-    <div class=" row d-flex justify-content-center">
-
-        {% for event in events %}
-        <div class=" col-sm-12 col-md-6 col-lg-3 col-xl-3">
-
-            <div class="card h-100">
-                {% if event.thumb %}
-                <a href="{% url 'event_detail' slug=event.slug %}">
-                    <img class="card-img-top img-fluid" src="{{ event.thumb.url }}" alt="{{ event.title }}">
-                </a>
-                {% else %}
-                <a href="{% url 'event_detail' slug=event.slug %}">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ event.title }}">
-                </a>
-                {% endif %}
-                <div class="card-title">{{ event.title.capitalize }}
-                </div>
-                <div class="card-body">{{ event.body|truncatechars:30 }}
-                    {{ event.date }}
-                    {{ event.location }}
-                </div>
-
-            </div>
-        </div>
-
-        {% endfor %}
-    </div>
-
-
 </div>
 {% endblock %}

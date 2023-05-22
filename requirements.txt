@@ -1,11 +1,17 @@
 asgiref==3.6.0
 backports.zoneinfo==0.2.1
+dj-database-url==0.5.0
 Django==3.2.18
 django-allauth==0.41.0
+django-bootstrap-datepicker-plus==5.0.3
+django-clearcache==1.2.1
 django-countries==7.2.1
 django-crispy-forms==1.14.0
+gunicorn==20.1.0
 oauthlib==3.2.2
 Pillow==9.5.0
+psycopg2==2.9.6
+pydantic==1.10.7
 python3-openid==3.2.0
 pytz==2023.3
 requests-oauthlib==1.3.1

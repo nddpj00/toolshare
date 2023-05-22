@@ -10,7 +10,7 @@
                 <p>{{ article.body }}</p>
             </div>
             <div>
-                <p>{{ article.date }}</p>
+                <p>{{ article.date | date:"dS F,Y" }}</p>
             </div>
             {% if request.user.is_superuser %}
             <small>

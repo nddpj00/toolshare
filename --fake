@@ -1,0 +1,4 @@
+Operations to perform:
+  Target specific migration: 0006_alter_item_available, from items
+Running migrations:
+  Applying items.0006_alter_item_available...
