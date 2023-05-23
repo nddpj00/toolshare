@@ -10,7 +10,7 @@ def view_bag(request):
     return render(request, 'bag/bag.html')
 
 def add_to_bag(request, item_id):
-    """ Add a quantity of the specified product to the shopping bag """
+    """ Add a quantity of the specified item to the shopping bag """
 
     item = get_object_or_404(Item, pk=item_id)
     quantity = int(request.POST.get('quantity'))
