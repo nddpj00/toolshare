@@ -8,6 +8,10 @@ body {
     font-family: 'Chivo Mono', monospace;
 }
 
+.dropdown-item:active {
+    background-color: #fff;
+}
+
 .card-img-container {
     position: relative;
     overflow: hidden;
