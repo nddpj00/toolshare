@@ -26,12 +26,15 @@
             </small>
             {% endif %}
 
-            <div>
-                <p class="mt-3 mb-3">For more information, contact {{ fname }} here <a
-                        href="mailto:{{  email }}">{{ email }}</a>.</p>
+            <div class="mt-3 mb-3">
+                <a href="mailto:{{ email }}">Email {{ fname }} for more information</a>.
             </div>
-
-
+            {% if is_attending %}
+            <p> Hi {{ fname }}, we can see you're already down as attending this event.</p>
+            <p> If you need to change this pop over to your <a href="{% url 'profile' %}">profile page</a> , otherwise,
+                we're looking forward to meeting
+                you.</p>
+            {% else %}
             <form method="post" action="{% url 'add_attendee' event.id %}" class="mb-3">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-blog-events">I'll be there!</button>
@@ -40,8 +43,10 @@
                 {% csrf_token %}
                 <button type="submit" class="btn btn-blog-events">I'm interested</button>
             </form>
+            {% endif %}
 
-            <a href="{% url 'events' %}" class="btn btn-blog-events mt-3" role="button" aria-pressed="true">Back</a>
+            <a href="{% url 'events' %}" class="btn btn-blog-events mt-3" role="button" aria-pressed="true">Back to our
+                events</a>
         </div>
 
         <div class="col-sm-6">
