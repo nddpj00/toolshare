@@ -9,6 +9,7 @@ django-bootstrap-datepicker-plus==5.0.3
 django-clearcache==1.2.1
 django-countries==7.2.1
 django-crispy-forms==1.14.0
+django-extensions==3.2.1
 django-storages==1.13.2
 gunicorn==20.1.0
 jmespath==1.0.1
