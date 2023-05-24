@@ -9,6 +9,7 @@ from items.models import Item
 from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
 from bag.contexts import bag_contents
+from datetime import datetime, timedelta
 
 import stripe
 import json
@@ -134,6 +135,16 @@ def checkout_success(request, order_number):
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+
+    #iterates over order line items and reduces the stock quantity by amount sold
+    for line_item in order.lineitems.all():
+        item = line_item.item
+        item.stock -= line_item.quantity
+        # if 0 then sets available date 7 days from now.
+        if item.stock==0:
+            item.availableDate = datetime.now().date() + timedelta(days=7)
+        item.save()
+    
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
