@@ -5,11 +5,12 @@
 
 {% block content %}
 {% for article in articles %}
+<div class="overlay"></div>
 <div class="container">
 
-    <div class="row justify-content-center ">
+    <div class=" row justify-content-center ">
 
-        <div class="col-sm-6 mt-5 mb-5">
+        <div class=" col-sm-6 mt-5 mb-5">
             <div>
                 <h2><a class='blog-event-title'
                         href="{% url 'detail' slug=article.slug %}">{{ article.title|truncatechars:50 }}</a></h2>

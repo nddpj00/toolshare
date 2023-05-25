@@ -43,10 +43,10 @@
                 <p class="mt-3">{{ item.description }}</p>
 
                 {% if item.stock > 0 %}
-                <p class="lead mb-0 text-left text-success font-weight-bold">Available</p>
+                <p class="mb-0 text-left text-success font-weight-bold">Available</p>
                 {% else %}
-                <p class="lead mb-0 text-left text-danger font-weight-bold">Unavailable</p>
-                <p class="lead mb-0 text-left text-danger font-weight-bold">Item is due
+                <p class="mb-0 text-left text-danger font-weight-bold">Unavailable</p>
+                <p class="mb-0 text-left text-danger font-weight-bold">Due
                     back: {{ item.availableDate|date:"d-M-y"}}</p>
                 </p>
                 {% endif %}

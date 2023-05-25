@@ -80,6 +80,10 @@ body {
     color: #000 !important;
 }
 
+.text-availability {
+    font-size: 13px;
+}
+
 .border-black {
     border: 1px solid black !important;
 }
@@ -99,9 +103,11 @@ body {
     top: 0;
     left: 0;
     position: fixed;
-    background: rgb(236, 232, 232);
+    background: rgba(98, 165, 161, .15);
     z-index: -1;
 }
+
+
 
 a.category-badge>span.badge:hover {
     background: #2a9d8f !important;

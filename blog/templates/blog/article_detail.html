@@ -2,12 +2,13 @@
 {% load static %}
 
 {% block content %}
-<div class="container main-home-content">
+<div class="overlay"></div>
+<div class="container">
     <div class="row d-flex justify-content-center mt-5">
-        <div class="col-sm-4">
-            <h1>{{ article.title}}</h1>
+        <div class="col-sm-4 blog-event-title'">
+            <h1>{{ article.title.capitalize}}</h1>
             <div>
-                <p>{{ article.body }}</p>
+                <p>{{ article.body.capitalize }}</p>
             </div>
             <div>
                 <p>{{ article.date | date:"dS F,Y" }}</p>

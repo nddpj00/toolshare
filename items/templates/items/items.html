@@ -8,10 +8,10 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center mt-3">
-            <h2 class="logo-font text-black">Tools</h2>
+            <h2 class="text-black">Tools</h2>
             {% for c in current_categories %}
-            <a class="category-badge text-decoration-none" href="{% url 'items' %}?category={{ c.name }}">
-                <span class="p-2 mt-3 btn-blog text-black rounded border border-dark">{{ c.friendly_name }}</span>
+            <a class="category-badge bg-sienna text-decoration-none" href="{% url 'items' %}?category={{ c.name }}">
+                <span class="p-2 mt-3 btn-blog text-black rounded">{{ c.friendly_name }}</span>
             </a>
             {% endfor %}
             <hr class="w-50 mb-1">
@@ -86,11 +86,10 @@
                                     {% endif %}
 
                                     {% if item.stock > 0 %}
-                                    <p class="lead mb-0 text-left text-success font-weight-bold">Available</p>
+                                    <p class="mb-0 text-left text-success text-availability">Available</p>
                                     {% else %}
-                                    <p class="lead mb-0 text-left text-danger font-weight-bold">Unavailable</p>
-                                    <p class="lead mb-0 text-left text-danger font-weight-bold">Item is due
-                                        back: {{ item.availableDate|date:"d-M-y"}}</p>
+                                    <p class="mb-0 text-left text-danger text-availability">Unavailable until
+                                        {{ item.availableDate|date:"jS-M"}}</p>
                                     {% endif %}
                                     {% if request.user.is_superuser %}
                                     <small>
