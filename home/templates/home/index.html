@@ -78,11 +78,11 @@
     <div class="row justify-content-center">
 
         {% for article in articles %}
-        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4">
 
-            <div class="card h-100 ">
+            <div class=" card h-100 ">
                 {% if article.thumb %}
-                <div class="card-img-container">
+                <div class=" card-img-container">
                     <a href="{% url 'detail' slug=article.slug %}">
                         <img class="card-img-top img-fluid" src="{{ article.thumb.url }}" alt="{{ article.title }}">
                     </a>
@@ -114,7 +114,7 @@
     <hr class="my-5" />
 
     <div class="row d-flex justify-content-left mt-5 mb-2">
-        <div class="col-sm-6 offset-1">
+        <div class="col-12 col-md-8">
             <h2>Some upcoming events from Share Bear.. </h2>
         </div>
     </div>
@@ -122,9 +122,9 @@
     <div class=" row d-flex justify-content-center">
 
         {% for event in events %}
-        <div class=" col-sm-12 col-md-6 col-lg-4 col-xl-4 mr-4 ml-4 mb-3">
+        <div class="col-sm-12 col-md-10 col-lg-6 col-xl-4 mr-4 ml-4 mb-4">
 
-            <div class="card h-100">
+            <div class="card h-100 shadow-sm">
                 {% if event.thumb %}
                 <div class="card-img-container">
                     <a href="{% url 'event_detail' slug=event.slug %}">
@@ -169,18 +169,16 @@
 
     <hr class="my-5" />
 
-    <div class="row d-flex justify-content-left ">
-        <div class="col-sm-6 offset-1">
-            <h1>Our Shop</h1>
+    <div class="row col-lg-6 mt-5 mb-2">
+        <div class="col-12 col-md-8">
+            <div>
+                <h1>Our Shop</h1>
+            </div>
         </div>
     </div>
-
-    <div class="row d-flex justify-content-center ">
-
-
-        <div class="col-sm-3">
-
-            <p>Deal High Street
+    <div class="row mb-5">
+        <div class="col-sm-12 col-md-3">
+            <p>Deal High St.
                 <br>
                 Deal
                 <br>
@@ -189,7 +187,7 @@
                 CT14 AAA
             </p>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-12 col-md-4">
             <p><strong>Mon :</strong>
                 <span class="text-right">08.30-17.00</span>
                 <br>
@@ -213,8 +211,7 @@
                 <br>
             </p>
         </div>
-
-        <div class="col-sm-4">
+        <div class="col-sm-12 col-md-5">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1249.3710373004144!2d1.4046099!3d51.2238269!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2suk!4v1683206745570!5m2!1sen!2suk"
                 width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"

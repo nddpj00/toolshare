@@ -48,6 +48,7 @@ body {
     min-width: 260px;
 }
 
+
 .btn-black {
     background: black;
     color: white;
@@ -145,6 +146,22 @@ input[name='q']::placeholder {
 
 .toast-capper {
     height: 2px;
+}
+
+/* --------------------------------- footer */
+
+.footer {
+    background-color: #555555;
+}
+
+.sign-up-button {
+    background: #2a9d8f;
+    color: white;
+}
+
+.social-icon {
+    padding: 15px;
+    color: #e76f51
 }
 
 /* --------------------------------- home page */
