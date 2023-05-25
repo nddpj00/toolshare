@@ -40,7 +40,7 @@
             <a href="{% url 'add_article' %}" class="dropdown-item">Blog Management</a>
             <a href="{% url 'add_event' %}" class="dropdown-item">Event Management</a>
             {% endif %}
-            <a href="{% url 'add_item' %}" class="dropdown-item">My Profile</a>
+            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
             {% else %}
             <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
