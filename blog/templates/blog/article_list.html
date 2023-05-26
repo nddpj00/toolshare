@@ -7,39 +7,53 @@
 {% for article in articles %}
 <div class="overlay"></div>
 <div class="container">
-
-    <div class=" row justify-content-center ">
-
-        <div class=" col-sm-6 mt-5 mb-5">
+    <div class="row justify-content-center bg-light mt-4 rounded shadow mx-1">
+        <div class="col-sm-6 mt-3 mb-0 mb-md-3 d-flex flex-column">
             <div>
-                <h2><a class='blog-event-title'
-                        href="{% url 'detail' slug=article.slug %}">{{ article.title|truncatechars:50 }}</a></h2>
+                <h2><a class='blog-event-title' href="{% url 'detail' slug=article.slug %}">
+                        {{ article.title.upper|truncatechars:50 }}</a></h2>
             </div>
-            <div class=" pb-0">
-                <p class="mb-0">{{ article.body|truncatechars:100 }}</p>
+            <div class="mb-3">
+                <p>{{ article.body|truncatechars:100 }}</p>
             </div>
-            <div class="">
-                <a class="browse-tools-button btn bg-primary-subtle text-primary-emphasis mt-3 p-3"
-                    href="{% url 'detail' slug=article.slug %}">Read More</a>
+            <div class="mt-auto">
+                <div class="text-right">
+                    <p class="mb-n2"><small>-{{article.author.first_name}} {{article.author.last_name}}</small></p>
+                    <p class="mb-0"><small>{{ article.date |date:"jS M Y" }}</small></p>
+                </div>
+                <div class="text-center text-sm-left">
+                    <a class="browse-tools-button btn bg-primary-subtle text-primary-emphasis mt-2 p-3"
+                        href="{% url 'detail' slug=article.slug %}">Read More</a>
+                </div>
             </div>
+
+
             {% if request.user.is_superuser %}
-            <small>
-                <a href="{% url 'edit_article' article.id %}">Edit</a> |
-                <a data-target="#deleteArticleModal" data-toggle="modal" data-instance-id="{{ article.id }}"
-                    class="text-danger delete-link" href="#deleteArticleModal">Delete</a>
-            </small>
-            {% endif %}
-            <div class="border-0 text-left">
-                {{ article.date}}
+            <div
+                class="d-flex justify-content-center justify-content-sm-between align-items-center text-center text-sm-left">
+                <div class="d-sm-inline-flex">
+                    <small>
+                        <a href="{% url 'edit_article' article.id %}">
+                            Edit
+                        </a>
+                        <span>|</span>
+                        <a data-target="#deleteArticleModal" data-toggle="modal" data-instance-id="{{ article.id }}"
+                            class="text-danger delete-link" href="#deleteArticleModal">
+                            Delete
+                        </a>
+                    </small>
+                </div>
             </div>
+
+
+
+            {% endif %}
         </div>
-
-
-        <div class="col-sm-4">
-            <div class="image-container my-5">
+        <div class="col-sm-5 d-flex align-items-center justify-content-center">
+            <div class="image-container my-3 mx-auto">
                 {% if article.thumb %}
                 <a href="{{ article.thumb.url }}">
-                    <img class="img-fluid" src="{{ article.thumb.url }}" alt="{{ article.title }}">
+                    <img class="img-fluid rounded" src="{{ article.thumb.url }}" alt="{{ article.title }}">
                 </a>
                 {% else %}
                 <a href="">
@@ -48,15 +62,58 @@
                 {% endif %}
             </div>
         </div>
-
     </div>
-    <hr>
-
+    <hr class="mt-4">
 </div>
 <!-- Modal confirming deletion -->
 {% include 'delete_modal_blog.html' %}
 
 {% endfor %}
+
+<footer class="footer mt-auto py-4 bg-light">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h3>Our Newsletter</h3>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="firstname" name="firstname"
+                            placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="terms" name="terms">
+                            <label class="form-check-label" for="terms">I agree to the data terms</label>
+                        </div>
+                        <button type="submit"
+                            class="btn bg-primary-subtle text-primary-emphasis ml-3 sign-up-button">Sign
+                            Up</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm text-center">
+                <img src="{{ MEDIA_URL }}share-bear-logo-small.png" alt="share bear logo">
+                <p class="text-muted">Share Bear<br>Tool Sharing Company</p>
+            </div>
+            <div class="col-sm text-center">
+                <h3>Follow the bear!</h3>
+                <div class="social-icons mb-2 mt-2">
+                    <a href="www.facebook.com" class="social-icon"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="www.instagram.com" class="social-icon"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="www.twitter.com" class="social-icon"><i class="fab fa-twitter fa-2x"></i></a>
+                </div>
+                <div>
+                    <p>Email us: mail@sharebear.co.uk</p>
+                    <p>Call the shop: 08000000000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 {% endblock %}
 
 {% block postloadjs %}

@@ -111,6 +111,51 @@
     </div>
 </div>
 
+<footer class="footer mt-auto py-4 bg-light">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h3>Our Newsletter</h3>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="firstname" name="firstname"
+                            placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="terms" name="terms">
+                            <label class="form-check-label" for="terms">I agree to the data terms</label>
+                        </div>
+                        <button type="submit"
+                            class="btn bg-primary-subtle text-primary-emphasis ml-3 sign-up-button">Sign
+                            Up</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm text-center">
+                <img src="{{ MEDIA_URL }}share-bear-logo-small.png" alt="share bear logo">
+                <p class="text-muted">Share Bear<br>Tool Sharing Company</p>
+            </div>
+            <div class="col-sm text-center">
+                <h3>Follow the bear!</h3>
+                <div class="social-icons mb-2 mt-2">
+                    <a href="www.facebook.com" class="social-icon"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="www.instagram.com" class="social-icon"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="www.twitter.com" class="social-icon"><i class="fab fa-twitter fa-2x"></i></a>
+                </div>
+                <div>
+                    <p>Email us: mail@sharebear.co.uk</p>
+                    <p>Call the shop: 08000000000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
 {% endblock %}
 
 {% block postloadjs %}
