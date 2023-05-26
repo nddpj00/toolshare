@@ -11,35 +11,59 @@
     <div class="row justify-content-center">
 
         <div class="col-sm-8 mt-4 mb-4 ">
-            <div class="card rounded shadow">
-                <div class="card-body">
+            <div class="card rounded shadow d-flex flex-column align-items-center">
+                <div class="card-body pb-0">
                     <h2 class="card-title "><a class="blog-event-title"
                             href="{% url 'event_detail' slug=event.slug %}">{{ event.title.capitalize |truncatechars:50 }}</a>
                     </h2>
-                    <p class="card-text mb-0">{{ event.body.capitalize |truncatechars:100 }}</p>
-                    <a class="browse-tools-button btn bg-primary-subtle text-primary-emphasis mt-3 p-3"
-                        href="{% url 'event_detail' slug=event.slug %}">Read More
-                    </a>
+
+                    <p class="card-text mb-5">{{ event.body.capitalize |truncatechars:100 }}</p>
+                    <div class="row align-items-start">
+                        <div class="col-sm-4">
+                            <p class="mb-0">Event Date:</p>
+                        </div>
+                        <div class="col justify-content-left">
+                            <p>{{ event.date|date:"jS M, g:ia" }}</p>
+                        </div>
+                    </div>
+                    <div class="row align-items-start">
+                        <div class="col-sm-4">
+                            <p class="mb-0">Location:</p>
+                        </div>
+                        <div class="col justify-content-left">
+                            <p>{{ event.location }}</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a class="browse-tools-button btn bg-primary-subtle text-primary-emphasis mt-0 p-3"
+                            href="{% url 'event_detail' slug=event.slug %}">Read More
+                        </a>
+                    </div>
                     {% if request.user.is_superuser %}
-                    <small>
-                        <a href="{% url 'edit_event' event.id %}">Edit</a> |
-                        <a data-target="#cancelModal" data-toggle="modal" data-instance-id="{{ event.id }}"
-                            class="text-danger delete-link" href="#cancelModal">Delete</a>
-                    </small>
+                    <div>
+                        <small>
+                            <a href="{% url 'edit_event' event.id %}">Edit</a>
+                            <span>|</span>
+                            <a data-target="#cancelModal" data-toggle="modal" data-instance-id="{{ event.id }}"
+                                class="text-danger delete-link" href="#cancelModal">Delete</a>
+                        </small>
+                    </div>
                     {% endif %}
 
-                    <p>Event Date:{{ event.date|date:" jS M, g:ia"}}</p>
-                    <p>Location:{{ event.location}}</p>
+
                 </div>
-                {% if event.thumb %}
-                <a href="{{ event.thumb.url }}">
-                    <img class="img-fluid rounded-bottom" src="{{ event.thumb.url }}" alt="{{ event.title }}">
-                </a>
-                {% else %}
-                <a href="">
-                    <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ event.title }}">
-                </a>
-                {% endif %}
+                <div class="image-container my-3">
+                    {% if event.thumb %}
+                    <a href="{{ event.thumb.url }}">
+                        <img class="img-fluid rounded" src="{{ event.thumb.url }}" alt="{{ event.title }}">
+                    </a>
+                    {% else %}
+                    <a href="">
+                        <img class="img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ event.title }}">
+                    </a>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
