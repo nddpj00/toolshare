@@ -62,8 +62,7 @@ def event_detail(request, slug):
     event = get_object_or_404(Event, slug = slug)
     organiser_fname = event.organiser.first_name
     organiser_email = event.organiser.email
-    is_attending = event.__class__.objects.filter(attendees=request.user.id).exists()
-    print(is_attending)
+    is_attending = event.attendees.filter(id=request.user.id).exists()
     template = 'events/event_detail.html'
 
     context = {

@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 
 from .models import UserProfile
 from events.models import Event
-from .forms import UserProfileForm
 
 from checkout.models import Order
 
@@ -73,3 +72,5 @@ def cancel_attendance(request, event_id):
     else:
         messages.failure(request, "Oops something went wrong, sorry. Please get in touch")
         return render(request, 'events')
+
+

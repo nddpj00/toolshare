@@ -1,0 +1,7 @@
+{% load crispy_forms_tags %}
+
+<form method="POST" action="{% url 'newsletter_form' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit">Subscribe</button>
+</form>
