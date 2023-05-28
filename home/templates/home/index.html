@@ -229,8 +229,12 @@
                 <h3>Our Newsletter</h3>
 
 
-                {% include 'newsletter/newsletter_form.html' %}
-
+                {{ form.media }}
+                <form method="POST" action="{% url 'home' %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% crispy form %}
+                    <button type="submit" class="btn btn-primary">Sign up</button>
+                </form>
 
             </div>
             <div class="col-sm text-center">

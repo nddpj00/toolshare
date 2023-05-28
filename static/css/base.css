@@ -24,6 +24,9 @@ body {
     height: 100%;
 }
 
+.form-group:not(.checkbox-field) label {
+    display: none;
+}
 
 /* from Bulma */
 .icon {
