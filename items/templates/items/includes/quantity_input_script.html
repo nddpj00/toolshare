@@ -1,21 +1,11 @@
 <script type="text/javascript">
-    // Gets the item stock quantity on page load
-    $(document).ready(function () {
-        var itemStock = $('.increment-qty_{{ item.id }}').data('item_stock');
-        var itemId = $('.increment-qty_{{ item.id }}').data('item_id');
-        handleEnableDisable(itemId, itemStock)
-    });
-
     // Disable +/- buttons outside 1-99 range
     function handleEnableDisable(itemId, itemStock) {
         var currentValue = parseInt($(`.id_qty_${itemId}`).val());
         var minusDisabled = currentValue < 2;
         var plusDisabled = currentValue > 98 || currentValue > itemStock - 1;
-        // var outOfStock = currentValue > itemStock - 1;
-
         $(`.decrement-qty_${itemId}`).prop('disabled', minusDisabled);
         $(`.increment-qty_${itemId}`).prop('disabled', plusDisabled);
-        // $(`.increment-qty_${itemId}`).prop('disabled', outOfStock);
     }
 
 
@@ -23,27 +13,35 @@
     $('.qty_input').change(function () {
         var itemId = $(this).data('item_id');
         var itemStock = $(this).data('item_stock');
+        console.log(itemStock)
+        console.log("change function")
         handleEnableDisable(itemId, itemStock);
     });
 
     // Increment quantity
     $('.increment-qty').click(function (e) {
         e.preventDefault();
+        var itemStock = $(this).data('item_stock');
+        var itemId = $(this).data('item_id');
         var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
         var currentValue = parseInt($(closestInput).val());
-        $(closestInput).val(currentValue + 1);
-        var itemId = $(this).data('item_id');
-        var itemStock = $(this).data('item_stock');
-
+        // to ensure quantity doesnt exceed stock
+        if (currentValue < itemStock) {
+            $(closestInput).val(currentValue + 1);
+        }
+        console.log("increment")
         handleEnableDisable(itemId, itemStock)
     });
 
     // Decrement quantity
     $('.decrement-qty').click(function (e) {
         e.preventDefault();
+        console.log("deccrement")
         var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
         var currentValue = parseInt($(closestInput).val());
-        $(closestInput).val(currentValue - 1);
+        if (currentValue > 1) {
+            $(closestInput).val(currentValue - 1)
+        };
         var itemId = $(this).data('item_id');
         var itemStock = $(this).data('item_stock');
         handleEnableDisable(itemId, itemStock);
