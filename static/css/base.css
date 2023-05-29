@@ -293,7 +293,7 @@ input[name='q']::placeholder {
     }
 
     .header-container {
-        padding-top: 60px;
+        padding-top: 400px;
     }
 
 }
@@ -301,7 +301,7 @@ input[name='q']::placeholder {
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
-        padding-top: 15px;
+        padding-top: 185px;
     }
 
     body {
@@ -327,12 +327,12 @@ input[name='q']::placeholder {
 
     .btn.btn-outline-black.rounded,
     .btn.btn-black.rounded {
-        padding: .375rem .375rem;
+        padding: .375rem .342rem;
     }
 
-    btn.btn-outline-black.rounded.btn-lg,
+    .btn.btn-outline-black.rounded.btn-lg,
     .btn.btn-black.rounded.btn-lg {
-        padding: .375rem .375rem;
+        padding: .375rem .342rem;
         font-size: .75rem;
         margin-top: .50rem;
     }
@@ -351,5 +351,29 @@ input[name='q']::placeholder {
 
     .nav-link i.fa-lg {
         font-size: 1rem;
+    }
+
+    .btn.btn-outline-black.rounded,
+    .btn.btn-black.rounded {
+        padding: .375rem .342rem;
+    }
+
+    .btn.btn-outline-black.rounded.btn-lg,
+    .btn.btn-black.rounded.btn-lg {
+        padding: .375rem .342rem;
+        font-size: .75rem;
+        margin-top: .50rem;
+    }
+
+    .header-container {
+        padding-top: 380px;
+    }
+}
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .header-container {
+        padding-top: 130px;
     }
 }
