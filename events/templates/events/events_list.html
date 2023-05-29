@@ -79,7 +79,14 @@
         <div class="row">
             <div class="col-sm">
                 <h3>Our Newsletter</h3>
-                {% include 'newsletter/newsletter_form.html' %}
+
+
+                {{ form.media }}
+                <form method="POST" action="{% url 'events' %}" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {%  crispy form %}
+                </form>
+
             </div>
             <div class="col-sm text-center">
                 <img src="{{ MEDIA_URL }}share-bear-logo-small.png" alt="share bear logo">

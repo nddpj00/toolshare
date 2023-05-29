@@ -5,11 +5,10 @@ from crispy_forms.bootstrap import PrependedText, StrictButton
 from newsletter.models import Newsletter
 
 class NewsletterSubscriptionForm(forms.ModelForm):
-    agree_terms = forms.BooleanField(label='I agree to the data terms', required=True)
 
     class Meta:
         model = Newsletter
-        fields = ['first_name', 'email', 'agree_terms']
+        fields = ['first_name', 'email']
         widgets = {
             'first_name': forms.TextInput(attrs={'placeholder': 'First Name'}),
             'email': forms.EmailInput(attrs={'placeholder': 'Email'}),
@@ -19,10 +18,8 @@ class NewsletterSubscriptionForm(forms.ModelForm):
         super(NewsletterSubscriptionForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_class = 'form-horizontal'
-        self.helper.label_class = 'd-none'
         self.helper.layout = Layout(
             PrependedText('first_name', '<i class="fa fa-user"></i>', placeholder='First Name'),
             PrependedText('email', '<i class="fa fa-envelope"></i>', placeholder='Email'),
-            'agree_terms',
-            StrictButton('Submit', type='submit', css_class='btn-primary')
+            StrictButton('Sign up', type='submit', css_class='btn-secondary btn-sm'),
         )

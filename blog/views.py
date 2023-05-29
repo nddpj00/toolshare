@@ -4,13 +4,39 @@ from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
 from .models import Article
 from .forms import ArticleForm
+from newsletter.models import Newsletter
+from newsletter.forms import NewsletterSubscriptionForm
 
 def article_list(request):
     articles = Article.objects.all().order_by('-date')
 
+    if request.method == 'POST':
+        form = NewsletterSubscriptionForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            email = form.cleaned_data.get('email')
+            print(email)
+            if Newsletter.objects.filter(email=email).exists():
+                messages.error(request, "The email address is already subscribed to the newsletter.")
+                print("email exists")
+            else:
+                if request.user.is_authenticated:
+                    form.instance.is_registered_already = request.user
+                    form.save()
+                    messages.success(request, "Thank you. We'll send you a weekly newsletter, keeping you up-to-date with Share Bear.")
+                else:
+                    form.save()
+                    messages.success(request, "Thank you. We'll send you a weekly newsletter, keeping you up-to-date with Share Bear."  )
+        else:
+            print("something else")
+            messages.error(request, "Invalid form data. Please try again.")
+    else:
+        form = NewsletterSubscriptionForm()
+
     template = 'blog/article_list.html'
     context = {
         'articles' : articles,
+        'form': form
     }
 
     return render(request, template, context)

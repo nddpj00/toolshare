@@ -7,6 +7,8 @@ from django.template.loader import render_to_string
 from .models import Event
 from .models import User
 from .forms import EventForm
+from newsletter.models import Newsletter
+from newsletter.forms import NewsletterSubscriptionForm
 
 # test emails
 def send_test_email_attendee(user_first_name, user_email, event_title, event_date, event_location, event_body):
@@ -49,9 +51,33 @@ def send_test_email_interested(user_first_name, user_email, event_title, event_d
 def events_list(request):
     events = Event.objects.all().order_by('-date')
 
+    if request.method == 'POST':
+        form = NewsletterSubscriptionForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            email = form.cleaned_data.get('email')
+            print(email)
+            if Newsletter.objects.filter(email=email).exists():
+                messages.error(request, "The email address is already subscribed to the newsletter.")
+                print("email exists")
+            else:
+                if request.user.is_authenticated:
+                    form.instance.is_registered_already = request.user
+                    form.save()
+                    messages.success(request, "Thank you. We'll send you a weekly newsletter, keeping you up-to-date with Share Bear.")
+                else:
+                    form.save()
+                    messages.success(request, "Thank you. We'll send you a weekly newsletter, keeping you up-to-date with Share Bear."  )
+        else:
+            print("something else")
+            messages.error(request, "Invalid form data. Please try again.")
+    else:
+        form = NewsletterSubscriptionForm()
+
     template = 'events/events_list.html'
     context = {
         'events' : events,
+        'form': form,
     }
 
     return render(request, template, context)
