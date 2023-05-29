@@ -72,8 +72,7 @@
                                 {% if item.stock > 0 %}
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <button
-                                            class="decrement-qty btn btn-black rounded-0 decrement-qty_{{ item.id }}"
+                                        <button class="decrement-qty btn btn-black rounded decrement-qty_{{ item.id }}"
                                             data-item_id="{{ item.id }}" data-item_stock="{{ item.stock }}">
                                             <span class=" icon">
                                                 <i class="fas fa-minus"></i>
@@ -83,8 +82,7 @@
                                     <input class="form-control qty_input id_qty_{{ item.id }}" type="number"
                                         name="quantity" value="1" min="1" max="99" data-item_id="{{ item.id }}">
                                     <div class="input-group-append">
-                                        <button
-                                            class="increment-qty btn btn-black rounded-0 increment-qty_{{ item.id }}"
+                                        <button class="increment-qty btn btn-black rounded increment-qty_{{ item.id }}"
                                             data-item_id="{{ item.id }}" data-item_stock="{{ item.stock }}">
                                             <span class="icon">
                                                 <i class="fas fa-plus"></i>

@@ -10,12 +10,12 @@
     function handleEnableDisable(itemId, itemStock) {
         var currentValue = parseInt($(`.id_qty_${itemId}`).val());
         var minusDisabled = currentValue < 2;
-        var plusDisabled = currentValue > 98;
-        var outOfStock = currentValue > itemStock - 1;
+        var plusDisabled = currentValue > 98 || currentValue > itemStock - 1;
+        // var outOfStock = currentValue > itemStock - 1;
 
         $(`.decrement-qty_${itemId}`).prop('disabled', minusDisabled);
         $(`.increment-qty_${itemId}`).prop('disabled', plusDisabled);
-        $(`.increment-qty_${itemId}`).prop('disabled', outOfStock);
+        // $(`.increment-qty_${itemId}`).prop('disabled', outOfStock);
     }
 
 
@@ -23,8 +23,7 @@
     $('.qty_input').change(function () {
         var itemId = $(this).data('item_id');
         var itemStock = $(this).data('item_stock');
-        handleEnableDisable(itemId);
-        handleStockCheck(itemId, itemStock);
+        handleEnableDisable(itemId, itemStock);
     });
 
     // Increment quantity
@@ -46,6 +45,7 @@
         var currentValue = parseInt($(closestInput).val());
         $(closestInput).val(currentValue - 1);
         var itemId = $(this).data('item_id');
-        handleEnableDisable(itemId);
+        var itemStock = $(this).data('item_stock');
+        handleEnableDisable(itemId, itemStock);
     });
 </script>
