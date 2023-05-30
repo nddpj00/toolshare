@@ -13,8 +13,6 @@
     $('.qty_input').change(function () {
         var itemId = $(this).data('item_id');
         var itemStock = $(this).data('item_stock');
-        console.log(itemStock)
-        console.log("change function")
         handleEnableDisable(itemId, itemStock);
     });
 
@@ -29,14 +27,12 @@
         if (currentValue < itemStock) {
             $(closestInput).val(currentValue + 1);
         }
-        console.log("increment")
         handleEnableDisable(itemId, itemStock)
     });
 
     // Decrement quantity
     $('.decrement-qty').click(function (e) {
         e.preventDefault();
-        console.log("deccrement")
         var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
         var currentValue = parseInt($(closestInput).val());
         if (currentValue > 1) {
