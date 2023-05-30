@@ -1,6 +1,6 @@
 from django import forms
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Field, Div
+from crispy_forms.layout import Layout,  Div
 from crispy_forms.bootstrap import PrependedText, StrictButton
 from newsletter.models import Newsletter
 

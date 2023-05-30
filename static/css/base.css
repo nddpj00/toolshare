@@ -8,7 +8,9 @@ body {
     font-family: 'Chivo Mono', monospace;
 }
 
-
+.grey-text {
+    color: #555;
+}
 
 .dropdown-item:active {
     background-color: #b4a8a8;
@@ -113,7 +115,9 @@ body {
     z-index: -1;
 }
 
-
+.form-group:not(.checkbox-field) label {
+    display: inline-block !important;
+}
 
 a.category-badge>span.badge:hover {
     background: #2a9d8f !important;
@@ -292,11 +296,18 @@ input[name='q']::placeholder {
         z-index: 1030;
     }
 
+    .img-small {
+        max-width: 50%;
+    }
+
     .header-container {
-        padding-top: 400px;
+        padding-top: 260px;
     }
 
 }
+
+
+
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
@@ -366,11 +377,7 @@ input[name='q']::placeholder {
         margin-top: .50rem;
     }
 
-    .header-container {
-        padding-top: 380px;
-    }
 }
-
 
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {

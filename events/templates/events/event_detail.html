@@ -13,8 +13,21 @@
 {% block content %}
 <div class="overlay"></div>
 <div class="container">
-    <div class="row d-flex justify-content-center mt-5">
-        <div class="col-sm-4">
+    <div class="row mt-5">
+        <div class="col-md-6 order-md-2">
+            <div class="image-container my-5">
+                {% if event.thumb %}
+                <a href="{{ event.thumb.url }}">
+                    <img class="card-img-top img-fluid" src="{{ event.thumb.url }}" alt="{{ event.title }}">
+                </a>
+                {% else %}
+                <a href="">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ event.title }}">
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-6 order-md-1">
             <h1>{{ event.title.capitalize }}</h1>
             <div>
                 <p>{{ event.body.capitalize }}</p>
@@ -31,7 +44,7 @@
             {% if request.user.is_superuser %}
             <small>
                 <a href="{% url 'edit_event' event.id %}">Edit</a> |
-                <a data-target="#cancelModal" data-toggle="modal" class=" text-danger delete-link"
+                <a data-target="#cancelModal" data-toggle="modal" class="text-danger delete-link"
                     href="#cancelModal">Delete</a>
             </small>
             {% endif %}
@@ -58,23 +71,8 @@
             <a href="{% url 'events' %}" class="btn btn-blog-events mt-3" role="button" aria-pressed="true">Back to our
                 events</a>
         </div>
-
-        <div class="col-sm-6">
-            <div class="image-container my-5">
-                {% if event.thumb %}
-                <a href="{{ event.thumb.url }}">
-                    <img class="card-img-top img-fluid" src="{{ event.thumb.url }}" alt="{{ event.title }}">
-                </a>
-                {% else %}
-                <a href="">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ event.title }}">
-                </a>
-                {% endif %}
-            </div>
-        </div>
     </div>
 </div>
-
 
 {% include 'delete_modal_event.html' %}
 
