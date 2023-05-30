@@ -1,6 +1,6 @@
 from django import forms
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Field
+from crispy_forms.layout import Layout, Field, Div
 from crispy_forms.bootstrap import PrependedText, StrictButton
 from newsletter.models import Newsletter
 
@@ -19,7 +19,10 @@ class NewsletterSubscriptionForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_class = 'form-horizontal'
         self.helper.layout = Layout(
-            PrependedText('first_name', '<i class="fa fa-user"></i>', placeholder='First Name'),
-            PrependedText('email', '<i class="fa fa-envelope"></i>', placeholder='Email'),
-            StrictButton('Sign up', type='submit', css_class='btn-secondary btn-sm'),
+            Div(
+                PrependedText('first_name', '<i class="fa fa-user"></i>', placeholder='First Name'),
+                PrependedText('email', '<i class="fa fa-envelope"></i>', placeholder='Email'),
+                StrictButton('Sign up', type='submit', css_class='btn-secondary btn-sm ml-0 mt-2'),
+                css_class='d-flex flex-column'
+            )
         )
