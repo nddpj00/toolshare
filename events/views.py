@@ -30,8 +30,8 @@ def send_test_email_attendee(user_first_name, user_email, event_title, event_dat
 
 
 def send_test_email_interested(user_first_name, user_email, event_title, event_date, event_location, event_body):
-    subject = 'Thank you for your interest'
-    template_name = 'events/event_interested_email.html'
+    subject = 'events/event_confirmation_emails/event_attendee_email_subject.txt'
+    template_name = 'events/event_confirmation_emails/event_attendee_email_body.txt'
     context = {
 
         'recipient_name': user_first_name,
