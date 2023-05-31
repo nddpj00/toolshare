@@ -18,6 +18,7 @@ class NewsletterSubscriptionForm(forms.ModelForm):
         super(NewsletterSubscriptionForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_class = 'form-horizontal'
+        self.helper.label_class = 'sr-only'
         self.helper.layout = Layout(
             Div(
                 PrependedText('first_name', '<i class="fa fa-user"></i>', placeholder='First Name'),
