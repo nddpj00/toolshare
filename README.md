@@ -4,31 +4,39 @@
 
 [View the live project here.](https://share-bear-toolshare.herokuapp.com/)
 
-I love eating food, who doesn't? but also I love reading about it, I love learning about it and of course, I love cooking it too.  As such, I took it upon myself to devise a weekly meal plan for my small family and have been doing so for a while now.
+I'm what you might call an enthusiastic DIYer.  I have no expertise in any building maintenance or repair and really have no affinity with it either....  but always feel I should *go-it-a-go* (much to the exasperation of my long-suffering wife).  So I'm often embarking on a new project to repair or update a part of our aging victorian house, of which it so often needs.
 
-My aim is for the meals to be healthy, balanced, interesting and of course tasty!  Sounds simple right?  
+After much researching on how to complete this job I often discover that to do it properly, which at this point at least is my intention, I need to purchase a new, shiny tool.  The tool usually seems like a great investment, after all, I'm saving money by doing the job myself right.  The problem is , if I take a wonder in to my shed right now, I've got shelves and shelves of tools that are practically new untouched or used once or twice , literally gathering dust and housing spiders.
 
-But it's not... firstly it's very time-consuming. 
+You can hire tools of course, but looking online its not a lot less than buying, except for JCBs and other large machinery.
 
-I turn to my long tried-and-tested recipes which can be found either online, in my numerous cookbooks (which are in no particular order), 10-year-old scraps of paper pulled from a Sunday paper supplements (covered in sauce and flattened tomatoes) or finally, and more recently, in those free binders given to you on your first subscription to Gusto or Hello Fresh.  This all takes time. 
+Looking out from my house, across the gardens up and down my street I can see every one has a shed and I can guarantee most include garden tools, lawnmowers , ladders and a vareity of other barely used tools and machinery.... slowly rusting away.  Surely it would make better sense to share these tools.  Financially, environmentally and to save space too.
 
-Also, with so much information around about what makes a balanced, healthy, nutritious diet, it can feel confusing and overwhelming to say the least.  Who really knows if they're eating enough oily fish in their diet??
 
-To summarize, the two main reasons why I've created the Balanced Diet Meal Finder are; 
-- To have all your favourite recipes in one place, saving you time and effort.
-- Categorized recipes in to  food groups. Vegetarian, White Meat, Red Meat, Oily Fish and White Fish to help you choose a nice balanced diet.
+My idea is Share Bear. A community based organisation, which means its for the benefit of local people to make use of it but also to contribute, volunteer and run it.
+
+I'd love to set up a project that would work a little like Vinted or Facebook Marketplace, where users deal with each other directly, but for sharing tools.. in fact sharing anything really. Why stop at tools!  However, that format I quickly realized  was out of my scope as regards my current knowledge of Django, so opted for the below approach - 
+
+1. People can browse the tool catalogue and borrow as many tools as they need for a week at a time.  There is a nominal price on each product to cover maintenance and upkeep of the tools.  Plus this gives me the opportunity to fulfil the 'online payment processing' criteria requirement, needed to complete my Diploma.
+
+2. After completing the payment, the user will need to come to the utopian space that is the Share Bear shop, whereby they can collect their items and receive instruction or demonstrations on how to use it.  And if they have time,  hang for a while with one of the fine volunteers, sharing a cup of good, responsibly sourced coffee!
+
+3. One week later, return the items as clean as when taken. Feeling just a little smug that they saved money, saved space and saved the environment... well ok, only a little, but it all helps.
+
+Why is this such a good idea. 
+
+- Financial - Everyone is generally harder up these days, what with the increases in the cost of living.  This is an opportunity to save money while maintaining/improving your assets ie house.
+- Environmental - The average drill gets used for 13 minutes in its lifetime.  Thats a lot of drills being made and not getting used, to then end up as scrap or waste.
+- Space - Keeps that space in the shed for whats important.  Getting those bikes in and out easily maybe. Or playing darts.
 
 ---
 
 ## **USER EXPERIENCE (UX)** ##
 
-The project was created in order to fulfil the criteria of the L5 Diploma in Web Application Development that I'm completing. This is for Unit 3: Back End Development.
+The project was created in order to fulfil the criteria of the L5 Diploma in Web Application Development that I'm completing. This is for Unit 4: Full Stack Frameworks with Django.
 
-The unit aims to provide knowledge and skills needed to build a Back end web application. Topics include data storage and data management using either relational or non-relational databases.
+The unit aims to provide knowledge and skills needed to build a Full Stack web application. Topics include the use of frameworks, API's, persistent storage, user authentication and e-commerce functionality.
 
-The idea came several years ago but then it was in paper form.  I had started to try and jot down any recipes our family enjoyed, categorized into different food groups. Essentially it was a plastic folder with dividers, separating several bits of paper all with the aim of saving me time, but also ensuring we eat a balanced diet.  
-
-This units project criteria was the perfect opportunity to move the data (recipes) on to a user-friendly app!
 
 ### User Stories
 
@@ -36,14 +44,60 @@ This units project criteria was the perfect opportunity to move the data (recipe
 
 :heavy_check_mark: *denotes items that have been successfully implemented*
 
-- :heavy_check_mark: *view the site* from any device *(mobile, tablet, desktop)*.
-- :heavy_check_mark: *view all recipes* as a user.
-- :heavy_check_mark: *add* my own recipes.
-- :heavy_check_mark: *edit* my own recipes.
-- :heavy_check_mark: *delete* my own recipes.
-- :heavy_check_mark: *view* a random recipe from a particular category.
-- :heavy_check_mark: quickly locate where the recipe is kept.
-- :heavy_check_mark: easily plan a balanced, healthy meal-plan.
+1. Viewing and Navigating the site
+- :heavy_check_mark: *view* all the items in one place.
+- :heavy_check_mark: *view* individual items for further details such as price,description,availability and an image
+- :heavy_check_mark: *view* the items by specific type or category. ie Garden tools.
+- :heavy_check_mark: *view* the items by specific order. ie sorting by price.
+- :heavy_check_mark: *view* the items that are available.
+- :heavy_check_mark: *view* an items available date if currently unavailable.
+- :heavy_check_mark: *view* how much the individual items are and a running total of all items chosen.
+- :heavy_check_mark: *view* items in a bag to be purchased.
+- :heavy_check_mark: *view* a selection of tools that fit my search parameters. ie name or category.
+- :heavy_check_mark: *view* articles about ways to help save the environment, money or space.
+- :heavy_check_mark: *view* more information about community events that taking place to help save the environment, money or space.
+
+
+2. Registration and User Accounts
+- :heavy_check_mark: *Register* for an account and view my profile.
+- :heavy_check_mark: Easily log in and logout of my *User Account*.
+- :heavy_check_mark: Easily recover my password for my *User Account*.
+- :heavy_check_mark: Receive an email confirmation after *registering*.
+- :heavy_check_mark: have access to my personalized *User* profile address and phone number.
+- :heavy_check_mark: have access to my personalized *User* profile to see my previous orders.
+- :heavy_check_mark: have access to my personalized *User* profile to see the events I'm attending.
+
+
+3. Community information and events
+- :heavy_check_mark: receive information via email about *events* Share Bear are organizing.
+- :heavy_check_mark: receive regular *information* via email about Share Bear in general.
+
+
+4. Online payment process
+- :heavy_check_mark: view clearly the items I'm going to *pay* for.
+- :heavy_check_mark: safely complete a *payment* for the items, with prompts and confirmation.
+- :heavy_check_mark: receive confirmation the *payment* was successful.
+- :heavy_check_mark: receive confirmation of the order on screen with details about the next steps.
+- :heavy_check_mark: receive confirmation of the order via email with details about the next steps.
+
+
+
+"**_As a user and staff member, I would like to_** _____________________________"
+
+1. Add, Edit and Delete items.
+- :heavy_check_mark: easily *add* new items available to borrow.
+- :heavy_check_mark: easily *edit* items information. changing stock, availability or details
+- :heavy_check_mark: easily *delete* items if no longer an item Share Bear offers.
+
+2. Add, Edit and Delete Blogs.
+- :heavy_check_mark: easily *add* new blogs. Information and images
+- :heavy_check_mark: easily *edit* blogs to update information and images.
+- :heavy_check_mark: easily *delete* blogs that are out-of-date or no longer of interest.
+
+3. Add, Edit and Delete Events.
+- :heavy_check_mark: easily *add* new Events. Information, image, date, location and organiser.
+- :heavy_check_mark: easily *edit* events to update current information.
+- :heavy_check_mark: easily *delete* old or cancelled events.
 
 
 ## Design  

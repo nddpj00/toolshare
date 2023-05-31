@@ -157,6 +157,10 @@ input[name='q']::placeholder {
     height: 2px;
 }
 
+.btn-sm {
+    font-size: 10px;
+}
+
 /* --------------------------------- footer */
 
 .footer {
