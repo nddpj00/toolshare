@@ -11,27 +11,29 @@ from newsletter.models import Newsletter
 from newsletter.forms import NewsletterSubscriptionForm
 
 # test emails
-def send_test_email_attendee(user_first_name, user_email, event_title, event_date, event_location, event_body):
-    subject = 'You have been invited to an event'
-    template_name = 'events/event_attendee_email.html'
-    context = {
 
+def send_test_email_attendee(user_first_name, user_email, event_title, event_date, event_location, event_body):
+    subject = 'Share Bear Event'
+    template_name = 'event_confirmation_emails/event_attendee_email_body.txt'
+    
+    context = {
         'recipient_name': user_first_name,
-        'event_title': event_title,
+        'event_title': event_title.capitalize(),
         'event_date': event_date,
         'event_location': event_location,
         'event_body': event_body,
     }
+    
     message = render_to_string(template_name, context)
-    from_email = 'danieljones625@gmail.com'
+    from_email = 'Share Bear Team'
     recipient_list = [user_email]
-
+    
     send_mail(subject, message, from_email, recipient_list)
 
 
 def send_test_email_interested(user_first_name, user_email, event_title, event_date, event_location, event_body):
-    subject = 'events/event_confirmation_emails/event_attendee_email_subject.txt'
-    template_name = 'events/event_confirmation_emails/event_attendee_email_body.txt'
+    subject = 'Share Bear Event'
+    template_name = 'event_confirmation_emails/event_interested_email_body.txt'
     context = {
 
         'recipient_name': user_first_name,
@@ -41,7 +43,7 @@ def send_test_email_interested(user_first_name, user_email, event_title, event_d
         'event_body': event_body,
     }
     message = render_to_string(template_name, context)
-    from_email = 'danieljones625@gmail.com'
+    from_email = 'Share Bear Team'
     recipient_list = [user_email]
 
     send_mail(subject, message, from_email, recipient_list)

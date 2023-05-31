@@ -1,6 +1,6 @@
 Hello {{ recipient_name }},
 
-Thank you for signing up to attend the {{ event_title }} event that we've organised.
+Thank you for signing up to attend the '{{ event_title.capitalize }}' event that we've organised.
 
 Here are the details.....
 
@@ -8,7 +8,7 @@ Event details:
 
 Date:       {{ event_date }}
 Location:   {{event_location }}
-Details:    {{ event_body }}
+Details:    {{ event_body.capitalize }}
 
 
 Thank you! Looking forward to seeing you there.

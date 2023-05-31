@@ -1,1 +1,0 @@
-Share Bear {{ event_title }}
