@@ -80,6 +80,7 @@ def events_list(request):
     context = {
         'events' : events,
         'form': form,
+        'on_profile_events_page': True,
     }
 
     return render(request, template, context)
