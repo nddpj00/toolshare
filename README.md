@@ -157,40 +157,122 @@ Please click on the individual Apps to see all wireframes.
 
 I chose to use PostgreSQL, a relational database system for my app as I felt there was going to be clear defined relationships between the tables and the data therein. I felt an RDBMS would be well suited to query and manage the content for my needs.
 
-1. For the App the majority of the data is contained within the Recipe table.  
-1. The Category table is to allow grouping of the recipes but is still course related to the main recipes too.
-1. The Cuisine table is there for future development, to allow filtration of the cuisine type of the recipe.
+- The relationships between the models mostly stem from either the User or the Items.
 
-<img align = "center" width = "300px" height = "200px" src = "mealplanner/wireframes/bdrf-databaseschema.png">
+<img align = "center" width = "300px" height = "200px" src = "wireframes/sharebear-database-schema.png">
+
+**User**
+```
+id: <BigAutoField>
+username : <Charfield>
+email: <EmailField>
+```
+
+**UserProfile**
+```
+id: <BigAutoField>
+user: <OneToOneField>
+default_phone_number: <CharField>
+default_street_address1: <CharField>
+default_street_address2: <CharField>
+default_town_or_city: <CharField>
+default_county: <CharField>
+default_postcode: <CharField>
+default_country: <CountryField>
+```
+
+**Order**
+```
+id: <BigAutoField>
+order_number: <CharField>
+user_profile: <ForeignKey>
+full_name: <CharField>
+email: <EmailField>
+phone_number: <CharField>
+country: <CountryField>
+postcode: <CharField>
+town_or_city: <CharField>
+street_address1: <CharField>
+street_address2: <CharField>
+county: <CharField>
+date: <DateTimeField>
+order_total: <DecimalField>
+original_bag: <TextField>
+stripe_pid: <CharField>
+
+```
+
+**OrderLineItem**
+```
+id: <BigAutoField>
+order: <ForeignKey>
+item: <ForeignKey>
+quantity: <IntegerField>
+lineitem_total: <DecimalField>
+
+```
 
 **Category**
 ```
-id: <Integer>
-food_category: <string>
-```
-
-**Cuisine**
-```
-id: <Integer>
-recipe_cuisine: <String>
-```
-
-**Recipe**
-```
-id: <Integer>
-recipe_name: <String>
-recipe_notes: <Text>
-cook_time: <Time>
-recipe_location: <Text>
-family_friendly : <Boolean>
-recipe_healthy: <Boolean>
-date_added: <Date>
-category_id: <Integer>
-cuisine_id: <Integer>
+id: <BigAutoField>
+name: <CharField>
+friendly_name: <CharField>
 
 ```
 
----
+**Item**
+```
+id: <BigAutoField>
+category: <ForeignKey>
+name: <CharField>
+description: <TextField>
+manufacturer: <CharField>
+price: <DecimalField>
+image_url: <URLField>
+image: <ImageField>
+availableDate: <DateField>
+stock: <PositiveIntegerField>
+
+```
+
+**Article**
+```
+id: <BigAutoField>
+title: <CharField>
+slug: <SlugField>
+body: <TextField>
+date: <DateTimeField>
+thumb: <ImageField>
+author: <ForeignKey>
+
+```
+
+**Event**
+```
+id: <BigAutoField>
+organiser: <ForeignKey>
+title: <CharField>
+slug: <SlugField>
+body: <TextField>
+date: <DateTimeField>
+attendees: <ManyToManyField>
+interested: <ManyToManyField>
+location: <CharField>
+thumb: <ImageField>
+
+```
+
+**Newsletter**
+```
+id: <BigAutoField>
+first_name: <CharField>
+email: <EmailField>
+is_registered_already: <ForeignKey>
+
+```
+
+
+
 ## **FEATURES** ##
 
 1. Responsive on all device sizes
