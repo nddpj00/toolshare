@@ -126,81 +126,31 @@ Though the site has E-commerce functionality, I felt it should have a less steri
 
 ### WIREFRAMES 
 
-<style>
-.image-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-</style>
-**The Home Page**
+Please click on the individual Apps to see all wireframes.
 
-<div class="image-row">
-  <div>
-    <h3>Desktop</h3>
-    <img src="media/wireframes/home/sharebear-home-desktop.png" alt="Desktop" style="width: 450px; height: 500px;">
-  </div>
-  <div>
-    <h3>Tablet</h3>
-    <img src="media/wireframes/home/sharebear-home-tablet.png" alt="Tablet" style="width: 300px; height: 650px;">
-  </div>
-  <div>
-    <h3>Mobile</h3>
-    <img src="media/wireframes/home/sharebear-home-mobile.png" alt="Mobile" style="width: 200px; height: 800px;">
-  </div>
-</div>  
+- [Wireframes Home App](wireframes/home)
+<img align = "center" width = "400px" height = "600px" src = "wireframes/home/sharebear-home-desktop.png">
 
-**The Item Pages**
+- [Wireframes Items App](wireframes/items)
+<img align = "center" width = "400px" height = "600px" src = "wireframes/items/sharebear-items-desktop.png">
 
-<div class="image-row">
-  <div>
-    <h3>Desktop</h3>
-    <img src="media/wireframes/items/sharebear-items-desktop.png" alt="Desktop" style="width: 450px; height: 500px;">
-  </div>
-  <div>
-    <h3>Tablet</h3>
-    <img src="media/wireframes/items/sharebear-items-tablet.png" alt="Tablet" style="width: 300px; height: 650px;">
-  </div>
-  <div>
-    <h3>Mobile</h3>
-    <img src="media/wireframes/items/sharebear-items-mobile.png" alt="Mobile" style="width: 200px; height: 800px;">
-  </div>
-</div>
+- [Wireframes Profile App](wireframes/profile)
+<img align = "center" width = "400px" height = "600px" src = "wireframes/profile/sharebear-profile-desktop.png">
 
-**Item Detail**
+- [Wireframes Profile Events](wireframes/events)
+<img align = "center" width = "400px" height = "600px" src = "wireframes/events/sharebear-eventslist-desktop.png">
 
-<div class="image-row">
-  <div>
-    <h3>Desktop</h3>
-    <img src="media/wireframes/items/sharebear-itemdetail-desktop.png" alt="Desktop" style="width: 450px; height: 500px;">
-  </div>
-  <div>
-    <h3>Tablet</h3>
-    <img src="media/wireframes/items/sharebear-itemsdetail-tablet.png" alt="Tablet" style="width: 300px; height: 650px;">
-  </div>
-  <div>
-    <h3>Mobile</h3>
-    <img src="media/wireframes/items/sharebear-itemdetails-mobile.png" alt="Mobile" style="width: 200px; height: 800px;">
-  </div>
-</div>
+- [Wireframes Profile Blog](wireframes/blog)
+<img align = "center" width = "400px" height = "600px" src = "wireframes/blog/sharebear-admin-add_article-desktop.png">
 
-**Item Admin Add Item**
+- [Wireframes Profile Bag](wireframes/bag)
+<img align = "center" width = "400px" height = "600px" src = "wireframes/bag/sharebear-bag-desktop.png">
 
-<div class="image-row">
-  <div>
-    <h3>Desktop</h3>
-    <img src="media/wireframes/items/sharebear-admin-add_item-desktop.png" alt="Desktop" style="width: 450px; height: 500px;">
-  </div>
-  <div>
-    <h3>Tablet</h3>
-    <img src="media/wireframes/items/sharebear-admin-add_item-tablet.png" alt="Tablet" style="width: 300px; height: 650px;">
-  </div>
-  <div>
-    <h3>Mobile</h3>
-    <img src="media/wireframes/items/sharebear-admin-add_item-mobile.png" alt="Mobile" style="width: 200px; height: 800px;">
-  </div>
-</div>
+- [Wireframes Profile Checkout](wireframes/checkout)
+<img align = "center" width = "400px" height = "600px" src = "wireframes/checkout/sharebear-checkout-desktop.png">
+
+- [Wireframes Profile Checkout Success](wireframes/checkout_success)
+<img align = "center" width = "400px" height = "600px" src = "wireframes/checkout_success/sharebear-checkout_success-desktop.png">
 
 ---
 ## **THE DATABASE** ##
