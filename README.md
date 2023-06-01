@@ -139,15 +139,15 @@ Though the site has E-commerce functionality, I felt it should have a less steri
 <div class="image-row">
   <div>
     <h3>Desktop</h3>
-    <img src="media/wireframes/home/sharebear-home-desktop.png" alt="Desktop" style="width: 250px; height: 500px;">
+    <img src="media/wireframes/home/sharebear-home-desktop.png" alt="Desktop" style="width: 450px; height: 500px;">
   </div>
   <div>
     <h3>Tablet</h3>
-    <img src="media/wireframes/home/sharebear-home-tablet.png" alt="Tablet" style="width: 200px; height: 650px;">
+    <img src="media/wireframes/home/sharebear-home-tablet.png" alt="Tablet" style="width: 300px; height: 650px;">
   </div>
   <div>
     <h3>Mobile</h3>
-    <img src="media/wireframes/home/sharebear-home-mobile.png" alt="Mobile" style="width: 150px; height: 800px;">
+    <img src="media/wireframes/home/sharebear-home-mobile.png" alt="Mobile" style="width: 200px; height: 800px;">
   </div>
 </div>  
 
@@ -156,24 +156,51 @@ Though the site has E-commerce functionality, I felt it should have a less steri
 <div class="image-row">
   <div>
     <h3>Desktop</h3>
-    <img src="media/wireframes/items/sharebear-items-desktop.png" alt="Desktop" style="width: 250px; height: 500px;">
+    <img src="media/wireframes/items/sharebear-items-desktop.png" alt="Desktop" style="width: 450px; height: 500px;">
   </div>
   <div>
     <h3>Tablet</h3>
-    <img src="media/wireframes/items/sharebear-items-tablet.png" alt="Tablet" style="width: 200px; height: 650px;">
+    <img src="media/wireframes/items/sharebear-items-tablet.png" alt="Tablet" style="width: 300px; height: 650px;">
   </div>
   <div>
     <h3>Mobile</h3>
-    <img src="media/wireframes/items/sharebear-items-mobile.png" alt="Mobile" style="width: 150px; height: 800px;">
+    <img src="media/wireframes/items/sharebear-items-mobile.png" alt="Mobile" style="width: 200px; height: 800px;">
   </div>
 </div>
 
+**Item Detail**
 
-   **Mobile Screen Wireframes**
+<div class="image-row">
+  <div>
+    <h3>Desktop</h3>
+    <img src="media/wireframes/items/sharebear-itemdetail-desktop.png" alt="Desktop" style="width: 450px; height: 500px;">
+  </div>
+  <div>
+    <h3>Tablet</h3>
+    <img src="media/wireframes/items/sharebear-itemsdetail-tablet.png" alt="Tablet" style="width: 300px; height: 650px;">
+  </div>
+  <div>
+    <h3>Mobile</h3>
+    <img src="media/wireframes/items/sharebear-itemdetails-mobile.png" alt="Mobile" style="width: 200px; height: 800px;">
+  </div>
+</div>
 
-<img width = "150px" height = "300px" src = "mealplanner/wireframes/bdrf-wireframe-mobile-home.png">
-<img width = "150px" height = "300px" src = "mealplanner/wireframes/bdrf-wireframe-mobile-add-recipe.png">
-<img width = "150px" height = "300px" src = "mealplanner/wireframes/bdrf-wireframe-mobile-recipe.png">
+**Item Admin Add Item**
+
+<div class="image-row">
+  <div>
+    <h3>Desktop</h3>
+    <img src="media/wireframes/items/sharebear-admin-add_item-desktop.png" alt="Desktop" style="width: 450px; height: 500px;">
+  </div>
+  <div>
+    <h3>Tablet</h3>
+    <img src="media/wireframes/items/sharebear-admin-add_item-tablet.png" alt="Tablet" style="width: 300px; height: 650px;">
+  </div>
+  <div>
+    <h3>Mobile</h3>
+    <img src="media/wireframes/items/sharebear-admin-add_item-mobile.png" alt="Mobile" style="width: 200px; height: 800px;">
+  </div>
+</div>
 
 ---
 ## **THE DATABASE** ##
