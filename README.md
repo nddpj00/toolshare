@@ -129,37 +129,45 @@ Though the site has E-commerce functionality, I felt it should have a less steri
 Please click on the individual Apps to see all wireframes.
 
 - [Wireframes Home App](wireframes/home)
-<img align = "center" width = "400px" height = "600px" src = "wireframes/home/sharebear-home-desktop.png">
+<img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/home/sharebear-home-desktop.png">
 
 - [Wireframes Items App](wireframes/items)
-<img align = "center" width = "400px" height = "600px" src = "wireframes/items/sharebear-items-desktop.png">
+<img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/items/sharebear-items-desktop.png">
 
 - [Wireframes Profile App](wireframes/profile)
-<img align = "center" width = "400px" height = "600px" src = "wireframes/profile/sharebear-profile-desktop.png">
+<img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/profile/sharebear-profile-desktop.png">
 
-- [Wireframes Profile Events](wireframes/events)
-<img align = "center" width = "400px" height = "600px" src = "wireframes/events/sharebear-eventslist-desktop.png">
+- [Wireframes Events](wireframes/events)
+<img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/events/sharebear-eventslist-desktop.png">
 
-- [Wireframes Profile Blog](wireframes/blog)
-<img align = "center" width = "400px" height = "600px" src = "wireframes/blog/sharebear-admin-add_article-desktop.png">
+- [Wireframes Blog](wireframes/blog)
+<img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/blog/sharebear-blog_list-desktop.png">
 
-- [Wireframes Profile Bag](wireframes/bag)
-<img align = "center" width = "400px" height = "600px" src = "wireframes/bag/sharebear-bag-desktop.png">
+- [Wireframes Bag](wireframes/bag)
+<img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/bag/sharebear-bag-desktop.png">
 
-- [Wireframes Profile Checkout](wireframes/checkout)
-<img align = "center" width = "400px" height = "600px" src = "wireframes/checkout/sharebear-checkout-desktop.png">
+- [Wireframes Checkout](wireframes/checkout)
+<img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/checkout/sharebear-checkout-desktop.png">
 
-- [Wireframes Profile Checkout Success](wireframes/checkout_success)
-<img align = "center" width = "400px" height = "600px" src = "wireframes/checkout_success/sharebear-checkout_success-desktop.png">
+- [Wireframes Checkout Success](wireframes/checkout_success)
+<img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/checkout_success/sharebear-checkout_success-desktop.png">
 
 ---
 ## **THE DATABASE** ##
 
 I chose to use PostgreSQL, a relational database system for my app as I felt there was going to be clear defined relationships between the tables and the data therein. I felt an RDBMS would be well suited to query and manage the content for my needs.
 
-- The relationships between the models mostly stem from either the User or the Items.
+The relationships between the models mostly stem from either the User or the Items.  
+The schema allows for the following:
+-  Users profiles to access the allauth user information.
+-  Orders to be linked to an individual User and display on their profile page.
+-  Order items (OrderLineItem) to be linked to both Order and Item.
+-  Items to be linked to their particular Categories for sorting and display purposes.
+-  Blogs/Articles author linked to a User.
+-  Events organiser to be linked to a User.
+-  Newsletter subscribers linked to existing Users.
 
-<img align = "center" width = "300px" height = "200px" src = "wireframes/sharebear-database-schema.png">
+<img align = "center" width = "300px" height = "200px" src = "readme_media/database/sharebear-database-schema.png">
 
 **User**
 ```
@@ -272,35 +280,40 @@ is_registered_already: <ForeignKey>
 ```
 
 
-
+---
 ## **FEATURES** ##
 
-1. Responsive on all device sizes
+### **Site Features** ###
 
-2. Add / Store a Recipe [**C**RUD]
-- Use a form to direct the user to easily add a recipe. 
-- Form looks for duplication and notifies user via a flash message if duplicate exists.
-- User to select a category via the dropdown to sort in to the correct recipe page.
-- Once submitted the user is directed to the recipe page of the category chosen, allowing them to see the added recipe, along with a flash message to give immediate and full feedback on data processes.
-   
+1. Responsive on all device sizes.
 
-3. Read / View a Recipe [C**R**UD] 
-- Select via the Navbar food group of the recipe you're looking for. i.e Oily-fish
-- See the time it takes to cook the recipe on the main header.
-- Icons to allow user to quickly ascertain if the recipe is healthy or family-friendly, along with a key.
-- When accordion card is open the user can view notes about the recipe, along with buttons to direct them to edit the recipe or delete it.
-- If the location of the recipe is a URL then a button will be present which contains a link to the external webpage. If the recipe is in a cookbook or supplement then details such as cookbook and page number will be found here instead.
--From the home page / (categories.html) the user has the option to click on the 'Get Random recipe' button which selects a random recipe from that respective food group. Great if in a hurry or feeling indecisive!
+2. Easily navigate to all other parts of the site, regardless of where you are.
 
-4. Update/ Edit a Recipe [CR**U**D]
-- Click on the edit button of the recipe to edit.
-- Form loads with pre-populated information.
-- Once 'Save Change' button clicked the user is directed to the page where the recipe is, along with a flash message giving immediate feedback its updated.
+3. Visability of bag total on all pages.
 
-5. Delete a Recipe [CRU**D**]
-- Click on the delete button of the recipe to delete it from the database.
-- Defensive programming modal opens to confirm user wants to proceed with the deletion.
-- If confirmed the user is directed back to the page where the recipe was, along with a flash message giving immediate feedback its been deleted.
+
+
+### **App Features** ###
+
+#### **Home App** ####
+
+* Clear responsive navigation that can take you to the items, blogs, events or profile pages.
+* Information about the purpose of the organisaion and a button for quick access to the tools available.
+* Information of the process of 'borrowing' items.
+* Search the site via the search bar.
+* View and click for further details the latest 4 blogs that have been written. This has the added benefit of the homepage dynamically updating every time a new blog is published.
+* View and click for further details the latest 4 events that are coming up.
+* Shop information listed with opening times and a google map.  
+
+#### **Items App** ####
+
+* Choose from the main header the tools of a particular category.
+* Use the sort by dropdown to sort the tools by price, name or category.
+* See the total amount of tools available in that particular category
+* For each tool you see view the name, category, price, stock and if available.  If unavailable a date will show a date when it becomes available again. <img align = "center" width = "150px" height = "200px" src = "readme_media/app_features/sharebear-readme-appfeatures-itemunavailable.png">
+* 
+
+
 
 ###   Features to implement in the future
 
