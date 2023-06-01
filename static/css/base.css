@@ -111,7 +111,7 @@ body {
     top: 0;
     left: 0;
     position: fixed;
-    background: rgba(98, 165, 161, .15);
+    background: #e8f2f1;
     z-index: -1;
 }
 

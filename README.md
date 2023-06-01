@@ -6,16 +6,15 @@
 
 I'm what you might call an enthusiastic DIYer.  I have no expertise in any building maintenance or repair and really have no affinity with it either....  but always feel I should *go-it-a-go* (much to the exasperation of my long-suffering wife).  So I'm often embarking on a new project to repair or update a part of our aging victorian house, of which it so often needs.
 
-After much researching on how to complete this job I often discover that to do it properly, which at this point at least is my intention, I need to purchase a new, shiny tool.  The tool usually seems like a great investment, after all, I'm saving money by doing the job myself right.  The problem is , if I take a wonder in to my shed right now, I've got shelves and shelves of tools that are practically new untouched or used once or twice , literally gathering dust and housing spiders.
+After much researching on how to complete the job I often discover that to do it properly, which at this point at least is my intention, I need to purchase a new, shiny tool.  The tool usually seems like a good investment, after all, I'm saving money by doing the job myself right.  The problem is , if I take a stroll down to my shed right now and peer in, I've got shelves and shelves of tools that I've brought for previous jobs and are practically untouched or used only once or twice , literally gathering dust and housing spiders.
 
 You can hire tools of course, but looking online its not a lot less than buying, except for JCBs and other large machinery.
 
-Looking out from my house, across the gardens up and down my street I can see every one has a shed and I can guarantee most include garden tools, lawnmowers , ladders and a vareity of other barely used tools and machinery.... slowly rusting away.  Surely it would make better sense to share these tools.  Financially, environmentally and to save space too.
-
+Looking out from my house, across the gardens up and down my street I can see every one has a shed and I can guarantee most include garden tools, lawnmowers , ladders and a vareity of other barely used tools and machinery.... slowly rusting away and rarely used.  Surely it would make better sense to share these tools.  Financially, environmentally and to save space too.
 
 My idea is Share Bear. A community based organisation, which means its for the benefit of local people to make use of it but also to contribute, volunteer and run it.
 
-I'd love to set up a project that would work a little like Vinted or Facebook Marketplace, where users deal with each other directly, but for sharing tools.. in fact sharing anything really. Why stop at tools!  However, that format I quickly realized  was out of my scope as regards my current knowledge of Django, so opted for the below approach - 
+I'd love to expand on the idea and set up a project that would work a little like Vinted or Facebook Marketplace, where users deal with each other directly, but for sharing tools.. in fact sharing anything really. Why stop at tools!  However, that format I quickly realized  was out of my scope as regards my current knowledge of Django and time, so opted for the below approach - 
 
 1. People can browse the tool catalogue and borrow as many tools as they need for a week at a time.  There is a nominal price on each product to cover maintenance and upkeep of the tools.  Plus this gives me the opportunity to fulfil the 'online payment processing' criteria requirement, needed to complete my Diploma.
 
@@ -104,36 +103,71 @@ The unit aims to provide knowledge and skills needed to build a Full Stack web a
 
 #### Colour Scheme
 
-I wanted some vivid colours that come from produce so have I have used avocado green and reddish pinks that I feel compliment each other well.
-- ![#DED369](https://via.placeholder.com/15/DED369/DED369) `#DED369` (**Avocado Green**)
-- ![#F8EFEA](https://via.placeholder.com/15/F8EFEA/F8EFEA) `#F8EFEA` (**Pink**)
-- ![#E0475B](https://via.placeholder.com/15/E0475B/E0475B) `#E0475B` (**Coral**)
+Though the site has E-commerce functionality, I felt it should have a less sterile feel than most do, but still showcasing the items.  Most ecommerce sites keep the colours neutral , with white or off-white backgrounds, but i wanted to offer up a friendlier tone.
+- ![#e76f51](https://via.placeholder.com/15/e76f51/e76f51) `#e76f51` (**Burnt Sienna**)
+- ![#e8f2f1](https://via.placeholder.com/15/e8f2f1/e8f2f1) `#e8f2f1` (**Light Blue**)
+- ![#2a9d8f](https://via.placeholder.com/15/2a9d8f/2a9d8f) `#2a9d8f` (**Dark Green**)
 
 #### Typography
 
 - I used [Google Fonts](https://fonts.google.com/) for my application. 
 
--For the front page navbar brand header I used :-
+-Throughout the site I used 'Chivo Mono' for the text. With a grey colour. 
 
-- [Fredoka One](https://fonts.google.com/specimen/Fredoka+One)
+- [Chivo Mono](https://fonts.google.com/specimen/Chivo+Mono)
 
--For the food group headers, card texts and nav links I used :-
-
-- [Volkhov](https://fonts.google.com/specimen/Volkhov)
 
 #### Icons
 
 - [Font Awesome 6.3.0](https://fontawesome.com/)
-    - These where used for the chilli icons in the navbar and for the individual form fields.
-
-### Wireframes
-
-   **Large Screen Wireframes**
+    - These where used throughout the site. including  the navigation icons, the increment/decrement icons and social icons.
 
 
-<img width = "250px" height = "200px" src = "mealplanner/wireframes/bdrf-wireframes.png">
-<img width = "250px" height = "200px" src = "mealplanner/wireframes/bdrf-addrecipe.png">
-<img width = "250px" height = "200px" src = "mealplanner/wireframes/bdrf-wireframes-lg-recipe.png">
+
+### WIREFRAMES 
+
+<style>
+.image-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+</style>
+**The Home Page**
+
+<div class="image-row">
+  <div>
+    <h3>Desktop</h3>
+    <img src="media/wireframes/home/sharebear-home-desktop.png" alt="Desktop" style="width: 250px; height: 500px;">
+  </div>
+  <div>
+    <h3>Tablet</h3>
+    <img src="media/wireframes/home/sharebear-home-tablet.png" alt="Tablet" style="width: 200px; height: 650px;">
+  </div>
+  <div>
+    <h3>Mobile</h3>
+    <img src="media/wireframes/home/sharebear-home-mobile.png" alt="Mobile" style="width: 150px; height: 800px;">
+  </div>
+</div>  
+
+**The Item Pages**
+
+<div class="image-row">
+  <div>
+    <h3>Desktop</h3>
+    <img src="media/wireframes/items/sharebear-items-desktop.png" alt="Desktop" style="width: 250px; height: 500px;">
+  </div>
+  <div>
+    <h3>Tablet</h3>
+    <img src="media/wireframes/items/sharebear-items-tablet.png" alt="Tablet" style="width: 200px; height: 650px;">
+  </div>
+  <div>
+    <h3>Mobile</h3>
+    <img src="media/wireframes/items/sharebear-items-mobile.png" alt="Mobile" style="width: 150px; height: 800px;">
+  </div>
+</div>
+
 
    **Mobile Screen Wireframes**
 
