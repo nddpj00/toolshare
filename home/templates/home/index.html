@@ -81,12 +81,12 @@
             <div class=" card h-100 ">
                 {% if article.thumb %}
                 <div class=" card-img-container">
-                    <a href="{% url 'detail' slug=article.slug %}">
+                    <a href="{% url 'detail' article_id=article.id%}">
                         <img class="card-img-top img-fluid" src="{{ article.thumb.url }}" alt="{{ article.title }}">
                     </a>
                 </div>
                 {% else %}
-                <a href="{% url 'detail' slug=article.slug %}">
+                <a href="{% url 'detail' article_id=article.id %}">
                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ article.title }}">
                 </a>
                 {% endif %}

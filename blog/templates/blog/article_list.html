@@ -30,13 +30,13 @@
 <div class="container">
 
     <div class="row justify-content-center bg-light mt-4 rounded shadow mx-1">
-        <div class="col-12 col-md-6 col-lg-6 mt-3 mb-0 mb-md-3 d-flex flex-column">
+        <div class="col-12 col-md-6 col-lg-4 mt-3 mb-0 mb-md-3 d-flex flex-column">
             <div>
-                <h2><a class='blog-event-title' href="{% url 'detail' slug=article.slug %}">
+                <h2><a class='blog-event-title' href="{% url 'detail' article_id=article.id %}">
                         {{ article.title.upper|truncatechars:50 }}</a></h2>
             </div>
             <div class="mb-3">
-                <p>{{ article.body|truncatechars:100 }}</p>
+                <p>{{ article.body|truncatechars:100|linebreaks }}</p>
             </div>
             <div class="mt-auto">
                 <div class="text-right">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="text-center text-sm-left">
                     <a class="browse-tools-button btn bg-primary-subtle text-primary-emphasis mt-2 p-3"
-                        href="{% url 'detail' slug=article.slug %}">Read More</a>
+                        href="{% url 'detail' article_id=article.id  %}">Read More</a>
                 </div>
             </div>
 
@@ -68,7 +68,7 @@
             {% endif %}
         </div>
 
-        <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center justify-content-center d-flex flex-column">
+        <div class="col-12 col-md-6 col-lg-4 d-flex align-items-center justify-content-center d-flex flex-column">
             <div class="image-container my-3 mx-auto">
                 {% if article.thumb %}
                 <a href="{{ article.thumb.url }}">

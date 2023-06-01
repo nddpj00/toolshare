@@ -301,16 +301,15 @@ input[name='q']::placeholder {
     }
 
     .img-small {
-        max-width: 50%;
+        max-width: 100%;
     }
+
 
     .header-container {
         padding-top: 260px;
     }
 
 }
-
-
 
 
 /* pad the top a bit when navbar is collapsed on mobile */
@@ -387,5 +386,9 @@ input[name='q']::placeholder {
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .header-container {
         padding-top: 130px;
+    }
+
+    .img-small {
+        max-width: 40%;
     }
 }

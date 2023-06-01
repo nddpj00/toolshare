@@ -336,27 +336,24 @@ is_registered_already: <ForeignKey>
 * If no image is selected then a default image is used.
 
 4. Edit Item [CR**U**D]
-* If an authenticated staff member is logged in they can edit an item, via the edit link on the respective item's detail page.  
+* If an authenticated staff member is logged in they can edit an item, via the edit link on the respective item's detail page or from the items card on the main item page.  
 * The link is conditionally rendered based on the user being staff and logged in.
 * The existing database information for the item is pre-filled in the fields.
 * Easy to use and useful if someone needs to extend the time they've borrowed an item by pushing out the AvailableDate.
 * Once completed and 'Update Item' button selected it update the database with the new information immediately.
 
 5. Delete Item [CRU**D**]
-* If an authenticated staff member is logged in they can delete an item, via the delete link on the respective item's detail page.  
+* If an authenticated staff member is logged in they can delete an item, via the delete link on the respective item's detail page or from the items card on the main item page.  
 * The link is conditionally rendered based on the user being staff and logged in.
 * As an extra precaution against deleting an item in error, I've added a modal pop-up for the user to confirm.
 - <img align = "center" width = "200px" height = "150px" src = "readme_media/app_features/sharebear-readme-appfeatures-itemdeletemodal.png">  
 
 
-
-
-
-
-
 #### **Blog App** ####
 
-1.
+1. Blog List [C**R**UD]
+* Here you can see a list of articles, sorted in date order so the latest is at the top.
+* Includes a title, a 
 
 
 ###   Features to implement in the future

@@ -43,9 +43,9 @@ def article_list(request):
 
 
 
-def article_detail(request, slug):
+def article_detail(request, article_id):
 
-    article = get_object_or_404(Article, slug = slug)
+    article = get_object_or_404(Article, pk=article_id)
 
     template = 'blog/article_detail.html'
 
@@ -96,7 +96,7 @@ def edit_article(request, article_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated article!')
-            return redirect(reverse('detail', kwargs={'slug':article.slug}))
+            return redirect(reverse('detail', args=[article.id]))
         else:
             messages.error(request, 'Failed to update item. Please ensure the form is valid.')
     else:
@@ -112,19 +112,6 @@ def edit_article(request, article_id):
     return render(request, template, context)
 
 
-
-# @login_required()
-# def delete_article(request, article_id):
-#     """ Delete a blog article  """
-#     if not request.user.is_superuser:
-#         messages.error(request, 'Sorry, only site owners can do that.')
-#         return redirect(reverse('home'))
-
-#     article = get_object_or_404(Article, pk=article_id)
-#     article.delete()
-#     messages.success(request, 'Blog deleted!')
-
-#     return redirect(reverse('blog'))
 
 @login_required()
 def delete_instance_blog(request, instance_id):
