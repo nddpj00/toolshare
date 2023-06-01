@@ -30,7 +30,7 @@
 <div class="container">
 
     <div class="row justify-content-center bg-light mt-4 rounded shadow mx-1">
-        <div class="col-sm-6 mt-3 mb-0 mb-md-3 d-flex flex-column">
+        <div class="col-12 col-md-6 col-lg-6 mt-3 mb-0 mb-md-3 d-flex flex-column">
             <div>
                 <h2><a class='blog-event-title' href="{% url 'detail' slug=article.slug %}">
                         {{ article.title.upper|truncatechars:50 }}</a></h2>
@@ -49,7 +49,6 @@
                 </div>
             </div>
 
-
             {% if request.user.is_superuser %}
             <div
                 class="d-flex justify-content-center justify-content-sm-between align-items-center text-center text-sm-left">
@@ -66,12 +65,10 @@
                     </small>
                 </div>
             </div>
-
-
-
             {% endif %}
         </div>
-        <div class="col-sm-5 d-flex align-items-center justify-content-center">
+
+        <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center justify-content-center d-flex flex-column">
             <div class="image-container my-3 mx-auto">
                 {% if article.thumb %}
                 <a href="{{ article.thumb.url }}">
@@ -86,6 +83,7 @@
         </div>
     </div>
     <hr class="mt-4">
+
 </div>
 <!-- Modal confirming deletion -->
 {% include 'delete_modal_blog.html' %}

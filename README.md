@@ -283,7 +283,7 @@ is_registered_already: <ForeignKey>
 ---
 ## **FEATURES** ##
 
-### **Site Features** ###
+### **Site-wide Features** ###
 
 1. Responsive on all device sizes.
 
@@ -307,12 +307,56 @@ is_registered_already: <ForeignKey>
 
 #### **Items App** ####
 
+1. Item_list [C**R**UD]
 * Choose from the main header the tools of a particular category.
 * Use the sort by dropdown to sort the tools by price, name or category.
 * See the total amount of tools available in that particular category
-* For each tool you see view the name, category, price, stock and if available.  If unavailable a date will show a date when it becomes available again. <img align = "center" width = "150px" height = "200px" src = "readme_media/app_features/sharebear-readme-appfeatures-itemunavailable.png">
-* 
+* Each tool shows the name, category, price, stock and if available.  
+  If unavailable it will show a date when it becomes available again.  
+- <img align = "center" width = "150px" height = "200px" src = "readme_media/app_features/sharebear-readme-appfeatures-itemunavailable.png">
+* Unlike an e-commerce site there will only be one of each item in most cases, or only a limited number.  For this reason I felt the stock amount should be an important feature.
+    The items will be borrowed for a week long period, meaning after checkout the stock will be reduced by the quantity and the availableDate field updated with a date 7 days from purchase. All done automatically from the checkout_success view.
+* If changes happen outside this process, such as an item being returned early, then a staff member can update the information easily from the Item Management page.
 
+2. Item_detail [C**R**UD]
+* After selecting an item it takes you to the detail page for it.  It contains further description details also.
+* You can change the quantity you'd like to purchase, using the increment and decrement buttons.
+* I've implemented JavaScript code to ensure that the decrement button is disabled to prevent the quantity going below 1.
+* I've also implemented JavaScript code to disable the increment button to prevent the quantity going above the available 'stock' number.(see quantity_input_script.html)
+* The options are either to select 'Keep Shopping' taking you back the item list or 'Add to Bag' .
+* When adding to the bag a toast/message is rendered on screen confirming this was successful, along with an image of the whole bag, including items previously added.
+* At this point the bag view checks to ensure the quantity of the item in the bag already, along with the additional quantity doesnt exceed the stock.  If it does the additional quantity isnt added to the bag and the user will receive a warning message.
+- <img align = "center" width = "200px" height = "150px" src = "readme_media/app_features/sharebear-readme-appfeatures-addtobagwarning.png">
+
+3. Add Item [**C**RUD]
+* If an authenticated staff member is logged in they can add a new item, via the Item Management page.  Accessed from the Account dropdown.
+* A simple form to complete the necessary fields. Category, Name, Description, Manufacturer, Price, Image url, Image, AvailableDate and Stock.
+* Manufacturer, Image url, Image and AvailableDate aren't mandatory.
+* Once completed and 'Add Item' button selected it adds a new item entry in the database, and is immediately available to be borrowed.
+* If no image is selected then a default image is used.
+
+4. Edit Item [CR**U**D]
+* If an authenticated staff member is logged in they can edit an item, via the edit link on the respective item's detail page.  
+* The link is conditionally rendered based on the user being staff and logged in.
+* The existing database information for the item is pre-filled in the fields.
+* Easy to use and useful if someone needs to extend the time they've borrowed an item by pushing out the AvailableDate.
+* Once completed and 'Update Item' button selected it update the database with the new information immediately.
+
+5. Delete Item [CRU**D**]
+* If an authenticated staff member is logged in they can delete an item, via the delete link on the respective item's detail page.  
+* The link is conditionally rendered based on the user being staff and logged in.
+* As an extra precaution against deleting an item in error, I've added a modal pop-up for the user to confirm.
+- <img align = "center" width = "200px" height = "150px" src = "readme_media/app_features/sharebear-readme-appfeatures-itemdeletemodal.png">  
+
+
+
+
+
+
+
+#### **Blog App** ####
+
+1.
 
 
 ###   Features to implement in the future

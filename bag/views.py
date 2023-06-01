@@ -18,8 +18,12 @@ def add_to_bag(request, item_id):
     bag = request.session.get('bag', {})
 
     if item_id in list(bag.keys()):
-        bag[item_id] += quantity
-        messages.success(request, f'Updated {item.name} quantity to {bag[item_id]}')
+        
+        if quantity + bag[item_id] > item.stock:
+            messages.warning(request, f"Sorry we've only got {item.stock} x {item.name}")
+        else:
+            bag[item_id] += quantity
+            messages.success(request, f'Updated {item.name} quantity to {bag[item_id]}')
     else:
         bag[item_id] = quantity
         messages.success(request, f'{item.name} dropped into your tool bag')
