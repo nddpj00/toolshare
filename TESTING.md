@@ -1,5 +1,5 @@
 
-### Manual Vs Automated Testing
+# Manual Vs Automated Testing
 
 - I opted to **manually** test my site.  The reasons are -  
 
@@ -14,32 +14,74 @@
     3. Continual code added to the site. Automated tests can be run after every addition, ensuring no disruption to the existing code.
     4. Higher accuracy. Important if the site is in the public domain and linked to an organization. To avoid deprecation of the 'brand' due to a poor website.
     5. Time. Though they take longer to set up initially, having a bespoke automated testing process will save time in the long run, due to how frequently they need to be run when maintaining and improving the site.
+---
 
-
-### Manual Test process  
+## Manual Test process  
 
   - The Test
-## Home App
+### Home App
 1. All navbar links work.
 1. Latest Blogs and Event links work and take you to correct page.
 1. Search bar works, filtering the categories and items.
 1. Links for social media work.
 1. Links to email and phone open respective client programmes.
 
-## Items App
-1. Item list
+
+#### Item list
 1. Filtering of items by Category.
 1. Sorting of items. Price, Name, Category
 1. Links to item details.
 1. Edit and Delete works render and work for staff only
 
-2. Item Details
+#### Item Details
 1. Edit and Delete works render and work for staff only.
-2. Keep Shopping and Add to Bag button work as intended.
-3. Decrement button doesnt go below 1.
-4. Increment button is disabled when stock quantity met.
-5. Toast/messages show correct information depending on the action.
-6. Bag total updated with quantity x price amount.
+1. Keep Shopping and Add to Bag button work as intended.
+1. Decrement button doesnt go below 1.
+1. Increment button is disabled when stock quantity met.
+1. Toast/messages show correct information depending on the action.
+1. Bag total updated with quantity x price amount.
+1. If no stock of the item -  Unavailable rendered with due back date. - Quantity button greyed out and the 'add to bag' button displaying 'Unavailable'
+
+#### Add Item
+1. Item Management link from Account in Navbar renders the Add item form.
+1. Errors message produced when required fields left blank.
+1. Error message produced when stock number is negative.
+
+#### Edit Item
+1. Existing data prefilling fields.
+1. Cancel button returns to previous page.
+1. Update Item button updates the database with the new information.
+1. Errors message produced when required fields left blank.
+1. Error message produced when stock number is negative.
+
+#### Delete Item
+1. Modal loads when delete selected from item_list and item_detail pages.
+1. 'Keep' button doesnt delete the item and returns user to page.
+1. 'Delete' button removes the item from the database.
+1. User is returned to item_list page.
+
+#### Blog/Article list
+1. Page renders with all information displaying.
+1. Title bar links directs you to the correct blog details.
+1. 'Read  more' button directs to the correct blog details.
+1. Edit and Delete buttons visable for logged in staff only.
+1. Newsletter sign-up provides message confirming subscription.
+1. Name and email details added to Newsletter model table.
+1. Error messaging if duplicate email used.
+
+#### Blog/Article Detail
+1. Page renders with all information displaying.
+1. 'Back' button directs to blog list.
+1. Edit and Delete buttons visable for logged in staff only.
+1. Edit and Delete buttons work directing to the correct pages.
+
+#### Add Blog
+1. Blog Management link works from the main Account nav dropdown
+1. Errors message produced when required fields left blank.
+1. Error message produced when title is over 50 characters
+1. New Article is added in article_list and is present on homepage.
+1. If new blog added and items in bag. Item not to display in success toast.
+
 
 ### Outcomes
 

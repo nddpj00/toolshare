@@ -30,7 +30,7 @@ def profile(request):
     context = {
         'form': form,
         'orders': orders,
-        'on_profile_events_page': True,
+        'on_profile_events_blog_page': True,
         'events': events,
     }
 
