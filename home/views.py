@@ -8,7 +8,7 @@ from django.contrib import messages
 def index(request,):
     """ A view to return the index page and add most recent blogs and events"""
     recentBlogs = Article.objects.exclude(thumb__exact='').order_by('-date')[:4]
-    recentEvents = Event.objects.exclude(thumb__exact='').order_by('-date')[:4]
+    recentEvents = Event.objects.exclude(thumb__exact='').order_by('date')[:4]
 
     if request.method == 'POST':
         form = NewsletterSubscriptionForm(request.POST, request.FILES)

@@ -30,7 +30,7 @@
         <div class="col-md-6 order-md-1">
             <h1>{{ event.title.capitalize }}</h1>
             <div>
-                <p>{{ event.body.capitalize }}</p>
+                <p>{{ event.body.capitalize|linebreaks }}</p>
             </div>
             <div>
                 <p>The date:{{ event.date | date:"jS F,Y"}}</p>

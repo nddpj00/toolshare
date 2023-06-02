@@ -381,6 +381,8 @@ is_registered_already: <ForeignKey>
 * Here you'll find the full article containing details of the event.  Date, time and location.
 * There is a facility to email the organiser from this page.  The organiser's name and email address is dynamically rendered.
 * If the email link is clicked it opens up the users email client with the organisers email address populating the 'To:' field.
+
+3. Event - Add Attendee [CR**U**D]
 * The user can select that they're going to attend the event.  They'll be prompted to log in/sign up if not already. Then it sends them an email confirming the event details for the user to refer back to and adds the event to the users profile page.
 * If the user is logged in and already registered as attending, the event detail page will render confirming this and offering a link to the profile page to cancel if necessary.
 <div style="display: flex; justify-content: center;">
@@ -388,6 +390,12 @@ is_registered_already: <ForeignKey>
     <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/app_features/sharebear-readme-appfeatures-events-profile.png">
     <img align="center" width="200px" height="150px" src="readme_media/app_features/sharebear-readme-appfeatures-events-alreadyattending.png">
 </div>
+
+4. Event - Interested in Event [CR**U**D]
+* The user can select that they're interested in the event.  They'll be prompted to log in/sign up if not already. Different to saying they'll be attending the event, the user receives an email confirming their interest with event details to hopefully persuade the user to attend.
+* I felt it necessary to split 'interested' to 'attending' to obtain useful data on numbers of people to expect and options to change the correspondence being sent out accordingly.
+* Also it will drive user registration for users that havent borrowed items and dont wish to commit to attending an event. 
+<img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/app_features/sharebear-readme-appfeatures-events-interested.png">
 
 
 3. Edit Blog [CR**U**D]

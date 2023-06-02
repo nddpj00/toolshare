@@ -203,21 +203,22 @@ def add_attendee(request, event_id):
 
 @login_required()
 def add_interested(request, event_id):
-
+    event = get_object_or_404(Event, pk=event_id)
     # Adds user to attendee list
     if request.method == 'POST':
 
-        event = get_object_or_404(Event, pk=event_id)
+        
         user = request.user
         user_email = request.user.email
         event.interested.add(user.id)
         event.save()
-        messages.success(request, "Thanks for your interest")
+        messages.success(request, "Thanks for your interest, we'll email you with some information about the event. Hope to see you there!")
         send_test_email_interested(user.first_name, user.email, event.title, event.date, event.location, event.body)
 
         return redirect(reverse('event_detail', kwargs={'slug':event.slug}))
 
 
-    else:
-        messages.failure(request, "Oops something went wrong, sorry. Please get in touch")
-        return render(request, 'events')
+    # else:
+    #     messages.error(request, "Oops something went wrong, sorry. Please get in touch")
+
+    return redirect(reverse('event_detail', kwargs={'slug':event.slug}))
