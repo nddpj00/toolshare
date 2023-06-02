@@ -6,11 +6,11 @@
 
 I'm what you might call an enthusiastic DIYer.  I have no expertise in any building maintenance or repair and really have no affinity with it either....  but always feel I should *go-it-a-go* (much to the exasperation of my long-suffering wife).  So I'm often embarking on a new project to repair or update a part of our aging victorian house, of which it so often needs.
 
-After much researching on how to complete the job I often discover that to do it properly, which at this point at least is my intention, I need to purchase a new, shiny tool.  The tool usually seems like a good investment, after all, I'm saving money by doing the job myself right.  The problem is , if I take a stroll down to my shed right now and peer in, I've got shelves and shelves of tools that I've brought for previous jobs and are practically untouched or used only once or twice , literally gathering dust and housing spiders.
+After much researching on how to complete the job I often discover that to do it properly, which at this point at least is my intention, I need to purchase a new, shiny tool.  The tool usually seems like a good investment, after all, I'm saving money by doing the job myself right.  The problem is , if I take a stroll down to my shed right now and peer in, I've got shelves and shelves of tools that I've bought for previous jobs and are practically untouched or used only once or twice , literally gathering dust and housing spiders.
 
 You can hire tools of course, but looking online its not a lot less than buying, except for JCBs and other large machinery.
 
-Looking out from my house, across the gardens up and down my street I can see every one has a shed and I can guarantee most include garden tools, lawnmowers , ladders and a vareity of other barely used tools and machinery.... slowly rusting away and rarely used.  Surely it would make better sense to share these tools.  Financially, environmentally and to save space too.
+Looking out from my house, across the gardens up and down my street I can see every one has a shed and I'm certain most include garden tools, lawnmowers , ladders and a variety of other barely used tools and machinery.... slowly rusting away and rarely used.  Surely it would make better sense to share these tools.  Financially, environmentally and to save space too.
 
 My idea is Share Bear. A community based organisation, which means its for the benefit of local people to make use of it but also to contribute, volunteer and run it.
 
@@ -303,6 +303,7 @@ is_registered_already: <ForeignKey>
 * Search the site via the search bar.
 * View and click for further details the latest 4 blogs that have been written. This has the added benefit of the homepage dynamically updating every time a new blog is published.
 * View and click for further details the latest 4 events that are coming up.
+* The blog and events are filtered to remove any that don't include an image to ensure the homepage looks professional.
 * Shop information listed with opening times and a google map.  
 
 #### **Items App** ####
@@ -353,7 +354,53 @@ is_registered_already: <ForeignKey>
 
 1. Blog List [C**R**UD]
 * Here you can see a list of articles, sorted in date order so the latest is at the top.
-* Includes a title, a 
+* Includes a clickable title and button taking you to the full article.
+
+2. Blog details [C**R**UD]
+* Here you'll find the full article.
+
+3. Edit Blog [CR**U**D]
+* If an authenticated staff member is logged in they can edit an article, via the edit link on the respective article's detail page or from the article card on the main article page.
+* The link is conditionally rendered based on the user being staff and logged in.
+* The existing database information for the item is pre-filled in the fields.
+* Once completed and 'Update the article' button selected it update the database with the new information immediately.
+
+5. Delete Blog [CRU**D**]
+* If an authenticated staff member is logged in they can delete an article, via the delete link on the respective article's detail page or from the article card on the main article detail page.  
+* The link is conditionally rendered based on the user being staff and logged in.
+* As an extra precaution against deleting an article in error, I've added a modal pop-up for the user to confirm.
+
+#### **Event App** ####
+
+1. Events List [C**R**UD]
+* Here you can see a list of articles, sorted in date order so the latest is at the top.
+* These will be events that are organised by Share Bear with the Share Bear ethos. Community minded and environmental.
+* Includes a clickable title and button taking you to the full article.
+
+2. Event details [C**R**UD]
+* Here you'll find the full article containing details of the event.  Date, time and location.
+* There is a facility to email the organiser from this page.  The organiser's name and email address is dynamically rendered.
+* If the email link is clicked it opens up the users email client with the organisers email address populating the 'To:' field.
+* The user can select that they're going to attend the event.  They'll be prompted to log in/sign up if not already. Then it sends them an email confirming the event details for the user to refer back to and adds the event to the users profile page.
+* If the user is logged in and already registered as attending, the event detail page will render confirming this and offering a link to the profile page to cancel if necessary.
+<div style="display: flex; justify-content: center;">
+    <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/app_features/sharebear-readme-appfeatures-events-addattendee.png">
+    <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/app_features/sharebear-readme-appfeatures-events-profile.png">
+    <img align="center" width="200px" height="150px" src="readme_media/app_features/sharebear-readme-appfeatures-events-alreadyattending.png">
+</div>
+
+
+3. Edit Blog [CR**U**D]
+* If an authenticated staff member is logged in they can edit an article, via the edit link on the respective article's detail page or from the article card on the main article page.
+* The link is conditionally rendered based on the user being staff and logged in.
+* The existing database information for the item is pre-filled in the fields.
+* Once completed and 'Update the article' button selected it update the database with the new information immediately.
+
+5. Delete Blog [CRU**D**]
+* If an authenticated staff member is logged in they can delete an article, via the delete link on the respective article's detail page or from the article card on the main article detail page.  
+* The link is conditionally rendered based on the user being staff and logged in.
+* As an extra precaution against deleting an article in error, I've added a modal pop-up for the user to confirm.
+
 
 
 ###   Features to implement in the future

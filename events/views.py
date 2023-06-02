@@ -177,11 +177,11 @@ def delete_instance_event(request, instance_id):
 
 @login_required()
 def add_attendee(request, event_id):
-
+    event = get_object_or_404(Event, pk=event_id)
     # Adds user to attendee list
     if request.method == 'POST':
 
-        event = get_object_or_404(Event, pk=event_id)
+        
         user = request.user
         user_email = request.user.email
         event.attendees.add(user.id)
@@ -196,8 +196,9 @@ def add_attendee(request, event_id):
 
 
     else:
-        messages.failure(request, "Oops something went wrong, sorry. Please get in touch")
-        return render(request, 'events')
+        messages.error(request, "Oops something went wrong, sorry. Please get in touch")
+        
+    return redirect(reverse('event_detail', kwargs={'slug':event.slug}))
 
 
 @login_required()
@@ -214,7 +215,7 @@ def add_interested(request, event_id):
         messages.success(request, "Thanks for your interest")
         send_test_email_interested(user.first_name, user.email, event.title, event.date, event.location, event.body)
 
-        return redirect(reverse('events'))
+        return redirect(reverse('event_detail', kwargs={'slug':event.slug}))
 
 
     else:
