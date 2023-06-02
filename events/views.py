@@ -58,10 +58,8 @@ def events_list(request):
 
         if form.is_valid():
             email = form.cleaned_data.get('email')
-            print(email)
             if Newsletter.objects.filter(email=email).exists():
                 messages.error(request, "The email address is already subscribed to the newsletter.")
-                print("email exists")
             else:
                 if request.user.is_authenticated:
                     form.instance.is_registered_already = request.user

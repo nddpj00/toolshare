@@ -30,6 +30,7 @@ Why is this such a good idea.
 
 ---
 
+
 ## **USER EXPERIENCE (UX)** ##
 
 The project was created in order to fulfil the criteria of the L5 Diploma in Web Application Development that I'm completing. This is for Unit 4: Full Stack Frameworks with Django.
@@ -128,28 +129,28 @@ Though the site has E-commerce functionality, I felt it should have a less steri
 
 Please click on the individual Apps to see all wireframes.
 
-- [Wireframes Home App](wireframes/home)
+- [Wireframes Home App](readme_media/wireframes/home)
 <img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/home/sharebear-home-desktop.png">
 
-- [Wireframes Items App](wireframes/items)
+- [Wireframes Items App](readme_media/wireframes/items)
 <img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/items/sharebear-items-desktop.png">
 
-- [Wireframes Profile App](wireframes/profile)
+- [Wireframes Profile App](readme_media/wireframes/profile)
 <img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/profile/sharebear-profile-desktop.png">
 
-- [Wireframes Events](wireframes/events)
+- [Wireframes Events](readme_media/wireframes/events)
 <img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/events/sharebear-eventslist-desktop.png">
 
-- [Wireframes Blog](wireframes/blog)
+- [Wireframes Blog](readme_media/wireframes/blog)
 <img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/blog/sharebear-blog_list-desktop.png">
 
-- [Wireframes Bag](wireframes/bag)
+- [Wireframes Bag](readme_media/wireframes/bag)
 <img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/bag/sharebear-bag-desktop.png">
 
-- [Wireframes Checkout](wireframes/checkout)
+- [Wireframes Checkout](readme_media/wireframes/checkout)
 <img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/checkout/sharebear-checkout-desktop.png">
 
-- [Wireframes Checkout Success](wireframes/checkout_success)
+- [Wireframes Checkout Success](readme_media/wireframes/checkout_success)
 <img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/checkout_success/sharebear-checkout_success-desktop.png">
 
 ---
@@ -359,9 +360,15 @@ is_registered_already: <ForeignKey>
 2. Blog details [C**R**UD]
 * Here you'll find the full article.
 
-3. Edit Blog [CR**U**D]
+3. Blog -  Add [**C**RUD]
+* If an authenticated staff member is logged in they can add an article by selecting 'Blog Management' from the main navigation Account dropdown.
+* A form is rendered allowing the staff member to add all necessary fields. Including Title, Body, and Image.
+* Once the details are added and the 'Add Article' button is selected, the database is updated with the article.  The event is rendered on the article list page and the home page if one of the most recently published.
+
+4. Edit Blog [CR**U**D]
 * If an authenticated staff member is logged in they can edit an article, via the edit link on the respective article's detail page or from the article card on the main article page.
 * The link is conditionally rendered based on the user being staff and logged in.
+* The links take you to an edit blog form.
 * The existing database information for the item is pre-filled in the fields.
 * Once completed and 'Update the article' button selected it update the database with the new information immediately.
 
@@ -384,6 +391,7 @@ is_registered_already: <ForeignKey>
 
 3. Event - Add Attendee [CR**U**D]
 * The user can select that they're going to attend the event.  They'll be prompted to log in/sign up if not already. Then it sends them an email confirming the event details for the user to refer back to and adds the event to the users profile page.
+* The event stores them as an attendee.  This would allow reminders to be sent near the event date.
 * If the user is logged in and already registered as attending, the event detail page will render confirming this and offering a link to the profile page to cancel if necessary.
 <div style="display: flex; justify-content: center;">
     <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/app_features/sharebear-readme-appfeatures-events-addattendee.png">
@@ -391,38 +399,75 @@ is_registered_already: <ForeignKey>
     <img align="center" width="200px" height="150px" src="readme_media/app_features/sharebear-readme-appfeatures-events-alreadyattending.png">
 </div>
 
-4. Event - Interested in Event [CR**U**D]
-* The user can select that they're interested in the event.  They'll be prompted to log in/sign up if not already. Different to saying they'll be attending the event, the user receives an email confirming their interest with event details to hopefully persuade the user to attend.
-* I felt it necessary to split 'interested' to 'attending' to obtain useful data on numbers of people to expect and options to change the correspondence being sent out accordingly.
-* Also it will drive user registration for users that havent borrowed items and dont wish to commit to attending an event. 
-<img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/app_features/sharebear-readme-appfeatures-events-interested.png">
+4. Event -  Add [**C**RUD]
+* If an authenticated staff member is logged in they can add an event by selecting 'Event Management' from the main navigation Account dropdown.
+* A form is rendered allowing the staff member to add all necessary fields. Including Title, Body, Date, Location, Image and from a dropdown, the organiser.
+* Once the details are added and the 'Add Event' button is selected, the database is updated with the event.  The event is rendered on the event list page and the home page if one of the 4 most due the soonest.
 
-
-3. Edit Blog [CR**U**D]
-* If an authenticated staff member is logged in they can edit an article, via the edit link on the respective article's detail page or from the article card on the main article page.
+5. Event - Edit [CR**U**D]
+* If an authenticated staff member is logged in they can edit an event, via the edit link on the respective article's detail page or from the article card on the main article page.
 * The link is conditionally rendered based on the user being staff and logged in.
-* The existing database information for the item is pre-filled in the fields.
-* Once completed and 'Update the article' button selected it update the database with the new information immediately.
+* The link takes you to a an edit event form. The existing database information for the event is pre-filled in the fields.
+* Once completed and 'Update the article' button selected it updates the database with the new information immediately.  
+<img align="center" width="200px" height="150px" src="readme_media/app_features/sharebear-readme-appfeatures-events-editform.png">
 
-5. Delete Blog [CRU**D**]
-* If an authenticated staff member is logged in they can delete an article, via the delete link on the respective article's detail page or from the article card on the main article detail page.  
-* The link is conditionally rendered based on the user being staff and logged in.
-* As an extra precaution against deleting an article in error, I've added a modal pop-up for the user to confirm.
+6. Event - Delete [CRU**D**]
+* If an authenticated staff member is logged in they can delete an event, via the delete link on the respective event's detail page or from the article card on the main article detail page.   The link is conditionally rendered based on the user being staff and logged in.
+* As an extra precaution against deleting an event in error, I've added a modal pop-up for the user to confirm.
 
+#### **Newsletter App** ####
+
+* As part of the footer, the newsletter form is available to sign-up to on the Home page, the article_list page and the blog_list page.  
+* Simple form, taking first name and email with a sign-up button.
+* Given the need for community evolvement and volunteering, I felt it necessary for regular updates for people interested in all things to do with Share Bear.
+* The form with handled within the view it was submitted from.  The view checks if the email already exists in the Newsletter model and if so then the user is updated with a message. Otherwise the data is added to the Newsletter model.
+* If the user is logged in, then the user details are captured too, as this could be useful data for targeted mailing.  
+<img align="center" width="200px" height="150px" src="readme_media/app_features/sharebear-readme-appfeatures-newsletter-form.png">
+
+
+#### **Bag App** ####
+
+* The user can either access the bag via the 'Go to Secure Checkout' button on the message toast when adding items or by selecting the bag icon on the top navigation bar.
+* Items are added to a bag session. Stored to if the user leaves and returns to the site, the bag still has their items in it.
+* The bag is displayed differently depending on screen size, with the small screens vertically stacking the items.
+* The user can choose to remove the individual items and update the quantity.
+* The increment button will disable once the stock amount has been reached for that item.
+* The user can choose to 'keep shopping' or 'secure checkout'.  If they select 'Secure Checkout' this triggers the 'Checkout' App/view. 
+
+#### **Checkout App** ####
+
+1. Checkout
+* An order form and order summary is rendered on screen.
+* User has an option to 'Save details to their profile' by selecting a checkbox.
+* To proceed with the purchase, the user will need to complete the form, including payment details and choose 'Complete Order'
+* The payment request is made via Stripe.
+* The bag session is stored and the order details updated on the database Order table.
+* If the user chose to save the order details then the database is updated with the order linked to their profile.
+
+2. Checkout Success
+* With the payment complete, the detail of the order are confirmed with a thank you.
+* Information about the items, order number, amount and the shop address is included.
+* The order details are also stored within the profile section.
+
+#### **User App** ####
+
+* I used Django built in authentication management system allauth.
+* This deals with all registration, logging in/out and password resetting.
 
 
 ###   Features to implement in the future
 
-1. User login
-- This would allow others to use it for their purpose with *their* favourite recipes.
-- Users able to delete their own recipes and option to view only their recipes.
-- Would ensure the security of the App. Preventing users deleting others recipes.
+1. Newsletter
+- I'd need to implement a data agreement that the user can agree to. 
+- Means to unsubscribe to marketing and newsletters from within the profile page and emails that are sent.
 
-2. Filter
-- Users able to filter recipes by more than just food group.  Cuisine, Healthy or family friendly.  This is the reason I've added 'Cuisine' information on the database but as yet, not used.
+2. Events
+- An in-built mechanism to send event reminders to those that expressed an interest or said they'd attend.
 
-3. Search
-- Users to be able to search a specific ingredient.  
+3. Stock
+- A booking system allowing a user to reserve items.  Maybe showing a calendar on the item detail page showing dates available.
+
+4. Eventually a Vinted or Facebook Marketplace system, whereby users can arrange to borrow items directly from others.
 
 ---
 ## **TECHNOLOGIES USED** ##
@@ -437,30 +482,46 @@ is_registered_already: <ForeignKey>
 
 ### Frameworks, Libraries & Programs
 
-1. [Flask 2.2.3](https://flask.palletsprojects.com/en/2.2.x/)
-    - Micro web framework use for the main build of the database-backed app.
-1.  [Jinja](https://jinja.palletsprojects.com/en/3.1.x/)
-    - Templating engine used to pass data to render final document. Used to write code similar to Python within the html documents.
-1.  [SQLAlchemy 1.4.46](https://www.sqlalchemy.org/)
-    - Toolkit used to allow use of Python language to complete SQL queries.
-1.  [Psycopg2 2.9.5](https://pypi.org/project/psycopg2/)
-    - PostgresSQL database adapter for Python.
-1.  [ElephantSQL](https://www.elephantsql.com/)
-    - To host my PostgreSQL database
-1.  [Heroku-22](https://www.heroku.com/)
-    - As the hosting platform for the App.
-1.  [Bootstrap 5.3.0:](https://getbootstrap.com/docs/5.0/)
-    - Bootstrap was used to assist with the responsiveness and styling of the website.
-1.  [GitHub:](https://github.com/)
-    - GitHub is used to store the project's code after being pushed from Git.
-1.  [Balsamiq:](https://balsamiq.com/)
-    - Balsamiq was used to create the initial wireframes during the design process.
-1.  [BrowserStack:](https://www.browserstack.com/docs/)
-    - BrowserStack allowed manual testing of the site of all different browsers and devices. 
-1.  [Unsplash:](https://unsplash.com/)
-    - Unsplash provided a free resource for the photos used on the site.
-1.  [Tinypng:](https://tinypng.com/)
-    - Tinypng was used to compress the photos to improve site load times.
+- [Git](https://git-scm.com/)
+    - Version control.
+- [GitHub](https://github.com/)
+    - For storing code and deploying the site.
+- [Gitpod](https://www.gitpod.io/)
+    - Used for building and editing my code.
+- [Django](https://www.djangoproject.com/)
+    - A python based framework that was used to develop the site.
+- [Bootstrap](https://getbootstrap.com/)
+    - For help designing the html templates.
+- [Google Fonts](https://fonts.google.com/)
+    - Used to style the website's logo.
+- [Font Awesome](https://fontawesome.com/)
+    - Used to obtain the icons used.
+- [Google Developer Tools](https://developers.google.com/web/tools/chrome-devtools)
+    - Used to help fix problem areas and identify bugs.
+- [AWS S3 Console](https://s3.console.aws.amazon.com/s3/home)
+    - Used to store static files and images.
+- [Favicon.io](https://favicon.io/)
+    - Used to generate the site's favicon.
+- [SQlite](https://www.sqlite.org/index.html)
+    - Used when performing unit tests.
+- [ElephantSQL](https://www.elephantsql.com/)
+    - PostgreSQL database
+- [Lucidchart](https://www.lucidchart.com//)
+    - To draw out the database schema.
+- [Balsamiq](https://balsamiq.com/)
+    - To create the wireframes.
+- [W3C Markup Validation Service](https://validator.w3.org/) 
+    - Used to validate HTML code.
+- [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_input)
+    - Used to validate CSS code.
+- [Pep8](http://pep8online.com/)
+    - Used to validate Python code.
+- [JSHint](https://jshint.com/)
+    - Used to validate JS code.
+- [Tinyjpg](https://tinyjpg.com/)
+    - Used to compress images.
+- [Heroku](https://www.heroku.com/)
+    - To deploy the project.
 
 ---
 ### **VALIDATORS** ##
@@ -485,82 +546,9 @@ is_registered_already: <ForeignKey>
 <img align = "center" width ="300px" height = "200px" src = "mealplanner/static/images/testing/bdrf-testing-lighthouse.png">
 
 ---
-## **TESTING** ##
+## Testing 
 
-### Manual Vs Automated Testing
-
-- I opted to **manually** test my site.  The reasons are -  
-
-    1. As the sole developer I can quickly carry out tests as I go and can obtain immediate results from the test.
-    2. As the main purpose of the site is to learn about Back End Development, show understanding and gain a qualification; and won't need to be maintained in the long term, I felt the time it would take to build an automated testing process was unnecessary on this occasion.  In a real-world situation, the use of a test framework, such as Jest would be invaluable to ensure the continuous integrity of the site.
-    3. UX testing. Important to the overall usability of the site and can only be carried out via manual testing. Automated testing lacks human observation and cognitive abilities.
-
-- Reasons why I would use Automated Testing in the future for other projects.
-
-    1. Larger scale site or application that may have an increased amount of functionality and code. Manual testing would take too long.
-    2. Working in a team. Possibly no one person with in-depth knowledge of how the whole site should work and perform. Automated tests would allow anyone to run them.
-    3. Continual code added to the site. Automated tests can be run after every addition, ensuring no disruption to the existing code.
-    4. Higher accuracy. Important if the site is in the public domain and linked to an organization. To avoid deprecation of the 'brand' due to a poor website.
-    5. Time. Though they take longer to set up initially, having a bespoke automated testing process will save time in the long run, due to how frequently they need to be run when maintaining and improving the site.
-
-
-### Manual Test process  
-
-  - The Test  
-1. All navbar links work.
-1. Home/Category page loads a 'Random recipe' of the correct food category. Check all 5.
-1. All accordions work as expected across all 5 category HTML pages.
-1. 'Add recipe' page opens with form to complete and all fields work as expected
-1. 'Add recipe' button adds to the database and user is directed to the correct relevant recipe page, with feedback confirming the recipe has been added.
-1. Edit button opens the edit_recipe page with form pre-populated with existing information.
-1. 'Save Changes' button updates database with the changes made and user is directed to the correct, relevant page, with feedback confirming the recipe has been updated.
-1. Delete button produces a modal to confirm user wants to proceed. If selects ok the user receives feedback confirming the deletion.
-1. All pages work on different size screens, different browsers and devices
-
-### Outcomes
-
-<img align = "center" width = "500px" height = "350px" src = "mealplanner/static/images/testing/manual-testing-matrix.png"> 
-
-I used a programme called BrowserStack to perform the tests. This is software provided as part of the course, included in the Student Developer pack.  This software allows you to load your site on a live environment on each device and browser.
-
-The application recommended that 1 x high-end, 1 x low-end device and a tablet is tested for each main manufacturer of smart devices.  I tested Apple,Samsung and Google devices of differing size.  
-
-Also, I've tested the site on a broad cross-section of browsers.  Chrome, Edge, Safari, Firefox and Opera.
-
-The site performed well across all devices and browsers. All links worked as expected.  Appearance and layout looked good on all devices too.
-
-
-A small selection of screenshots showing the cross-browser testing.  
-Windows 11  
-<img align = "center" width = "200px" height = "100px" src = "mealplanner/static/images/testing/bdrf-testing-windows11.png">   
-Mac Big Sur 14.1  
-<img align = "center" width = "200px" height = "100px" src = "mealplanner/static/images/testing/bdrf-testing-mac-bigsur-14.1.png">   
-Apple Iphone 14  
-<img align = "center" width = "100px" height = "200px" src = "mealplanner/static/images/testing/bdrf-testing-iphone14.png">  
-Samsung S21 Ultra  
-<img align = "center" width = "100px" height = "200px" src = "mealplanner/static/images/testing/bdrf-testing-s21ultra.png">  
-Apple Iphone SE 2022   
-<img align = "center" width = "80px" height = "150px" src = "mealplanner/static/images/testing/bdrf-testing-iphonese-small.png">  
-Apple iPad Pro 11  
-<img align = "center" width = "150px" height = "200px" src = "mealplanner/static/images/testing/bdrf-testing-ipadpro11-2021.png">  
-
----
-## **BUGS** ##
-1. If a user incorrectly input 60mins or over in the minute field for the cook time a DataError was produced.
-    <img align = "center" width = "200px" height = "100px" src = "mealplanner/static/images/testing/bdrf-bug-over60mins.png">
-1. When editing a recipe the cook time wasn't pre-populating, remaining empty.
-1. If user clicks on 'Get random recipe' button, though it worked, the variable stored the recipe.  Meaning if the user clicked it over & over again it would show the same recipe. 
-1.  When deploying my original app I ran in to a problem with the database.  It wasn't creating the database and linking to the app.  After many hours trying to resolve I decided to copy the code on to a new workspace and re-attempted the deployment.  Unfortunately my 'commits' will be linked to that original Repo ["mealplanner.2"](https://github.com/nddpj00/mealplanner.2)
-
-## Fixes
-1. The dataerror was due to using the incorrect datatype I believe.  In the form I changed the type to "time" and this resolved it immediately.
-1. The data stored in the database was in the incorrect format.  By added 0 before the value on the html resolved this. ie value="0{{ recipe.cook_time }}" .
-1. I added some Javascript to reload the page on the 'close' button to allow a new recipe to be set as random.
-1. New workspace is this one and the deployment was successful.
-
-
-### Known Bugs
-No known bugs
+Testing and results can be found [here](TESTING.md)
 
 ---
 ## **DEPLOYMENT** ##
