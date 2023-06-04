@@ -97,7 +97,6 @@
             <div class="col-sm d-flex justify-content-center text-center">
                 <div>
                     <h3>Our Newsletter</h3>
-                    {{ form.media }}
                     <form method="POST" action="{% url 'blog' %}" class="form mb-2" enctype="multipart/form-data">
                         {% csrf_token %}
                         {% crispy form %}
