@@ -54,8 +54,8 @@
                 {% if request.user.is_superuser %}
                 <small>
                     <a href="{% url 'edit_item' item.id %}">Edit</a> |
-                    <a data-target="#deleteModalItem" data-toggle="modal" class=" text-danger delete-link"
-                        href="#deleteModalItem">Delete</a>
+                    <a data-target="#deleteModalItem{{ item.id}}" data-toggle="modal" class=" text-danger delete-link"
+                        href="#deleteModalItem{{ item.id}}">Delete</a>
                 </small>
 
                 {% endif %}
@@ -134,8 +134,8 @@
                     <p>Just checking, are you sure?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a type="button" class="btn btn-danger" href="{% url 'delete_instance_item' item.id %}">Delete</a>
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a class="btn btn-danger" href="{% url 'delete_instance_item' item.id %}">Delete</a>
                 </div>
             </div>
         </div>

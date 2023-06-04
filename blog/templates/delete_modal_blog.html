@@ -1,10 +1,10 @@
 <!-- Confirmation Modal -->
-<div class="modal fade" id="deleteArticleModal" tabindex="-1" role="dialog" aria-labelledby="deleteArticleModal"
-    aria-hidden="true">
+<div class="modal fade" id="deleteArticleModal{{ article.id }}" tabindex="-1" role="dialog"
+    aria-labelledby="deleteArticleModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="confirmcancelModalLabel">Confirm Cancellation</h5>
+                <h5 class="modal-title" id="confirmcancelModalLabel{{ article.id }}">Confirm Cancellation</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -14,7 +14,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">No, Keep</button>
-                <a class="btn btn-danger" id="confirmDeleteBtn"
+                <a class="btn btn-danger" id="confirmDeleteBtn{{ article.id }}"
                     href="{% url 'delete_instance_blog' instance_id=article.id %}">Delete</a>
             </div>
         </div>

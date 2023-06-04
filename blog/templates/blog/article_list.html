@@ -36,7 +36,7 @@
                         {{ article.title.upper|truncatechars:50 }}</a></h2>
             </div>
             <div class="mb-3">
-                <p>{{ article.body|truncatechars:100|linebreaks }}</p>
+                {{ article.body|truncatechars:100|linebreaks }}
             </div>
             <div class="mt-auto">
                 <div class="text-right">
@@ -58,8 +58,9 @@
                             Edit
                         </a>
                         <span>|</span>
-                        <a data-target="#deleteArticleModal" data-toggle="modal" data-instance-id="{{ article.id }}"
-                            class="text-danger delete-link" href="#deleteArticleModal">
+                        <a data-target="#deleteArticleModal{{ article.id }}" data-toggle="modal"
+                            data-instance-id="{{ article.id }}" class="text-danger delete-link"
+                            href="#deleteArticleModal">
                             Delete
                         </a>
                     </small>
