@@ -59,6 +59,10 @@ body {
     min-width: 260px;
 }
 
+.btn-green {
+    background: #2a9d8f;
+    color: white;
+}
 
 .btn-black {
     background: black;

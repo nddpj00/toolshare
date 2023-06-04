@@ -469,6 +469,11 @@ is_registered_already: <ForeignKey>
 
 4. Eventually a Vinted or Facebook Marketplace system, whereby users can arrange to borrow items directly from others.
 
+5. The availableDate applied if stock is 0 is currently set as 7 days from the date the last item is taken.  If more than 1 item then there maybe a return due within that time but currently my system of tracking the stock doesn't handle this.
+
+6. If necessary there are applications available to manage and track assets, which would provide a more comprehensive means to managing the stock and displaying availability to the user. Also allowing users to reserve items. eg. [myTurn](https://myturn.com).
+
+
 ---
 ## **TECHNOLOGIES USED** ##
 

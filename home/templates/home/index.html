@@ -226,7 +226,8 @@
                     <h3>Our Newsletter</h3>
                     <form method="POST" action="{% url 'home' %}" class="form mb-2" enctype="multipart/form-data">
                         {% csrf_token %}
-                        {% crispy form %}
+                        {{ form|crispy }}
+                        <button class="btn btn-green rounded text-uppercase">Sign Up</button>
                     </form>
                 </div>
             </div>
@@ -245,7 +246,7 @@
                             class="fab fa-twitter fa-2x"></i></a>
                 </div>
                 <div class="mt-auto">
-                    <p>Email us: <a class="links_sienna " href="mailto:mail@sharebear.co.uk">mail@sharebear.co.uk</a>
+                    <p>Email us: <a class="links_sienna" href="mailto:mail@sharebear.co.uk">mail@sharebear.co.uk</a>
                     </p>
 
                     <p>Call the shop: <a class="links_sienna " href="tel:08000000000">08000000000</a></p>

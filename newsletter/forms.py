@@ -8,22 +8,24 @@ class NewsletterSubscriptionForm(forms.ModelForm):
 
     class Meta:
         model = Newsletter
-        fields = ['first_name', 'email']
-        widgets = {
-            'first_name': forms.TextInput(attrs={'placeholder': 'First Name'}),
-            'email': forms.EmailInput(attrs={'placeholder': 'Email'}),
-        }
+        exclude = ('is_registered_already',)
+
 
     def __init__(self, *args, **kwargs):
         super(NewsletterSubscriptionForm, self).__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.form_class = 'form-horizontal'
-        self.helper.label_class = 'sr-only'
-        self.helper.layout = Layout(
-            Div(
-                PrependedText('first_name', '<i class="fa fa-user"></i>', placeholder='First Name'),
-                PrependedText('email', '<i class="fa fa-envelope"></i>', placeholder='Email'),
-                StrictButton('Sign up', type='submit', css_class='btn-secondary btn-sm ml-0 mt-2'),
-                css_class='d-flex flex-column'
-            )
-        )
+        placeholders = {
+            'first_name': 'First Name',
+            'email': 'Email',
+        }
+
+
+        # self.fields['default_phone_number'].widget.attrs['autofocus'] = True
+        for field in self.fields:
+            if self.fields[field].required:
+                placeholder = f'{placeholders[field]} *'
+            else:
+                placeholder = placeholders[field]
+            self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].label = False
+
+    
