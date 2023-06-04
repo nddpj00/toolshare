@@ -508,6 +508,8 @@ is_registered_already: <ForeignKey>
     - PostgreSQL database
 - [Lucidchart](https://www.lucidchart.com//)
     - To draw out the database schema.
+- [Trello](https://www.trello.com//)
+    - List making application to track progress. 
 - [Balsamiq](https://balsamiq.com/)
     - To create the wireframes.
 - [W3C Markup Validation Service](https://validator.w3.org/) 

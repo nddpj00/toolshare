@@ -26,6 +26,7 @@
 1. Links for social media work.
 1. Links to email and phone open respective client programmes.
 
+### Items App
 
 #### Item list
 1. Filtering of items by Category.
@@ -44,14 +45,14 @@
 
 #### Add Item
 1. Item Management link from Account in Navbar renders the Add item form.
-1. Errors message produced when required fields left blank.
+1. Error message produced when required fields left blank.
 1. Error message produced when stock number is negative.
 
 #### Edit Item
 1. Existing data prefilling fields.
 1. Cancel button returns to previous page.
 1. Update Item button updates the database with the new information.
-1. Errors message produced when required fields left blank.
+1. Error message produced when required fields left blank.
 1. Error message produced when stock number is negative.
 
 #### Delete Item
@@ -59,6 +60,8 @@
 1. 'Keep' button doesnt delete the item and returns user to page.
 1. 'Delete' button removes the item from the database.
 1. User is returned to item_list page.
+
+### Blog App
 
 #### Blog/Article list
 1. Page renders with all information displaying.
@@ -75,12 +78,118 @@
 1. Edit and Delete buttons visable for logged in staff only.
 1. Edit and Delete buttons work directing to the correct pages.
 
-#### Add Blog
+#### Add Blog/Article
 1. Blog Management link works from the main Account nav dropdown
-1. Errors message produced when required fields left blank.
+1. Error message produced when required fields left blank.
 1. Error message produced when title is over 50 characters
 1. New Article is added in article_list and is present on homepage.
-1. If new blog added and items in bag. Item not to display in success toast.
+1. If new blog added and items in bag. Items not to display in success toast.
+
+#### Edit Blog/Article
+1. Existing data prefilling fields.
+1. Cancel button returns to previous page.
+1. Update Item button updates the database with the new information.
+1. Errors message produced when required fields left blank.
+
+#### Delete Blog/Article
+1. Modal loads when delete selected from article_list and article_detail pages.
+1. 'Keep' button doesn't delete the item and returns user to page.
+1. 'Delete' button removes the article from the database.
+1. User is returned to article_list page.
+
+### Events App
+
+#### Event list
+1. Page renders with all information displaying.
+1. Title bar links directs you to the correct event details.
+1. 'Read  more' button directs to the correct evnet details.
+1. Edit and Delete buttons visable for logged in staff only.
+1. Newsletter sign-up provides message confirming subscription.
+1. Name and email details added to Newsletter model table.
+1. Error messaging if duplicate email used.
+
+#### Event Detail
+1. Page renders with all information displaying.
+1. 'Back to our events' button directs to article list.
+1. Edit and Delete buttons visable for logged in staff only.
+1. Edit and Delete buttons work directing to the correct pages.
+1. If user already registered for event then conditional rendering works to show this.
+1. Email link opens client email.
+
+#### Add Event
+1. Event Management link works from the main Account nav dropdown
+1. Error message produced when required fields left blank.
+1. Error message produced when title is over 50 characters
+1. New event is added in event_list and is present on homepage.
+1. If new event added and items in bag. Items not to display in success toast.
+
+#### Edit Item/Article
+1. Existing data prefilling fields.
+1. Cancel button returns to previous page.
+1. Update Item button updates the database with the new information.
+1. Error message produced when required fields left blank.
+
+#### Delete Item/Article
+1. Modal loads when delete selected from event_list and event_detail pages.
+1. 'Keep' button doesn't delete the item and returns user to page.
+1. 'Delete' button removes the article from the database.
+1. User is returned to event_list page.
+1. If event deleted, profile pages of users that were due to attend are updated correctly, removing the event.
+
+### Profile App
+1. Link to 'My Profile' from main Account Nav dropdown renders profile page.
+1. Existing profile details pre-filled in fields.
+1. Amending and selecting 'Update Information' updates database accordingly.
+1. Order History table displaying previous orders to user.
+1. Event user is registered to attend , displaying correctly.
+1. Cancel button to cancel attendance to the event removes user from attendees list.
+
+### Bag App
+### Add to Bag
+1. Items and quantities correctly added to bag session.
+1. If item already exists in bag the quantity is increased.
+1. If item already exists in bag but stock has been met then message rendered and quantity not increased.
+1. After item added to bag or quantity increased, user to remain on their existing page.
+
+###  Bag
+1. Correct image, title, price, quantity and total showing.
+1. 'Keep Shopping' button returns user to item_list page.
+1. 'Secure Checkout' button takes user to checkout page.
+
+### Adjust Bag
+1. Selecting decrement(minus) button reduces the quantity by 1.
+1. Selecting increment(plus) button increases the quantity by 1.
+1. If Quantity at 1 then decrement button disabled if clicked
+1. If Quantity at maximum stock amount for the item then increment button disabled if clicked.
+1. 'Update' button adjusts the quantity, updating the total.
+1. 'Remove' button removes the quantity value and if quantity 1 then removes item from bag.
+
+### Checkout App
+### Checkout
+1. if user is logged in (authenticated) then order form is pre-filled with name, email and address.
+1. if user is not logged in the order form is rendered blank.
+1. Error messages present if required fields not completed.
+1. Order summary displaying bag session correctly.
+1. If no items in bag session error message advising this and working button to return to items_list rendered.
+1. When 'Complete order' button selected post request triggered.
+1. Saves order to database.
+1. returns checkout_success.
+
+
+### Cache_checkout-data
+1.  triggered on checkout Post request.
+1. Stripe payment authorised or declined.
+1. If declined error message rendered advising payment declined.
+1. If payment successful then returns status 400.
+
+### Checkout-success
+1. order created in database.
+1. updates stock amount quantity by quantity for each item borrowed.
+1. If stock update reduces to 0 then 'availableDate added 7 days from now.
+1. If user authenticated user saved to order.
+1. Save the users address and number information if save_info requested.(checkbox)
+1. delete bag session
+1. display order table with correct items, quantity, total and order number.
 
 
 ### Outcomes
