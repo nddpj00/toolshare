@@ -29,7 +29,7 @@
             <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
+                <button class="btn btn-green text-uppercase float-right">Update Information</button>
             </form>
         </div>
         <div class="col-12 col-lg-6 mb-5">
@@ -48,7 +48,8 @@
                         {% for order in orders|dictsortreversed:'date' %}
                         <tr>
                             <td>
-                                <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
+                                <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}"
+                                    class="links_sienna">
                                     {{ order.order_number|truncatechars:6 }}
                                 </a>
                             </td>
@@ -88,7 +89,7 @@
                         {% for event in events %}
                         <tr>
                             <td class="small">
-                                <a href="{% url 'event_detail' event.slug %}" title="#">
+                                <a href="{% url 'event_detail' event.slug %}" title="#" class="links_sienna">
                                     {{ event.title.capitalize|truncatechars:20 }}
                                 </a>
                             </td>

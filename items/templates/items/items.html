@@ -17,8 +17,10 @@
         <div class="col text-center mt-3">
             <h2 class="text-black">Tools</h2>
             {% for c in current_categories %}
-            <a class="category-badge bg-sienna text-decoration-none" href="{% url 'items' %}?category={{ c.name }}">
-                <span class="p-2 mt-3 btn-blog text-black rounded">{{ c.friendly_name }}</span>
+
+            <a class="text-decoration-none rounded p-2 mt-3 btn-green" type="button"
+                href="{% url 'items' %}?category={{ c.name }}">
+                {{ c.friendly_name }}
             </a>
             {% endfor %}
             <hr class="w-50 mb-1">
@@ -31,7 +33,7 @@
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                     <div class="sort-select-wrapper w-50">
                         <select id="sort-selector"
-                            class="custom-select custom-select-sm rounded border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                            class="custom-select custom-select-sm rounded  border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                             <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
                             </option>
                             <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
@@ -65,7 +67,7 @@
             <div class="row">
                 {% for item in items %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card h-100 border-0">
+                    <div class="card h-100 border-0 rounded">
                         {% if item.image %}
                         <a href="{% url 'item_detail' item.id %}">
                             <img class="card-img-top img-fluid" src="{{ item.image.url }}" alt="{{ item.name }}">
@@ -104,7 +106,7 @@
                                         <a data-target="#deleteModalItem{{ item.id }}" data-toggle="modal"
                                             data-instance-id="{{ item.id }}" class="text-danger delete-link"
                                             href="#deleteModalItem{{ item.id }}">Delete</a>
-                                        <p class="text-info">Stock {{ item.stock }}</p>
+                                        <p class="links-green">Stock {{ item.stock }}</p>
                                     </small>
                                     {% endif %}
 

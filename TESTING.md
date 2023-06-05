@@ -26,7 +26,22 @@
 <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-jshint.png">
 
 - Python
-    - No errors were found when passing through [PEP8](http://pep8online.com/)
+    -  [CI PEP8 Linter](https://pep8ci.herokuapp.com/#/)
+    Only 2 PEP8 linting issues. Both stating line too long. Both are one character over and I felt on these occasions the code would be harder to read, not easier, if I split it on two lines instead.
+<div style="display: flex; justify-content: center;">
+    <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-python-bag-views.png">
+    <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-python-blog-views.png">
+    <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-python-checkout-views.png">
+</div>  
+<br>
+<div style="display: flex; justify-content: center; ">
+    <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-python-events-views.png">
+    <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-python-home-views.png">
+    <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-python-items-views.png">
+    <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-python-profile-views.png">
+</div>
+<br>
+
 - Lighthouse
 
     ![lighthouse](assets/images/lighthouse.png)

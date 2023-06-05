@@ -201,10 +201,6 @@ def add_attendee(request, event_id):
 
         return redirect(reverse('profile'))
 
-    else:
-        messages.error(request, ('Oops something went wrong, sorry.'
-                       'Please get in touch'))
-
     return redirect(reverse('event_detail', kwargs={'slug': event.slug}))
 
 

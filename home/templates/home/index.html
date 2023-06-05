@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 
 {% block page_header %}
-<div class="container header-container">
+<div class="container header-container" id="footer_link">
     <div class="row">
         <div class="col">
         </div>
@@ -58,7 +58,8 @@
             <p>
                 Await your email confirming your order and pop down to the Bear Cave(our shop) to pick up your tools.
             </p>
-            <p>Just check the shop opening times <a href="#shop-times">here</a> before coming along.</p>
+            <p>Just check the shop opening times <a class="links_sienna" href="#shop-times">here</a> before coming
+                along.</p>
             <p>Unsure how to operate the item? <br>Let our helpful member of staff know when collecting and they'll
                 happily
                 demonstrate.</p>
@@ -234,7 +235,9 @@
                 </div>
             </div>
             <div class="col-sm text-center">
-                <img src="{{ MEDIA_URL }}share-bear-logo-small.png" alt="share bear logo" class="img-fluid">
+                <a href="#footer_link">
+                    <img src="{{ MEDIA_URL }}share-bear-logo-small.png" alt="share bear logo" class="img-fluid">
+                </a>
                 <p class="text-muted">Share Bear<br>Tool Sharing Company</p>
             </div>
             <div class="col-sm d-flex flex-column justify-content-start justify-content-md-center text-center">
@@ -248,10 +251,10 @@
                             class="fab fa-twitter fa-2x"></i></a>
                 </div>
                 <div class="mt-auto">
-                    <p>Email us: <a class="links_sienna" href="mailto:mail@sharebear.co.uk">mail@sharebear.co.uk</a>
+                    <p>Email us: <a class="links-green" href="mailto:mail@sharebear.co.uk">mail@sharebear.co.uk</a>
                     </p>
 
-                    <p>Call the shop: <a class="links_sienna " href="tel:08000000000">08000000000</a></p>
+                    <p>Call the shop: <a class="links-green" href="tel:08000000000">08000000000</a></p>
 
                 </div>
             </div>

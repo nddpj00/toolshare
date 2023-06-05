@@ -3,8 +3,8 @@
 {% load crispy_forms_tags %}
 
 {% block page_header %}
-<div class="container header-container">
-    <div class="row">
+<div class="container header-container" id="footer_link">
+    <div class=" row">
         <div class="col">
         </div>
     </div>
@@ -106,7 +106,9 @@
                 </div>
             </div>
             <div class="col-sm text-center">
-                <img src="{{ MEDIA_URL }}share-bear-logo-small.png" alt="share bear logo" class="img-fluid">
+                <a href="#footer_link">
+                    <img src="{{ MEDIA_URL }}share-bear-logo-small.png" alt="share bear logo" class="img-fluid">
+                </a>
                 <p class="text-muted">Share Bear<br>Tool Sharing Company</p>
             </div>
             <div class="col-sm d-flex flex-column justify-content-start justify-content-md-center text-center">
@@ -120,9 +122,9 @@
                             class="fab fa-twitter fa-2x"></i></a>
                 </div>
                 <div class="mt-auto">
-                    <p>Email us: <a class="links_sienna" href="mailto:mail@sharebear.co.uk">mail@sharebear.co.uk</a></p>
+                    <p>Email us: <a class="links-green" href="mailto:mail@sharebear.co.uk">mail@sharebear.co.uk</a></p>
 
-                    <p>Call the shop: <a class="links_sienna" href="tel:08000000000">0800 000 0000</a></p>
+                    <p>Call the shop: <a class="links-green" href="tel:08000000000">0800 000 0000</a></p>
                 </div>
             </div>
         </div>

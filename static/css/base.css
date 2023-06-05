@@ -16,6 +16,10 @@ body {
     color: #e76f51;
 }
 
+.links-green {
+    color: #2a9d8f;
+}
+
 .dropdown-item:active {
     background-color: #b4a8a8;
 }
@@ -93,7 +97,7 @@ body {
 }
 
 .text-black {
-    color: #000 !important;
+    color: #3b3939 !important;
 }
 
 .text-availability {
@@ -335,6 +339,7 @@ input[name='q']::placeholder {
         padding-top: 260px;
     }
 
+
 }
 
 
@@ -416,5 +421,15 @@ input[name='q']::placeholder {
 
     .img-small {
         max-width: 40%;
+    }
+}
+
+@media (max-width: 767px) {
+    .small-device-image {
+        width: 80%;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
