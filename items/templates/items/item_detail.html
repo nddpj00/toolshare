@@ -48,7 +48,6 @@
                 <p class="mb-0 text-left text-danger font-weight-bold">Unavailable</p>
                 <p class="mb-0 text-left text-danger font-weight-bold">Due
                     back: {{ item.availableDate|date:"d-M-y"}}</p>
-                </p>
                 {% endif %}
 
                 {% if request.user.is_superuser %}
