@@ -1,10 +1,13 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse
+)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
+
 from items.models import Item
 from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
@@ -67,24 +70,26 @@ def checkout(request):
                             quantity=item_data,
                         )
                         order_line_item.save()
-                    
                 except Item.DoesNotExist:
                     messages.error(request, (
-                        "One of the items in your bag wasn't found in our database. "
+                        "One of the products in your bag wasn't "
+                        "found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success',
+                                    args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else:
         bag = request.session.get('bag', {})
         if not bag:
-            messages.error(request, "There's nothing in your bag at the moment")
+            messages.error(request,
+                           "There's nothing in your bag at the moment")
             return redirect(reverse('items'))
 
         current_bag = bag_contents(request)
@@ -97,21 +102,21 @@ def checkout(request):
         )
 
     if request.user.is_authenticated:
-                try:
-                    profile = UserProfile.objects.get(user=request.user)
-                    order_form = OrderForm(initial={
-                        'full_name': profile.user.get_full_name(),
-                        'email': profile.user.email,
-                        'phone_number': profile.default_phone_number,
-                        'country': profile.default_country,
-                        'postcode': profile.default_postcode,
-                        'town_or_city': profile.default_town_or_city,
-                        'street_address1': profile.default_street_address1,
-                        'street_address2': profile.default_street_address2,
-                        'county': profile.default_county,
-                    })
-                except UserProfile.DoesNotExist:
-                    order_form = OrderForm()
+        try:
+            profile = UserProfile.objects.get(user=request.user)
+            order_form = OrderForm(initial={
+                'full_name': profile.user.get_full_name(),
+                'email': profile.user.email,
+                'phone_number': profile.default_phone_number,
+                'country': profile.default_country,
+                'postcode': profile.default_postcode,
+                'town_or_city': profile.default_town_or_city,
+                'street_address1': profile.default_street_address1,
+                'street_address2': profile.default_street_address2,
+                'county': profile.default_county,
+            })
+        except UserProfile.DoesNotExist:
+            order_form = OrderForm()
     else:
         order_form = OrderForm()
 
@@ -136,15 +141,14 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
-    #iterates over order line items and reduces the stock quantity by amount sold
+# iterates over order line items and reduces the stock quantity by amount sold
     for line_item in order.lineitems.all():
         item = line_item.item
         item.stock -= line_item.quantity
         # if 0 then sets available date 7 days from now.
-        if item.stock==0:
+        if item.stock == 0:
             item.availableDate = datetime.now().date() + timedelta(days=7)
         item.save()
-    
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)

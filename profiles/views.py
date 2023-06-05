@@ -8,6 +8,7 @@ from events.models import Event
 
 from checkout.models import Order
 
+
 @login_required
 def profile(request):
     """ Display the user's profile. """
@@ -19,12 +20,12 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile updated successfully')
         else:
-            messages.error(request,'Update failed. Please ensure the form is valid')
+            messages.error(request, 'Update failed. Please ensure the
+                           form is valid')
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
     events = Event.objects.filter(attendees=request.user)
-    
 
     template = 'profiles/profile.html'
     context = {
@@ -66,12 +67,9 @@ def cancel_attendance(request, event_id):
         event.save()
         messages.success(request, "We've removed you to the event list")
 
-
         return redirect(request.META.get('HTTP_REFERER'))
 
-
     else:
-        messages.failure(request, "Oops something went wrong, sorry. Please get in touch")
+        messages.failure(request, "Oops something went wrong, sorry.
+                         Please get in touch")
         return render(request, 'events')
-
-

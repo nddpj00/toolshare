@@ -7,7 +7,6 @@ from . models import Item, Category
 from .forms import ItemForm
 
 
-
 def all_items(request):
     """ A view to show all items, including sorting and search queries """
 
@@ -16,8 +15,7 @@ def all_items(request):
     categories = None
     sort = None
     direction = None
-    
-    
+
     if request.GET:
 
         if 'sort' in request.GET:
@@ -33,8 +31,7 @@ def all_items(request):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             items = items.order_by(sortkey)
-        
-        
+
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             items = items.filter(category__name__in=categories)
@@ -43,12 +40,12 @@ def all_items(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(request, "You didn't enter any search
+                               criteria!")
                 return redirect(reverse('items'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             items = items.filter(queries)
-
 
     current_sorting = f'{sort}_{direction}'
 
@@ -88,16 +85,18 @@ def add_item(request):
             messages.success(request, 'Successfully added item!')
             return redirect(reverse('item_detail', args=[item.id]))
         else:
-            messages.error(request, 'Failed to add item. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add item. Please ensure the form
+                           is valid.')
     else:
         form = ItemForm()
-        
+
     template = 'items/add_item.html'
     context = {
         'form': form,
     }
 
     return render(request, template, context)
+
 
 @login_required()
 def edit_item(request, item_id):
@@ -114,7 +113,8 @@ def edit_item(request, item_id):
             messages.success(request, 'Successfully updated item!')
             return redirect(reverse('item_detail', args=[item.id]))
         else:
-            messages.error(request, 'Failed to update item. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update item. Please ensure the
+                           form is valid.')
     else:
         form = ItemForm(instance=item)
         messages.info(request, f'You are editing {item.name}')

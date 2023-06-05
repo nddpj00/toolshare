@@ -6,6 +6,8 @@ from .models import Article
 from .forms import ArticleForm
 from newsletter.models import Newsletter
 from newsletter.forms import NewsletterSubscriptionForm
+from django.db import DataError
+
 
 def article_list(request):
     articles = Article.objects.all().order_by('-date')
@@ -16,15 +18,20 @@ def article_list(request):
         if form.is_valid():
             email = form.cleaned_data.get('email')
             if Newsletter.objects.filter(email=email).exists():
-                messages.error(request, "The email address is already subscribed to the newsletter.")
+                messages.error(request, "The email address is
+                               already subscribed to the newsletter.")
             else:
                 if request.user.is_authenticated:
                     form.instance.is_registered_already = request.user
                     form.save()
-                    messages.success(request, "Thank you. We'll send you a weekly newsletter, keeping you up-to-date with Share Bear.")
+                    messages.success(request, "Thank you. We'll send you a
+                                     weekly newsletter, keeping you up-to-date
+                                     with Share Bear.")
                 else:
                     form.save()
-                    messages.success(request, "Thank you. We'll send you a weekly newsletter, keeping you up-to-date with Share Bear."  )
+                    messages.success(request, "Thank you. We'll send you a
+                                     weekly newsletter, keeping you up-to-date
+                                     with Share Bear.")
         else:
             messages.error(request, "Invalid form data. Please try again.")
     else:
@@ -32,13 +39,12 @@ def article_list(request):
 
     template = 'blog/article_list.html'
     context = {
-        'articles' : articles,
+        'articles': articles,
         'form': form,
         'on_profile_events_blog_page': True,
     }
 
     return render(request, template, context)
-
 
 
 def article_detail(request, article_id):
@@ -48,14 +54,11 @@ def article_detail(request, article_id):
     template = 'blog/article_detail.html'
 
     context = {
-        'article' : article
+        'article': article
     }
 
     return render(request, template, context)
 
-
-from django.shortcuts import render, redirect
-from django.db import DataError
 
 @login_required()
 def add_article(request):
@@ -74,12 +77,14 @@ def add_article(request):
                 messages.success(request, 'Successfully added article!')
                 return redirect(reverse('blog'))
             except DataError:
-                messages.error(request, 'Failed to add new article. Title is too long(max 50).')
+                messages.error(request, 'Failed to add new article. Title is
+                               too long(max 50).')
         else:
-            messages.error(request, 'Failed to add new article. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add new article. Please ensure
+                           the form is valid.')
     else:
         form = ArticleForm()
-        
+
     template = 'blog/add_article.html'
     context = {
         'form': form,
@@ -103,7 +108,8 @@ def edit_article(request, article_id):
             messages.success(request, 'Successfully updated article!')
             return redirect(reverse('detail', args=[article.id]))
         else:
-            messages.error(request, 'Failed to update item. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update item. Please ensure the
+                           form is valid.')
     else:
         form = ArticleForm(instance=article)
         messages.info(request, f'You are editing {article.title}')
@@ -115,7 +121,6 @@ def edit_article(request, article_id):
     }
 
     return render(request, template, context)
-
 
 
 @login_required()

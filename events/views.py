@@ -10,12 +10,13 @@ from .forms import EventForm
 from newsletter.models import Newsletter
 from newsletter.forms import NewsletterSubscriptionForm
 
-# test emails
 
-def send_test_email_attendee(user_first_name, user_email, event_title, event_date, event_location, event_body):
+# test emails
+def send_test_email_attendee(user_first_name, user_email, event_title,
+                             event_date, event_location, event_body):
     subject = 'Share Bear Event'
     template_name = 'event_confirmation_emails/event_attendee_email_body.txt'
-    
+
     context = {
         'recipient_name': user_first_name,
         'event_title': event_title.capitalize(),
@@ -23,15 +24,16 @@ def send_test_email_attendee(user_first_name, user_email, event_title, event_dat
         'event_location': event_location,
         'event_body': event_body,
     }
-    
+
     message = render_to_string(template_name, context)
     from_email = 'Share Bear Team'
     recipient_list = [user_email]
-    
+
     send_mail(subject, message, from_email, recipient_list)
 
 
-def send_test_email_interested(user_first_name, user_email, event_title, event_date, event_location, event_body):
+def send_test_email_interested(user_first_name, user_email, event_title,
+                               event_date, event_location, event_body):
     subject = 'Share Bear Event'
     template_name = 'event_confirmation_emails/event_interested_email_body.txt'
     context = {
@@ -59,15 +61,20 @@ def events_list(request):
         if form.is_valid():
             email = form.cleaned_data.get('email')
             if Newsletter.objects.filter(email=email).exists():
-                messages.error(request, "The email address is already subscribed to the newsletter.")
+                messages.error(request, ('The email address is already'
+                               'subscribed to the newsletter.'))
             else:
                 if request.user.is_authenticated:
                     form.instance.is_registered_already = request.user
                     form.save()
-                    messages.success(request, "Thank you. We'll send you a weekly newsletter, keeping you up-to-date with Share Bear.")
+                    messages.success(request, ('Thank you. We"ll send you a'
+                                     'weekly newsletter, keeping you up-to-date'
+                                     'with Share Bear.'))
                 else:
                     form.save()
-                    messages.success(request, "Thank you. We'll send you a weekly newsletter, keeping you up-to-date with Share Bear."  )
+                    messages.success(request, ('Thank you. We"ll send you a'
+                                     'weekly newsletter, keeping you up-to-date'
+                                     'with Share Bear.'))
         else:
             print("something else")
             messages.error(request, "Invalid form data. Please try again.")
@@ -76,7 +83,7 @@ def events_list(request):
 
     template = 'events/events_list.html'
     context = {
-        'events' : events,
+        'events': events,
         'form': form,
         'on_profile_events_blog_page': True,
     }
@@ -86,17 +93,17 @@ def events_list(request):
 
 def event_detail(request, slug):
 
-    event = get_object_or_404(Event, slug = slug)
+    event = get_object_or_404(Event, slug=slug)
     organiser_fname = event.organiser.first_name
     organiser_email = event.organiser.email
     is_attending = event.attendees.filter(id=request.user.id).exists()
     template = 'events/event_detail.html'
 
     context = {
-        'event' : event,
-        'fname' : organiser_fname,
-        'email' : organiser_email,
-        'is_attending' : is_attending,
+        'event': event,
+        'fname': organiser_fname,
+        'email': organiser_email,
+        'is_attending': is_attending,
     }
 
     return render(request, template, context)
@@ -117,10 +124,11 @@ def add_event(request):
             messages.success(request, 'Successfully added event!')
             return redirect(reverse('events'))
         else:
-            messages.error(request, 'Failed to add new event. Please ensure the form is valid.')
+            messages.error(request, ('Failed to add new event. Please ensure the'
+                           'form is valid.'))
     else:
         form = EventForm()
-        
+
     template = 'events/add_event.html'
     context = {
         'form': form,
@@ -143,9 +151,11 @@ def edit_event(request, event_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated article!')
-            return redirect(reverse('event_detail', kwargs={'slug':event.slug}))
+            return redirect(reverse('event_detail',
+                            kwargs={'slug': event.slug}))
         else:
-            messages.error(request, 'Failed to update item. Please ensure the form is valid.')
+            messages.error(request, ('Failed to update item. Please ensure the'
+                           'form is valid.'))
     else:
         form = EventForm(instance=event)
         messages.info(request, f'You are editing {event.title}')
@@ -179,24 +189,23 @@ def add_attendee(request, event_id):
     # Adds user to attendee list
     if request.method == 'POST':
 
-        
         user = request.user
         user_email = request.user.email
         event.attendees.add(user.id)
         event.save()
         messages.success(request, "We've added you to the event list")
-        send_test_email_attendee(user.first_name, user.email, event.title, event.date, event.location, event.body)
+        send_test_email_attendee(user.first_name, user.email, event.title,
+                                 event.date, event.location, event.body)
 
         events = Event.objects.filter(attendees=user)
 
-
         return redirect(reverse('profile'))
 
-
     else:
-        messages.error(request, "Oops something went wrong, sorry. Please get in touch")
-        
-    return redirect(reverse('event_detail', kwargs={'slug':event.slug}))
+        messages.error(request, ('Oops something went wrong, sorry.'
+                       'Please get in touch'))
+
+    return redirect(reverse('event_detail', kwargs={'slug': event.slug}))
 
 
 @login_required()
@@ -205,18 +214,16 @@ def add_interested(request, event_id):
     # Adds user to attendee list
     if request.method == 'POST':
 
-        
         user = request.user
         user_email = request.user.email
         event.interested.add(user.id)
         event.save()
-        messages.success(request, "Thanks for your interest, we'll email you with some information about the event. Hope to see you there!")
-        send_test_email_interested(user.first_name, user.email, event.title, event.date, event.location, event.body)
+        messages.success(request, ('Thanks for your interest, we"ll email you'
+                         'with some information about the event. Hope to see you'
+                         'there!'))
+        send_test_email_interested(user.first_name, user.email, event.title,
+                                   event.date, event.location, event.body)
 
-        return redirect(reverse('event_detail', kwargs={'slug':event.slug}))
+        return redirect(reverse('event_detail', kwargs={'slug': event.slug}))
 
-
-    # else:
-    #     messages.error(request, "Oops something went wrong, sorry. Please get in touch")
-
-    return redirect(reverse('event_detail', kwargs={'slug':event.slug}))
+    return redirect(reverse('event_detail', kwargs={'slug': event.slug}))
