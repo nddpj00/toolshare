@@ -18,13 +18,18 @@
 </div>
 <br>
 - CSS 
-     - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator)
+    - No errors were found when passing through the official
+<a href="https://jigsaw.w3.org/css-validator">Jigsaw CSS</a>
+<div style="display: flex; justify-content: center;">
 <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-css.png">
+</div>  
+<br>
 - JavaScript
-    - No errors were found when passing through [Jshint](https://jshint.com/)
-
+    - No errors were found when passing through <a href="https://jshint.com">Jshint</a>
+<div style="display: flex; justify-content: center;">
 <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-jshint.png">
-
+</div>  
+<br>
 - Python
     -  [CI PEP8 Linter](https://pep8ci.herokuapp.com/#/)
     Only 2 PEP8 linting issues. Both stating line too long. Both are one character over and I felt on these occasions the code would be harder to read, not easier, if I split it on two lines instead.
@@ -43,9 +48,10 @@
 <br>
 
 - Lighthouse
-
-    ![lighthouse](assets/images/lighthouse.png)
-
+<div style="display: flex; justify-content: center; ">
+<img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-lighthouse.png">
+</div>
+<br>
 
 
 # Manual Vs Automated Testing
