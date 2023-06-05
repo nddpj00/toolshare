@@ -40,8 +40,8 @@ def all_items(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search
-                               criteria!")
+                messages.error(request, ('You didn"t enter any search'
+                               'criteria!'))
                 return redirect(reverse('items'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
@@ -85,8 +85,8 @@ def add_item(request):
             messages.success(request, 'Successfully added item!')
             return redirect(reverse('item_detail', args=[item.id]))
         else:
-            messages.error(request, 'Failed to add item. Please ensure the form
-                           is valid.')
+            messages.error(request, ('Failed to add item. Please ensure the form'
+                           'is valid.'))
     else:
         form = ItemForm()
 
@@ -113,8 +113,8 @@ def edit_item(request, item_id):
             messages.success(request, 'Successfully updated item!')
             return redirect(reverse('item_detail', args=[item.id]))
         else:
-            messages.error(request, 'Failed to update item. Please ensure the
-                           form is valid.')
+            messages.error(request, ('Failed to update item. Please ensure the'
+                           'form is valid.'))
     else:
         form = ItemForm(instance=item)
         messages.info(request, f'You are editing {item.name}')

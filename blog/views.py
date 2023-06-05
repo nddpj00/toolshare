@@ -18,20 +18,20 @@ def article_list(request):
         if form.is_valid():
             email = form.cleaned_data.get('email')
             if Newsletter.objects.filter(email=email).exists():
-                messages.error(request, "The email address is
-                               already subscribed to the newsletter.")
+                messages.error(request, ('The email address is'
+                               'already subscribed to the newsletter.'))
             else:
                 if request.user.is_authenticated:
                     form.instance.is_registered_already = request.user
                     form.save()
-                    messages.success(request, "Thank you. We'll send you a
-                                     weekly newsletter, keeping you up-to-date
-                                     with Share Bear.")
+                    messages.success(request, ('Thank you. We"ll send you a'
+                                     'weekly newsletter, keeping you up-to-date'
+                                     'with Share Bear.'))
                 else:
                     form.save()
-                    messages.success(request, "Thank you. We'll send you a
-                                     weekly newsletter, keeping you up-to-date
-                                     with Share Bear.")
+                    messages.success(request, ('Thank you. We"ll send you a'
+                                     'weekly newsletter, keeping you up-to-date'
+                                     'with Share Bear.'))
         else:
             messages.error(request, "Invalid form data. Please try again.")
     else:
@@ -77,11 +77,11 @@ def add_article(request):
                 messages.success(request, 'Successfully added article!')
                 return redirect(reverse('blog'))
             except DataError:
-                messages.error(request, 'Failed to add new article. Title is
-                               too long(max 50).')
+                messages.error(request, ('Failed to add new article. Title is '
+                               'too long(max 50).'))
         else:
-            messages.error(request, 'Failed to add new article. Please ensure
-                           the form is valid.')
+            messages.error(request, ('Failed to add new article. Please ensure '
+                           'the form is valid.'))
     else:
         form = ArticleForm()
 
@@ -108,8 +108,8 @@ def edit_article(request, article_id):
             messages.success(request, 'Successfully updated article!')
             return redirect(reverse('detail', args=[article.id]))
         else:
-            messages.error(request, 'Failed to update item. Please ensure the
-                           form is valid.')
+            messages.error(request, ('Failed to update item. Please ensure the '
+                           'form is valid.'))
     else:
         form = ArticleForm(instance=article)
         messages.info(request, f'You are editing {article.title}')
