@@ -1,10 +1,10 @@
 ## Validators
 - HTML
-    - No errors were returned when passing through the official[W3C validator](https://validator.w3.org)
+    - No errors were returned when passing through the official [W3C validator](https://validator.w3.org)
 <div style="display: flex; justify-content: center;">
     <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-html-homepage.png">
     <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-html-bag.png">
-    <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-html-blog_details.pngg">
+    <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-html-blog_details.png">
     <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-html-blog.png">
     <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-html-checkout.png">
 </div>  
@@ -16,12 +16,14 @@
     <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-html-items_list.png">
     <img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-html-profile.png">
 </div>
+<br>
 - CSS 
-     - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Featmeproject.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+     - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator)
+<img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-css.png">
 - JavaScript
     - No errors were found when passing through [Jshint](https://jshint.com/)
 
-    ![jshint](assets/images/jshint.png)
+<img align="center" style="margin-right: 10px;" width="200px" height="150px" src="readme_media/testing/sharebear-validators-jshint.png">
 
 - Python
     - No errors were found when passing through [PEP8](http://pep8online.com/)

@@ -41,8 +41,9 @@
             {% if request.user.is_superuser %}
             <small>
                 <a href="{% url 'edit_article' article.id %}">Edit</a> |
-                <a data-target="#deleteArticleModal" data-toggle="modal" data-instance-id="{{ article.id }}"
-                    class="text-danger delete-link" href="#deleteArticleModal">Delete</a>
+                <a data-target="#deleteArticleModal{{ article.id }}" data-toggle="modal"
+                    data-instance-id="{{ article.id }}" class="text-danger delete-link"
+                    href="#deleteArticleModal">Delete</a>
             </small>
             <div>
                 <p>Blog written by: {{ article.author }}</p>

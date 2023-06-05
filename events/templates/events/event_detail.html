@@ -44,7 +44,7 @@
             {% if request.user.is_superuser %}
             <small>
                 <a href="{% url 'edit_event' event.id %}">Edit</a> |
-                <a data-target="#cancelModal" data-toggle="modal" class="text-danger delete-link"
+                <a data-target="#cancelModal{{ event.id }}" data-toggle="modal" class="text-danger delete-link"
                     href="#cancelModal">Delete</a>
             </small>
             {% endif %}

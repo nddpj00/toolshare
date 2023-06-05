@@ -64,8 +64,9 @@
                         <small>
                             <a href="{% url 'edit_event' event.id %}">Edit</a>
                             <span>|</span>
-                            <a data-target="#cancelModal" data-toggle="modal" data-instance-id="{{ event.id }}"
-                                class="text-danger delete-link" href="#cancelModal">Delete</a>
+                            <a data-target="#cancelModal{{ event.id }}" data-toggle="modal"
+                                data-instance-id="{{ event.id }}" class="text-danger delete-link"
+                                href="#cancelModal">Delete</a>
                         </small>
                     </div>
                     {% endif %}
