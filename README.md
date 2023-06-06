@@ -30,48 +30,45 @@ Why is this such a good idea?
 
 ---
 
-  * [**USER EXPERIENCE (UX)**](#--user-experience--ux---)
+  * [**USER EXPERIENCE (UX)**](#user-stories)
     + [User Stories](#user-stories)
   * [Design](#design)
       - [Colour Scheme](#colour-scheme)
       - [Typography](#typography)
       - [Icons](#icons)
     + [WIREFRAMES](#wireframes)
-  * [**THE DATABASE**](#--the-database--)
-  * [**FEATURES**](#--features--)
-    + [**Site-wide Features**](#--site-wide-features--)
-    + [**App Features**](#--app-features--)
-      - [**Home App**](#--home-app--)
-      - [**Items App**](#--items-app--)
-      - [**Blog App**](#--blog-app--)
-      - [**Event App**](#--event-app--)
-      - [**Newsletter App**](#--newsletter-app--)
-      - [**Bag App**](#--bag-app--)
-      - [**Checkout App**](#--checkout-app--)
-      - [**User App**](#--user-app--)
-      - [**404**](#--404--)
+  * [**THE DATABASE**](#the-database)
+  * [**FEATURES**](#features)
+    + [**Site-wide Features**](#site-wide-features)
+    + [**App Features**](#app-features)
+      - [**Home App**](#home-app)
+      - [**Items App**](#items-app)
+      - [**Blog App**](#blog-app)
+      - [**Event App**](#event-app)
+      - [**Newsletter App**](#newsletter-app)
+      - [**Bag App**](#bag-app)
+      - [**Checkout App**](#checkout-app)
+      - [**User App**](#User-App)
+      - [**404**](#404)
     + [Features to implement in the future](#features-to-implement-in-the-future)
-  * [**TECHNOLOGIES USED**](#--technologies-used--)
+  * [**TECHNOLOGIES USED**](#technologies-used)
     + [Languages](#languages)
     + [Frameworks, Libraries & Programs](#frameworks--libraries---programs)
   * [Testing](#testing)
-  * [**DEPLOYMENT**](#--deployment--)
-    + [<ins>Hosting</ins>](#-ins-hosting--ins-)
+  * [**DEPLOYMENT**](#deployment)
+    + [<ins>Hosting</ins>](#ins-hosting--ins)
     + [Making a Local Clone](#making-a-local-clone)
-  * [**CREDITS**](#--credits--)
+  * [**CREDITS**](#credits)
     + [Content](#content)
     + [Media](#media)
     + [Acknowledgements](#acknowledgements)
 ---
 
-
-
-## **USER EXPERIENCE (UX)** ##
-
 The project was created in order to fulfil the criteria of the L5 Diploma in Web Application Development that I'm completing. This is for Unit 4: Full Stack Frameworks with Django.
 
 The unit aims to provide the knowledge and skills needed to build a Full Stack web application. Topics include the use of frameworks, API's, persistent storage, user authentication and e-commerce functionality.
 
+## **USER EXPERIENCE (UX)** ##
 
 ### User Stories
 
@@ -191,6 +188,7 @@ Please click on the individual Apps to see all wireframes.
 ---
 ## **THE DATABASE** ##
 
+## Description  
 I chose to use PostgreSQL, a relational database system for my app as I felt there were going to be clearly defined relationships between the tables and the data therein. I felt an RDBMS would be well suited to query and manage the content for my needs.
 
 The relationships between the models mostly stem from either the User or the Items.  
@@ -319,7 +317,7 @@ is_registered_already: <ForeignKey>
 ---
 ## **FEATURES** ##
 
-### **Site-wide Features** ###
+### **Site-Wide Features** ###
 
 1. Responsive on all device sizes.
 
@@ -444,7 +442,7 @@ is_registered_already: <ForeignKey>
 * If the email link is clicked it opens up the user's email client with the organiser's email address populating the 'To:' field.
 
 3. Event - add_attendee [CR**U**D]
-* The user can select that they're going to attend the event.  They'll be prompted to log in/sign up if not already. Then it sends them an email confirming the event details for the user to refer back to and adds the event to the user's profile page.
+* The user can select that they're going to attend the event.  They'll be prompted to log in/sign up if not already. Then it sends them an email confirming the event details for the user to refer back to and adds the event to the user's profile page.  
 <img align="center" width="200px" height="150px" src="readme_media/app_features/sharebear-readme-event-attendeeemail.png">  
 * The event stores them as an attendee.  This would allow reminders to be sent near the event date.
 * Django @login_required decorator used to add additional protection against anonymous users or users without the admin rights accessing the data store directly.
@@ -521,7 +519,7 @@ is_registered_already: <ForeignKey>
 * To personalize the experience, if the user ends up on a page that doesn't exist.  
 <img align="center" width="200px" height="150px" src="readme_media/app_features/sharebear-readme-appfeatures-404.png">
 
-###   Features to implement in the future
+### **Features to implement in the future.**
 
 1. Newsletter
 - I'd need to implement a data agreement that the user can agree to. 
