@@ -10,19 +10,21 @@ from .models import User
 from .forms import EventForm
 from newsletter.models import Newsletter
 from newsletter.forms import NewsletterSubscriptionForm
+from django.template.defaultfilters import linebreaksbr
 
 
 def send_test_email_attendee(user_first_name, user_email, event_title,
                              event_date, event_location, event_body):
     subject = 'Share Bear Event'
     template_name = 'event_confirmation_emails/event_attendee_email_body.txt'
+    event_body_with_breaks = linebreaksbr(event_body)
 
     context = {
         'recipient_name': user_first_name,
         'event_title': event_title.capitalize(),
         'event_date': event_date,
         'event_location': event_location,
-        "event_body": event_body,
+        "event_body": event_body_with_breaks,
     }
     message = render_to_string(template_name, context)
     from_email = 'Share Bear Team'

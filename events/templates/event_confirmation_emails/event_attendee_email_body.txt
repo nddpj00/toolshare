@@ -11,6 +11,6 @@ Date: {{ event_date }}
 Location: {{ event_location }}
 
 Details:
-{{ event_body|linebreaksbr }}
+{{ event_body }}
 
 Thank you! Looking forward to seeing you there.

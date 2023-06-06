@@ -70,6 +70,6 @@ def cancel_attendance(request, event_id):
         return redirect(request.META.get('HTTP_REFERER'))
 
     else:
-        messages.failure(request, ('Oops something went wrong, sorry.'
+        messages.error(request, ('Oops something went wrong, sorry.'
                          'Please get in touch'))
         return render(request, 'events')

@@ -292,7 +292,7 @@ A small selection of screenshots showing the cross-browser testing.
 1. Decrement button allowing user to select negative numbers when using small devices.
 1. Email contained html entities.  Instead of apostrophes it used '&#x27;'
 <div style="display: flex; justify-content: center; ">
-<img align = "center" width = "500px" height = "350px" src = "readme_media/testing/sharbear-bug-htmlentities.png">
+<img align = "center" width = "300px" height = "200px" src = "readme_media/testing/sharbear-bug-htmlentities.png">
 </div>
 
 ## Fixes
