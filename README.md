@@ -29,6 +29,7 @@ Why is this such a good idea?
 - Space - Keeps that space in the shed for whats important.  Getting those bikes in and out easily maybe. Or playing darts.
 
 ---
+## Contents 
 
   * [**USER EXPERIENCE (UX)**](#user-stories)
     + [User Stories](#user-stories)
@@ -131,7 +132,7 @@ The unit aims to provide the knowledge and skills needed to build a Full Stack w
 - :heavy_check_mark: easily *edit* events to update current information.
 - :heavy_check_mark: easily *delete* old or cancelled events.
 
-
+[Back to top ⇧](#contents)
 ## Design  
 
 #### Colour Scheme
@@ -155,7 +156,7 @@ Though the site has E-commerce functionality, I felt it should have a less steri
 - [Font Awesome 6.3.0](https://fontawesome.com/)
     - These were used throughout the site. including the navigation icons, the increment/decrement icons and the social icons.
 
-
+[Back to top ⇧](#contents)
 
 ### WIREFRAMES 
 
@@ -183,8 +184,9 @@ Please click on the individual Apps to see all wireframes.
 <img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/checkout/sharebear-checkout-desktop.png">
 
 - [Wireframes Checkout Success](readme_media/wireframes/checkout_success)
-<img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/checkout_success/sharebear-checkout_success-desktop.png">
+<img align = "center" width = "400px" height = "600px" src = "readme_media/wireframes/checkout_success/sharebear-checkout_success-desktop.png">  
 
+[Back to top ⇧](#contents)
 ---
 ## **THE DATABASE** ##
 
@@ -313,7 +315,7 @@ is_registered_already: <ForeignKey>
 
 ```
 
-
+[Back to top ⇧](#contents)
 ---
 ## **FEATURES** ##
 
@@ -535,9 +537,9 @@ is_registered_already: <ForeignKey>
 
 5. The availableDate applied if stock is 0 is currently set as 7 days from the date the last item is taken.  If more than 1 item then there may be a return due within that time but currently my system of tracking the stock doesn't handle this.
 
-6. If necessary there are applications available to manage and track assets, which would provide a more comprehensive means to managing the stock and displaying availability to the user. Also allowing users to reserve items. eg. [myTurn](https://myturn.com).
+6. If necessary there are applications available to manage and track assets, which would provide a more comprehensive means to managing the stock and displaying availability to the user. Also allowing users to reserve items. eg. [myTurn](https://myturn.com).  
 
-
+[Back to top ⇧](#contents)  
 ---
 ## **TECHNOLOGIES USED** ##
 
@@ -605,7 +607,7 @@ Testing and results can be found [here](TESTING.md)
 Please see the separate deployment file which you can read here: [⮫DEPLOYMENT.md](DEPLOYMENT.md)
 
 ---
-
+[Back to top ⇧](#contents)
 ### <ins>Hosting</ins>
 
 The site is hosted on [Heroku](https://share-bear-toolshare.herokuapp.com/).
@@ -644,4 +646,5 @@ The site is hosted on [Heroku](https://share-bear-toolshare.herokuapp.com/).
 
 -   EKC course facilitator, Rachel Furlong for introducing me to many new concepts and software and lots of great advice.
 
--   All those clever people at the Code Institute tutor support that pointed me in the right direction, more than once.
+-   All those clever people at the Code Institute tutor support that pointed me in the right direction, more than once.  
+[Back to top ⇧](#contents)
