@@ -120,6 +120,7 @@ def edit_article(request, article_id):
     context = {
         'form': form,
         'article': article,
+        'on_profile_events_blog_page': True,
     }
 
     return render(request, template, context)

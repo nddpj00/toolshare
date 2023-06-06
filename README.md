@@ -400,7 +400,7 @@ is_registered_already: <ForeignKey>
 * There is a facility to email the organiser from this page.  The organiser's name and email address is dynamically rendered.
 * If the email link is clicked it opens up the users email client with the organisers email address populating the 'To:' field.
 
-3. Event - Add Attendee [CR**U**D]
+3. Event - add_attendee [CR**U**D]
 * The user can select that they're going to attend the event.  They'll be prompted to log in/sign up if not already. Then it sends them an email confirming the event details for the user to refer back to and adds the event to the users profile page.
 * The event stores them as an attendee.  This would allow reminders to be sent near the event date.
 * If the user is logged in and already registered as attending, the event detail page will render confirming this and offering a link to the profile page to cancel if necessary.
@@ -410,19 +410,22 @@ is_registered_already: <ForeignKey>
     <img align="center" width="200px" height="150px" src="readme_media/app_features/sharebear-readme-appfeatures-events-alreadyattending.png">
 </div>
 
-4. Event -  Add [**C**RUD]
+4. Event - add_interested [CR**U**D]
+* The user can select that they're interested in the event.  They'll be prompted to log in/sign up if not already. Then it sends them an email confirming the event details for the user to refer back to.
+
+5. Event -  Add [**C**RUD]
 * If an authenticated staff member is logged in they can add an event by selecting 'Event Management' from the main navigation Account dropdown.
 * A form is rendered allowing the staff member to add all necessary fields. Including Title, Body, Date, Location, Image and from a dropdown, the organiser.
 * Once the details are added and the 'Add Event' button is selected, the database is updated with the event.  The event is rendered on the event list page and the home page if one of the 4 most due the soonest.
 
-5. Event - Edit [CR**U**D]
+6. Event - Edit [CR**U**D]
 * If an authenticated staff member is logged in they can edit an event, via the edit link on the respective article's detail page or from the article card on the main article page.
 * The link is conditionally rendered based on the user being staff and logged in.
 * The link takes you to a an edit event form. The existing database information for the event is pre-filled in the fields.
 * Once completed and 'Update the article' button selected it updates the database with the new information immediately.  
 <img align="center" width="200px" height="150px" src="readme_media/app_features/sharebear-readme-appfeatures-events-editform.png">
 
-6. Event - Delete [CRU**D**]
+7. Event - Delete [CRU**D**]
 * If an authenticated staff member is logged in they can delete an event, via the delete link on the respective event's detail page or from the article card on the main article detail page.   The link is conditionally rendered based on the user being staff and logged in.
 * As an extra precaution against deleting an event in error, I've added a modal pop-up for the user to confirm.
 

@@ -204,7 +204,7 @@ input[name='q']::placeholder {
 
 .social-icon {
     padding: 15px;
-    color: #e76f51
+    color: #e76f51;
 }
 
 /* --------------------------------- home page */
@@ -375,6 +375,7 @@ input[name='q']::placeholder {
         padding: .375rem .342rem;
         font-size: .7rem;
     }
+
 
     .btn.btn-outline-black.rounded.btn-lg,
     .btn.btn-black.rounded.btn-lg {

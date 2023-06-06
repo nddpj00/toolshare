@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
-from django.core.mail import send_mail
+from django.utils.safestring import mark_safe 
+from django.core.mail import send_mail, EmailMessage
 from django.template.loader import render_to_string
 from .models import Event
 from .models import User
@@ -16,20 +17,32 @@ def send_test_email_attendee(user_first_name, user_email, event_title,
                              event_date, event_location, event_body):
     subject = 'Share Bear Event'
     template_name = 'event_confirmation_emails/event_attendee_email_body.txt'
+    logo_path = 'media/Share-Bear-logo-new.png'
 
     context = {
         'recipient_name': user_first_name,
         'event_title': event_title.capitalize(),
         'event_date': event_date,
         'event_location': event_location,
-        'event_body': event_body,
+        "event_body": mark_safe(event_body),
     }
-
     message = render_to_string(template_name, context)
     from_email = 'Share Bear Team'
     recipient_list = [user_email]
 
-    send_mail(subject, message, from_email, recipient_list)
+    email = EmailMessage(subject, message, from_email, recipient_list)
+    email.content_subtype = 'html'
+
+    # Attach the logo image to the email
+    with open(logo_path, 'rb') as logo_file:
+        email.attach('logo.png', logo_file.read(), 'image/png')
+
+    email.send()
+    # message = render_to_string(template_name, context)
+    # from_email = 'Share Bear Team'
+    # recipient_list = [user_email]
+
+    # send_mail(subject, message, from_email, recipient_list)
 
 
 def send_test_email_interested(user_first_name, user_email, event_title,
@@ -42,7 +55,7 @@ def send_test_email_interested(user_first_name, user_email, event_title,
         'event_title': event_title,
         'event_date': event_date,
         'event_location': event_location,
-        'event_body': event_body,
+        "event_body": mark_safe(event_body),
     }
     message = render_to_string(template_name, context)
     from_email = 'Share Bear Team'
@@ -104,6 +117,7 @@ def event_detail(request, slug):
         'fname': organiser_fname,
         'email': organiser_email,
         'is_attending': is_attending,
+        'on_profile_events_blog_page': True,
     }
 
     return render(request, template, context)
