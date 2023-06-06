@@ -149,6 +149,8 @@ def edit_event(request, event_id):
     if request.method == 'POST':
         form = EventForm(request.POST, request.FILES, instance=event)
         if form.is_valid():
+            event = form.save(commit=False)
+            event.slug = slugify(event.title)
             form.save()
             messages.success(request, 'Successfully updated article!')
             return redirect(reverse('event_detail',

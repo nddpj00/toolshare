@@ -73,7 +73,8 @@
 
 ## Manual Test process  
 
-  - The Test
+  - I have split the tests in to their apps, much like the Django unit testing does. The tests were carried out on the deployed site on my own machine running windows but also using BrowserStack.  This allowed me test the site on different devices and browsers, and on different screen sizes.
+
 ### Home App
 1. All navbar links work.
 1. Latest Blogs and Event links work and take you to correct page.
@@ -245,11 +246,19 @@
 1. Save the users address and number information if save_info requested.(checkbox)
 1. delete bag session
 1. display order table with correct items, quantity, total and order number.
+1. successful webhooks.
 
+Webhooks - 
+<div style="display: flex; justify-content: center; ">
+<img align = "center" width = "600px" height = "300px" src = "readme_media/testing/sharebear-test-successful-webhooks.png">
+</div>
 
 ### Outcomes
 
-<img align = "center" width = "500px" height = "350px" src = "mealplanner/static/images/testing/manual-testing-matrix.png"> 
+Browser and Device Test Matrix
+<div style="display: flex; justify-content: center; ">
+<img align = "center" width = "500px" height = "350px" src = "readme_media/testing/sharebear-test-matrix.png">
+</div>
 
 I used a programme called BrowserStack to perform the tests. This is software provided as part of the course, included in the Student Developer pack.  This software allows you to load your site on a live environment on each device and browser.
 
@@ -259,35 +268,37 @@ Also, I've tested the site on a broad cross-section of browsers.  Chrome, Edge, 
 
 The site performed well across all devices and browsers. All links worked as expected.  Appearance and layout looked good on all devices too.
 
+On some older iPhones with older versions of safari, some of the images didn't load.  It wasn't clear whether this was to do this BrowserStack as some images loaded fine.
+
 
 A small selection of screenshots showing the cross-browser testing.  
-Windows 11  
-<img align = "center" width = "200px" height = "100px" src = "mealplanner/static/images/testing/bdrf-testing-windows11.png">   
-Mac Big Sur 14.1  
-<img align = "center" width = "200px" height = "100px" src = "mealplanner/static/images/testing/bdrf-testing-mac-bigsur-14.1.png">   
-Apple Iphone 14  
-<img align = "center" width = "100px" height = "200px" src = "mealplanner/static/images/testing/bdrf-testing-iphone14.png">  
-Samsung S21 Ultra  
-<img align = "center" width = "100px" height = "200px" src = "mealplanner/static/images/testing/bdrf-testing-s21ultra.png">  
-Apple Iphone SE 2022   
-<img align = "center" width = "80px" height = "150px" src = "mealplanner/static/images/testing/bdrf-testing-iphonese-small.png">  
-Apple iPad Pro 11  
-<img align = "center" width = "150px" height = "200px" src = "mealplanner/static/images/testing/bdrf-testing-ipadpro11-2021.png">  
-
+<div style="display: flex; justify-content: center; ">
+- Samsung S8 Tab-
+<img align="center" style="margin-right: 10px;" width="200px" height="300px" src = "readme_media/testing/sharebear-readme-testing-s8tab.png">  
+-Samsung S21 Ultra-  
+<img align="center" style="margin-right: 10px;" width="170px" height="300px" src = "readme_media/testing/sharebear-readme-testing-samsung-s21ultra.png">  
+-Apple Iphone SE 2022-   
+<img align="center" style="margin-right: 10px;" width="120px" height="250px" src = "readme_media/testing/sharebear-readme-testing-iphone-se2022.png">  
+-Apple iPad Pro 11-  
+<img align="center" style="margin-right: 10px;" width="200px" height="300px" src = "readme_media/testing/sharebear-readme-testing-ipad11.png">  
+</div>
 ---
+
 ## **BUGS** ##
-1. If a user incorrectly input 60mins or over in the minute field for the cook time a DataError was produced.
-    <img align = "center" width = "200px" height = "100px" src = "mealplanner/static/images/testing/bdrf-bug-over60mins.png">
-1. When editing a recipe the cook time wasn't pre-populating, remaining empty.
-1. If user clicks on 'Get random recipe' button, though it worked, the variable stored the recipe.  Meaning if the user clicked it over & over again it would show the same recipe. 
-1.  When deploying my original app I ran in to a problem with the database.  It wasn't creating the database and linking to the app.  After many hours trying to resolve I decided to copy the code on to a new workspace and re-attempted the deployment.  Unfortunately my 'commits' will be linked to that original Repo ["mealplanner.2"](https://github.com/nddpj00/mealplanner.2)
+1. If user input an email address in the Newsletter form that already existed in the Newsletter model, the form error message changed the input size.
+1. When a user thats not authenticated selected to attend an event, they are directed to sign-in via allauth. On redirect the event_list page rendered an error message.
+1. Decrement button allowing user to select negative numbers when using small devices.
+
 
 ## Fixes
-1. The dataerror was due to using the incorrect datatype I believe.  In the form I changed the type to "time" and this resolved it immediately.
-1. The data stored in the database was in the incorrect format.  By added 0 before the value on the html resolved this. ie value="0{{ recipe.cook_time }}" .
-1. I added some Javascript to reload the page on the 'close' button to allow a new recipe to be set as random.
-1. New workspace is this one and the deployment was successful.
+1. Changed the Newsletter to use Crispy Form defaults which kept the input size when validation message rendered.
+1. Changed the view to remove unnecessary error message.
+1. JavaScript was selecting the 'decrement' button on its class, when it should've been the ID.
 
 
 ### Known Bugs
-No known bugs
+1. The Google Map on the home page has non-passive event listeners, which is producing errors in Dev Tools.  The suggested solution is to set event listeners to passive but this doesn't work with Google Maps.  Researching this issue there are no current working solutions as its being generated from Googles own API code.  The recommendation is to safely ignore the warnings, which I've decided is the best course of action.  The site is performing well, as per the lighthouse report.
+
+<div style="display: flex; justify-content: center; ">
+<img align = "center" width = "500px" height = "350px" src = "readme_media/testing/sharbear-bug-passive-event-listener.png">
+</div>

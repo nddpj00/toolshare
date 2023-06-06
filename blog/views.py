@@ -104,6 +104,8 @@ def edit_article(request, article_id):
     if request.method == 'POST':
         form = ArticleForm(request.POST, request.FILES, instance=article)
         if form.is_valid():
+            article = form.save(commit=False)
+            article.slug = slugify(article.title)
             form.save()
             messages.success(request, 'Successfully updated article!')
             return redirect(reverse('detail', args=[article.id]))

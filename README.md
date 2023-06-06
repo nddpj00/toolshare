@@ -302,6 +302,7 @@ is_registered_already: <ForeignKey>
 * Information about the purpose of the organisaion and a button for quick access to the tools available.
 * Information of the process of 'borrowing' items.
 * Search the site via the search bar.
+- <img align = "center" width = "300px" height = "200px" src = "readme_media/app_features/sharebear-readme-appfeatures-homenav.png">
 * View and click for further details the latest 4 blogs that have been written. This has the added benefit of the homepage dynamically updating every time a new blog is published.
 * View and click for further details the latest 4 events that are coming up.
 * The blog and events are filtered to remove any that don't include an image to ensure the homepage looks professional.
@@ -327,8 +328,8 @@ is_registered_already: <ForeignKey>
 * I've also implemented JavaScript code to disable the increment button to prevent the quantity going above the available 'stock' number.(see quantity_input_script.html)
 * The options are either to select 'Keep Shopping' taking you back the item list or 'Add to Bag' .
 * When adding to the bag a toast/message is rendered on screen confirming this was successful, along with an image of the whole bag, including items previously added.
-* At this point the bag view checks to ensure the quantity of the item in the bag already, along with the additional quantity doesnt exceed the stock.  If it does the additional quantity isnt added to the bag and the user will receive a warning message.
-- <img align = "center" width = "200px" height = "150px" src = "readme_media/app_features/sharebear-readme-appfeatures-addtobagwarning.png">
+* At this point the bag view checks to ensure the quantity of the item in the bag already and the additional quantity doesn't exceed the stock for that item.  If it does, the additional quantity isn't added to the bag and the user will receive a warning message.
+- <img align = "center" width = "300px" height = "200px" src = "readme_media/app_features/sharebear-readme-appfeatures-addtobagwarning.png">
 
 3. Add Item [**C**RUD]
 * If an authenticated staff member is logged in they can add a new item, via the Item Management page.  Accessed from the Account dropdown.
@@ -336,6 +337,7 @@ is_registered_already: <ForeignKey>
 * Manufacturer, Image url, Image and AvailableDate aren't mandatory.
 * Once completed and 'Add Item' button selected it adds a new item entry in the database, and is immediately available to be borrowed.
 * If no image is selected then a default image is used.
+- <img align = "center" width = "300px" height = "200px" src = "readme_media/app_features/sharebear-readme-appfeatures-items-add.png">
 
 4. Edit Item [CR**U**D]
 * If an authenticated staff member is logged in they can edit an item, via the edit link on the respective item's detail page or from the items card on the main item page.  
@@ -343,12 +345,13 @@ is_registered_already: <ForeignKey>
 * The existing database information for the item is pre-filled in the fields.
 * Easy to use and useful if someone needs to extend the time they've borrowed an item by pushing out the AvailableDate.
 * Once completed and 'Update Item' button selected it update the database with the new information immediately.
+- <img align = "center" width = "300px" height = "200px" src = "readme_media/app_features/sharebear-readme-appfeatures-items-edit.png">
 
 5. Delete Item [CRU**D**]
 * If an authenticated staff member is logged in they can delete an item, via the delete link on the respective item's detail page or from the items card on the main item page.  
 * The link is conditionally rendered based on the user being staff and logged in.
 * As an extra precaution against deleting an item in error, I've added a modal pop-up for the user to confirm.
-- <img align = "center" width = "200px" height = "150px" src = "readme_media/app_features/sharebear-readme-appfeatures-itemdeletemodal.png">  
+- <img align = "center" width = "300px" height = "200px" src = "readme_media/app_features/sharebear-readme-appfeatures-itemdeletemodal.png">  
 
 
 #### **Blog App** ####
@@ -356,14 +359,21 @@ is_registered_already: <ForeignKey>
 1. Blog List [C**R**UD]
 * Here you can see a list of articles, sorted in date order so the latest is at the top.
 * Includes a clickable title and button taking you to the full article.
+- <img align = "center" width = "200px" height = "400px" src = "readme_media/app_features/sharebear-readme-appfeatures-blog-list.png">  
 
 2. Blog details [C**R**UD]
 * Here you'll find the full article.
+* A logged in staff user can select edit or delete from here.
+* Delete button opens a modal to confirm cancellation.
+* Back button to return to Blog List.
+- <img align = "center" width = "300px" height = "200px" src = "readme_media/app_features/sharebear-readme-appfeatures-blog-detail.png">  
+
 
 3. Blog -  Add [**C**RUD]
 * If an authenticated staff member is logged in they can add an article by selecting 'Blog Management' from the main navigation Account dropdown.
 * A form is rendered allowing the staff member to add all necessary fields. Including Title, Body, and Image.
 * Once the details are added and the 'Add Article' button is selected, the database is updated with the article.  The event is rendered on the article list page and the home page if one of the most recently published.
+- <img align = "center" width = "300px" height = "200px" src = "readme_media/app_features/sharebear-readme-appfeatures-blog-add.png">
 
 4. Edit Blog [CR**U**D]
 * If an authenticated staff member is logged in they can edit an article, via the edit link on the respective article's detail page or from the article card on the main article page.
@@ -371,6 +381,7 @@ is_registered_already: <ForeignKey>
 * The links take you to an edit blog form.
 * The existing database information for the item is pre-filled in the fields.
 * Once completed and 'Update the article' button selected it update the database with the new information immediately.
+- <img align = "center" width = "300px" height = "200px" src = "readme_media/app_features/sharebear-readme-appfeatures-blog-edit.png">
 
 5. Delete Blog [CRU**D**]
 * If an authenticated staff member is logged in they can delete an article, via the delete link on the respective article's detail page or from the article card on the main article detail page.  
@@ -531,28 +542,6 @@ is_registered_already: <ForeignKey>
     - To deploy the project.
 
 ---
-### **VALIDATORS** ##
-
--  W3C Markup Validator complete without errors except for the Jinja syntax.
-<img align = "center" width ="300px" height = 200px src = "mealplanner/static/images/testing/bdrf-testing-w3c-validator.png">
-
--   W3C CSS Validator complete without errors.
-<img align = "center"  style= width:300px; height:200px src= "mealplanner/static/images/testing/bdrf-testing-wc3-css-validator.png">  
-
--   Code Institute Python Linter  showing 2 errors. E501 line too long.  I attempted to break up the line and indent on the line below but felt this only made it less clear.  
-<img align = "center"  style= width:300px; height:200px src= "mealplanner/static/images/testing/bdrf-testing-cipythonlinter.png">
-
--   JSHint to Check Javascript. 2 Warnings about using 'let' of which I'm happy to ignore.
-<img align = "center"  style= width:300px; height:200px src= "mealplanner/static/images/testing/bdrf-testing-jshint.png">
-
--   Lighthouse Overall Performance.
-- Accessibility 98
-- Performance 98
-- Best Practices 83
-- SEO 90  
-<img align = "center" width ="300px" height = "200px" src = "mealplanner/static/images/testing/bdrf-testing-lighthouse.png">
-
----
 ## Testing 
 
 Testing and results can be found [here](TESTING.md)
@@ -560,68 +549,33 @@ Testing and results can be found [here](TESTING.md)
 ---
 ## **DEPLOYMENT** ##
 
-Deployment of the site was achieved by following the steps below :
+Please see the separate deployment file which you can read here: [⮫DEPLOYMENT.md](DEPLOYMENT.md)
 
-- Create a managed database with [ElephantSQL](https://www.elephantsql.com/).
-- Created a requirements.txt file by typing "pip3 freeze --local > requirements.txt" in the terminal which tells Heroku what dependencies are required.
-- Created a Procfile in the root directory of my project and inside the file added the following command; web: python run.py
-- Open __init__.py file and added an if statement before the line setting the SLQALCHEMY_DATABASE_URI and, in the else, set the value to reference a new variable, DATABASE_URL.
-- To ensure that SQLAlchemy can read my external database, the URL needs to start with “postgresql://”, to do this I made an addition to the else statement from the previous step to adjust the DATABASE_URL in case it starts with postgres://:
-- Save, add, commit and push to Github.
-- Logged in to Heroku and selected "Create New App".
-- Selected the input field "App Name" and gave app a unique name using dashes instead of spaces.
-- Selected the region closest to my location.
-- Clicked "Create App".
-- Selected "Settings" from the Heroku App menu.
-- Copy database URL from ElephantSQL.
-- On Heroku, add a Config Var called DATABASE_URL and paste the ElephantSQL database URL in the value, then click Add.
-- Add each of your other environment variables except DEVELOPMENT and DB_URL from the env.py file as a Config Var
-- Selected "Deploy" from the Heroku App menu.
-- Scrolled down the page and selected "Enable Automatic Deployment".
-- Selected Master Branch under "Branch Selected".
-- Clicked "Deploy Branch"
-- Next I needed to add my tables to my database. Click 'More' and select 'Run console'
-- Type python3 into the console and click Run
-- input in terminal - from mealplanner import db - db.create_all() - exit()
--'Open app' will then open my app.
+---
 
 ### <ins>HOSTING</ins>
 
-The site is hosted on [Heroku](https://mealplanner-2.herokuapp.com/).
+The site is hosted on [Heroku](https://share-bear-toolshare.herokuapp.com/).
 
 
 ### Making a Local Clone
 
-- Navigate to my GitHub [GitHub Repository](https://github.com/nddpj00/balanced-diet-menu-finder).
-- Click the "Code" button next to the Green Gitpod button.
-- Either, download the zip file or clone the repo using gh repo clone nddpj00/balanced-diet-menu-finder in the terminal.
-- Install the modules listed in the requirements.txt file using "python -m pip -r requirements.txt" in the terminal.
-- Create an env.py file in your application folder and add the following:
+    To clone my project you must;
 
-    ```
-    import os
+    1. Sign in to Github and go to my [repository](https://github.com/nddpj00/toolshare)
+    2. Above the list of files click the green ‘code’ button.
+    3. This will bring up a few options as to how you would like to clone. You can select HTTPS, SSH or Github CLI, then click the clipboard icon to copy the URL.
+    4. Open git bash
+    5. Type ‘git clone’ and then paste the URL you copied. Press Enter.
 
-    os.environ.setdefault("IP", "0.0.0.0")
-    os.environ.setdefault("PORT", "5000")
-    os.environ.setdefault("SECRET_KEY", "********")
-    os.environ.setdefault("DEBUG", "False")
-    os.environ.setdefault("DEVELOPMENT", "True")
-    os.environ.setdefault("DB_URL", "postgresql:///mealplanner")
-    ```
-
-  You will need to update the above with  your own SECRET_KEY and YOUR ROOT info.
-
-- The app can now be run locally by typing python run.py in the terminal and will be available in your browser using the address "http://localhost:5000".
+    For more information on cloning check out the github documentation [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 ---
 ## **CREDITS** ##
 
-
 ### Content
 
--  Tim Nelson from Code Institute for his walkthroughs of Thorin & Co and Taskmanager. These were a great resource when putting my app together and creating the databases.
--  I took inspiration from the layout and features also contained in Tim Nelson's readme for his [2BN-Desserts Repo](https://github.com/TravelTimN/ci-milestone04-dcd/blob/main/README.md)
--  Anna Greaves from Code Institute for her instructions on deploying the app.
+-  The structure of the site, bootstrap grid for the item pages and the payment section was heavily influenced by the Boutique Ado walk-through which is part of the course I'm undertaking.
 -  All remaining content was written by the developer.
 
 
@@ -629,6 +583,7 @@ The site is hosted on [Heroku](https://mealplanner-2.herokuapp.com/).
 
 -   [Unsplash]( https://unsplash.com/)All photos used came from unsplash.  
 -   [Font-Awesome](https://fontawesome.com/)  icons.
+-   [Screwfix](https://screwfix.com) for the tool images.
 
 ### Acknowledgements
 
