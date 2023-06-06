@@ -2,10 +2,9 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
-from django.utils.safestring import mark_safe 
-from django.core.mail import send_mail, EmailMessage
+from django.core.mail import send_mail
 from django.template.loader import render_to_string
-from django.template.defaultfilters import linebreaksbr
+from django.conf import settings
 from .models import Event
 from .models import User
 from .forms import EventForm
@@ -13,55 +12,37 @@ from newsletter.models import Newsletter
 from newsletter.forms import NewsletterSubscriptionForm
 
 
-# test emails
-# def send_test_email_attendee(user_first_name, user_email, event_title,
-#                              event_date, event_location, event_body):
-#     subject = 'Share Bear Event'
-#     template_name = 'event_confirmation_emails/event_attendee_email_body.txt'
-#     logo_path = 'media/Share-Bear-logo-new.png'
-
-#     context = {
-#         'recipient_name': user_first_name,
-#         'event_title': event_title.capitalize(),
-#         'event_date': event_date,
-#         'event_location': event_location,
-#         "event_body": mark_safe(event_body),
-#     }
-#     message = render_to_string(template_name, context)
-#     from_email = 'Share Bear Team'
-#     recipient_list = [user_email]
-
-
-#     send_mail(subject, message, from_email, recipient_list)
 def send_test_email_attendee(user_first_name, user_email, event_title,
                              event_date, event_location, event_body):
     subject = 'Share Bear Event'
-    template_name = 'event_confirmation_emails/event_attendee_email_body.html'
+    template_name = 'event_confirmation_emails/event_attendee_email_body.txt'
 
     context = {
         'recipient_name': user_first_name,
         'event_title': event_title.capitalize(),
         'event_date': event_date,
         'event_location': event_location,
-        "event_body": linebreaksbr(event_body),
+        "event_body": event_body,
     }
     message = render_to_string(template_name, context)
     from_email = 'Share Bear Team'
     recipient_list = [user_email]
 
+
     send_mail(subject, message, from_email, recipient_list)
+
 
 
 def send_test_email_interested(user_first_name, user_email, event_title,
                                event_date, event_location, event_body):
     subject = 'Share Bear Event'
-    template_name = 'event_confirmation_emails/event_interested_email_body.html'
+    template_name = 'event_confirmation_emails/event_interested_email_body.txt'
     context = {
         'recipient_name': user_first_name,
-        'event_title': event_title,
+        'event_title': event_title.capitalize(),
         'event_date': event_date,
         'event_location': event_location,
-        "event_body": linebreaksbr(event_body),
+        "event_body": event_body,
     }
     message = render_to_string(template_name, context)
     from_email = 'Share Bear Team'

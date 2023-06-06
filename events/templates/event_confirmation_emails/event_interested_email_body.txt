@@ -1,6 +1,6 @@
 Hello {{ recipient_name }},
 
-Thank you for showing your interest in our event - "{{ event_title.capitalize }}" that we've organised.
+Thank you for showing your interest in our event - "{{ event_title.capitalize }}" that we have organised.
 
 Here are the details.....
 
@@ -10,6 +10,6 @@ Date:       {{ event_date }}
 Location:   {{event_location }}
 Details:    {{ event_body }}
 
-If you decide to come along then we'd love to meet you.
+If you decide to come along then we would love to meet you.
 
 Thank you!

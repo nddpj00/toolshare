@@ -73,7 +73,9 @@
     </div>
     <div class="row">
         <div class="col-12 col-lg-8 mb-5">
+            <hr>
             <p class="text-muted">Your Events</p>
+            <hr>
             <div class="order-history table-responsive table-responsive-sm">
                 <table class="table table-sm table-borderless">
                     <thead>
@@ -90,7 +92,7 @@
                         <tr>
                             <td class="small">
                                 <a href="{% url 'event_detail' event.slug %}" title="#" class="links_sienna">
-                                    {{ event.title.capitalize|truncatechars:20 }}
+                                    {{ event.title.title|truncatechars:25 }}
                                 </a>
                             </td>
                             <td class="small">{{ event.date|date:"d,m" }}</td>
@@ -109,6 +111,7 @@
                     </tbody>
                 </table>
             </div>
+            <hr>
         </div>
     </div>
 

@@ -1,0 +1,16 @@
+
+Hello {{ recipient_name }},
+
+Thank you for signing up to attend the '{{ event_title.title }}' event that we have organised.
+
+Here is the information all about it...
+
+Event details:
+
+Date: {{ event_date }}
+Location: {{ event_location }}
+
+Details:
+{{ event_body|linebreaksbr }}
+
+Thank you! Looking forward to seeing you there.
