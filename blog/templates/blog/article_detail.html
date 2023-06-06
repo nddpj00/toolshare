@@ -33,7 +33,7 @@
                 <h1>{{ article.title.capitalize}}</h1>
             </div>
             <div>
-                {{ article.body.capitalize|linebreaks }}
+                <p>{{ article.body.upper|linebreaks }}</p>
             </div>
             <div>
                 <p>{{ article.date | date:"dS F,Y" }}</p>

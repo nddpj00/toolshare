@@ -290,10 +290,6 @@ A small selection of screenshots showing the cross-browser testing.
 1. If user input an email address in the Newsletter form that already existed in the Newsletter model, the form error message changed the input size.
 1. When a user thats not authenticated selected to attend an event, they are directed to sign-in via allauth. On redirect the event_list page rendered an error message.
 1. Decrement button allowing user to select negative numbers when using small devices.
-1. Email contained html entities.  Instead of apostrophes it used '&#x27;'
-<div style="display: flex; justify-content: center; ">
-<img align = "center" width = "300px" height = "200px" src = "readme_media/testing/sharbear-bug-htmlentities.png">
-</div>
 
 ## Fixes
 1. Changed the Newsletter to use Crispy Form defaults which kept the input size when validation message rendered.
