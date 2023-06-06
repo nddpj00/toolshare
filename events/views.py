@@ -51,17 +51,17 @@ def send_test_email_attendee(user_first_name, user_email, event_title,
 
     send_mail(subject, message, from_email, recipient_list)
 
+
 def send_test_email_interested(user_first_name, user_email, event_title,
                                event_date, event_location, event_body):
     subject = 'Share Bear Event'
-    template_name = 'event_confirmation_emails/event_interested_email_body.txt'
+    template_name = 'event_confirmation_emails/event_interested_email_body.html'
     context = {
-
         'recipient_name': user_first_name,
         'event_title': event_title,
         'event_date': event_date,
         'event_location': event_location,
-        "event_body": mark_safe(event_body),
+        "event_body": linebreaksbr(event_body),
     }
     message = render_to_string(template_name, context)
     from_email = 'Share Bear Team'
@@ -70,7 +70,6 @@ def send_test_email_interested(user_first_name, user_email, event_title,
     send_mail(subject, message, from_email, recipient_list)
 
 
-# Create your views here.
 def events_list(request):
     events = Event.objects.all().order_by('-date')
 
