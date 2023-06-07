@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False in os.environ
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['share-bear-toolshare.herokuapp.com', 'localhost',
                  '8000-nddpj00-toolshare-r2lgs54yhkh.ws-eu98.gitpod.io']
