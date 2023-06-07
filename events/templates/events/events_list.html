@@ -36,7 +36,7 @@
                             href="{% url 'event_detail' slug=event.slug %}">{{ event.title.capitalize |truncatechars:50 }}</a>
                     </h2>
 
-                    <p class="card-text mb-5">{{ event.body.capitalize |truncatechars:100 }}</p>
+                    <p class="card-text mb-5">{{ event.body.upper|truncatechars:150|linebreaksbr }}</p>
                     <div class="row align-items-start">
                         <div class="col-sm-4">
                             <p class="mb-0">Event Date:</p>

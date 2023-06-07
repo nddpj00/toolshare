@@ -36,7 +36,7 @@
                         {{ article.title.upper|truncatechars:50 }}</a></h2>
             </div>
             <div class="mb-3">
-                {{ article.body|truncatechars:100|linebreaks }}
+                {{ article.body.upper|truncatechars:150|linebreaks }}
             </div>
             <div class="mt-auto">
                 <div class="text-right">
