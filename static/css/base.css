@@ -388,6 +388,12 @@ input[name='q']::placeholder {
     .decrement-qty {
         padding: .25rem .5rem !important;
     }
+
+    .item-back-btn {
+        padding: .375rem .375rem;
+        font-size: 1rem;
+        border: 1px solid black;
+    }
 }
 
 
@@ -400,15 +406,11 @@ input[name='q']::placeholder {
         font-size: 1rem;
     }
 
-    .btn.btn-outline-black.rounded,
-    .btn.btn-black.rounded {
-        padding: .375rem .342rem;
-    }
 
     .btn.btn-outline-black.rounded.btn-lg,
     .btn.btn-black.rounded.btn-lg {
-        padding: .375rem .342rem;
-        font-size: .75rem;
+        padding: .375rem .375rem;
+        font-size: .9rem;
         margin-top: .50rem;
     }
 
@@ -434,3 +436,5 @@ input[name='q']::placeholder {
         margin-right: auto;
     }
 }
+
+4
