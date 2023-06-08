@@ -57,6 +57,7 @@ body {
     width: fit-content;
 }
 
+
 .browse-tools-button {
     background: #2a9d8f;
     color: white;
@@ -436,5 +437,3 @@ input[name='q']::placeholder {
         margin-right: auto;
     }
 }
-
-4
