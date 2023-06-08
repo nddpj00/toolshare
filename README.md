@@ -4,7 +4,7 @@
 
 [View the live project here.](https://share-bear-toolshare.herokuapp.com/)
 
-I'm what you might call an enthusiastic DIYer.  I have no expertise in any building maintenance or repair and really have no affinity with it either....  but always feel I should *go-it-a-go* (much to the exasperation of my long-suffering wife).  So I'm often embarking on a new project to repair or update a part of our ageing victorian house, of which it so often needs.
+I'm what you might call an enthusiastic DIYer.  I have no expertise in any building maintenance or repair and really have no affinity with it either....  but always feel I should at least *go-it-a-go* .  So I'm often embarking on a new project to repair or update a part of our ageing victorian house, of which it so often needs.
 
 After much researching on how to complete the job I often discover that to do it properly, which at this point at least is my intention, I need to purchase a new, shiny tool.  The tool usually seems like a good investment, after all, I'm saving money by doing the job myself right.  The problem is, if I take a stroll down to my shed right now and peer in, I've got shelves and shelves of tools that I've bought for previous jobs and are practically untouched or used only once or twice, literally gathering dust and housing spiders.
 
