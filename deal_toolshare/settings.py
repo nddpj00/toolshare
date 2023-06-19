@@ -31,7 +31,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['share-bear-toolshare.herokuapp.com', 'localhost',
-                 '8000-nddpj00-toolshare-r2lgs54yhkh.ws-eu99.gitpod.io']
+                 '8000-nddpj00-toolshare-r2lgs54yhkh.ws-eu99.gitpod.io',
+                 '8000-nddpj00-toolshare-r2lgs54yhkh.ws-eu100.gitpod.io',]
 
 
 # Application definition
