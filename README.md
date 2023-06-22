@@ -610,7 +610,10 @@ Please see the separate deployment file which you can read here: [⮫DEPLOYMENT.
 [Back to top ⇧](#contents)
 ### <ins>Hosting</ins>
 
-The site is hosted on [Heroku](https://share-bear-toolshare.herokuapp.com/).
+The site is hosted on [Heroku](https://share-bear-toolshare.herokuapp.com/).  
+
+In the settings I have set DEBUG = 'DEVELOPMENT' in os.environ
+This means whilst I'm running the gitpod environment I'm in DEVELOPMENT but the live site is DEBUG False as no variable set in Heroku for DEVELOPMENT.  The purpose is to avoid having to switch DEBUG on and off each time any changes are made.
 
 
 ### Making a Local Clone

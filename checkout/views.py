@@ -141,6 +141,8 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
+    
+
 # iterates over order line items and reduces the stock quantity by amount sold
     for line_item in order.lineitems.all():
         item = line_item.item
