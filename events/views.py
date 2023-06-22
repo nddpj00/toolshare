@@ -69,7 +69,7 @@ def events_list(request):
                     form.instance.is_registered_already = request.user
                     form.save()
                     messages.success(request, ('Thank you. We"ll send you a'
-                                     'weekly newsletter, keeping you up-to-date'
+                                     ' weekly newsletter, keeping you up-to-date'
                                      'with Share Bear.'))
                 else:
                     form.save()
@@ -124,7 +124,7 @@ def add_event(request):
             form.instance.slug = slugify(form.instance.title)
             form.save()
             messages.success(request, 'Successfully added event!')
-            return redirect(reverse('events'))
+            return redirect(reverse('events_list'))
         else:
             messages.error(request, ('Failed to add new event. Please ensure the'
                            'form is valid.'))
@@ -184,7 +184,7 @@ def delete_instance_event(request, instance_id):
     event.delete()
     messages.success(request, 'Event deleted!')
 
-    return redirect('events')
+    return redirect('events_list')
 
 
 @login_required()

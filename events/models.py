@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 class Event(models.Model):
@@ -15,3 +16,8 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.pk:  # Only set the date on object creation
+            self.date = timezone.now()
+        super().save(*args, **kwargs)
