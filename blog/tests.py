@@ -42,6 +42,7 @@ class BlogTestCase(TestCase):
         self.assertEqual(Article.objects.count(), 2)
         self.assertEqual(Article.objects.latest('id').title, 'New Article')
     
+    #test adds a dummy article and checks its successfully added
     def test_edit_article_view(self):
         self.client.login(username='admin', password='adminpassword')  # Log in as superuser
         response = self.client.get(reverse('edit_article', args=[self.article.id]))

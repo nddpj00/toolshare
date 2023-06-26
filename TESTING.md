@@ -59,7 +59,7 @@
 - I opted to **manually** test my site.  The reasons are -  
 
     1. As the sole developer I can quickly carry out tests as I go and can obtain immediate results from the test.
-    2. As the main purpose of the site is to learn about Full Stack Frameworkds, show understanding and gain a qualification; and won't need to be maintained in the long term, I felt the time it would take to build an automated testing process was unnecessary on this occasion.  In a real-world situation, the use of a test framework, especially Django's in-built testing framework would be invaluable to ensure the continuous integrity of the site.
+    2. As the main purpose of the site is to learn about Full Stack Frameworks, show understanding and gain a qualification; and won't need to be maintained in the long term, I felt the time it would take to build an automated testing process was unnecessary on this occasion.  In a real-world situation, the use of a test framework, especially Django's in-built testing framework would be invaluable to ensure the continuous integrity of the site.
     3. UX testing. Important to the overall usability of the site and can only be carried out via manual testing. Automated testing lacks human observation and cognitive abilities.
 
 - Reasons why I would use Automated Testing in the future for other projects.
@@ -68,7 +68,36 @@
     2. Working in a team. Possibly no one person with in-depth knowledge of how the whole site should work and perform. Automated tests would allow anyone to run them.
     3. Continual code added to the site. Automated tests can be run after every addition, ensuring no disruption to the existing code.
     4. Higher accuracy. Important if the site is in the public domain and linked to an organization. To avoid deprecation of the 'brand' due to a poor website.
-    5. Time. Though they take longer to set up initially, having a bespoke automated testing process will save time in the long run, due to how frequently they need to be run when maintaining and improving the site.
+    5. Time. Though they take longer to set up initially, having a bespoke automated testing process will save time in the long run, due to how frequently they need to be run when maintaining and improving the site.  
+
+To show understanding of automated testing I have set up Django unit tests for the Blog App only.
+The purpose of the tests are as follows - 
+#### test_article_list_view 
+1. The response status code is 200, indicating is was successful.
+2. The correct template was used.
+3. Checks if the response contains the title of the test article.
+
+#### test_article_detail_view 
+1. The response status code is 200, indicating is was successful.
+2. The correct template was used.
+3. Checks if the response contains the title of the test article.
+
+#### test_add_article_view 
+1. Checks if the GET request to the add_article view returns a 200 status code.
+2. The correct template was used. ie 'blog/add_article.html'
+3. Checks if the response contains the title of the test article.
+4. Checks if the POST request results in a redirect (status code 302).
+5. Verifies that the number of Article objects in the database is now 2.
+6. Checks if the latest Article object's title matches the expected value.
+
+#### test_edit_article_view 
+1. Checks if the GET request to the edit_article view returns a 200 status code.
+2. The correct template was used. ie 'blog/edit_article.html'
+3. Checks if the response contains the title of the test article.
+4. Checks if the POST request results in a redirect (status code 302).
+5. Verifies that the title of the updated article matches the expected value.
+
+
 ---
 
 ## Manual Test process  
