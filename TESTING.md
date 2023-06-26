@@ -99,6 +99,9 @@ The purpose of the tests are as follows -
 4. Checks if the POST request results in a redirect (status code 302).
 5. Verifies that the title of the updated article matches the expected value.
 
+#### test_delete_instance_blog_view
+1. checks if the GET request to the delete_instance_blog results in redirect(status 302).
+2. Checks if the blog has been deleted from the database.
 
 ---
 
