@@ -42,7 +42,7 @@ class BlogTestCase(TestCase):
         self.assertEqual(Article.objects.count(), 2)
         self.assertEqual(Article.objects.latest('id').title, 'New Article')
     
-    #test adds a dummy article and checks its successfully added
+    #test edit_article loading and updating correctly.
     def test_edit_article_view(self):
         self.client.login(username='admin', password='adminpassword')  # Log in as superuser
         response = self.client.get(reverse('edit_article', args=[self.article.id]))
@@ -57,3 +57,10 @@ class BlogTestCase(TestCase):
         response = self.client.post(reverse('edit_article', args=[self.article.id]), data)
         self.assertEqual(response.status_code, 302)
         self.assertEqual(Article.objects.get(id=self.article.id).title, 'Updated Article')
+
+    #test for check reverse, template load and blog deletion.
+    def test_delete_instance_blog_view(self):
+        self.client.login(username='admin', password='adminpassword')  # Log in as superuser
+        response = self.client.get(reverse('delete_instance_blog', args=[self.article.id]))
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Article.objects.count(), 0)

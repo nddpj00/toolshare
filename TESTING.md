@@ -70,6 +70,8 @@
     4. Higher accuracy. Important if the site is in the public domain and linked to an organization. To avoid deprecation of the 'brand' due to a poor website.
     5. Time. Though they take longer to set up initially, having a bespoke automated testing process will save time in the long run, due to how frequently they need to be run when maintaining and improving the site.  
 
+
+## Automated testing - Blog App
 To show understanding of automated testing I have set up Django unit tests for the Blog App only.
 The purpose of the tests are as follows - 
 #### test_article_list_view 
