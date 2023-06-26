@@ -50,6 +50,7 @@ def article_list(request):
 def article_detail(request, article_id):
 
     article = get_object_or_404(Article, pk=article_id)
+    print("article detail page")
 
     template = 'blog/article_detail.html'
 
@@ -73,9 +74,9 @@ def add_article(request):
             try:
                 form.instance.slug = slugify(form.instance.title)
                 form.instance.author = request.user
-                form.save()
+                article = form.save()
                 messages.success(request, 'Successfully added article!')
-                return redirect(reverse('blog'))
+                return redirect(reverse('detail', args=[article.id])) 
             except DataError:
                 messages.error(request, ('Failed to add new article. Title is '
                                'too long(max 50).'))
