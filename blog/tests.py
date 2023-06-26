@@ -41,3 +41,18 @@ class BlogTestCase(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(Article.objects.count(), 2)
         self.assertEqual(Article.objects.latest('id').title, 'New Article')
+    
+    def test_edit_article_view(self):
+        self.client.login(username='admin', password='adminpassword')  # Log in as superuser
+        response = self.client.get(reverse('edit_article', args=[self.article.id]))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'blog/edit_article.html')
+
+        data = {
+            'title': 'Updated Article',
+            'slug': 'updated-article',
+            'body': 'This is an updated article.',
+        }
+        response = self.client.post(reverse('edit_article', args=[self.article.id]), data)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(Article.objects.get(id=self.article.id).title, 'Updated Article')
